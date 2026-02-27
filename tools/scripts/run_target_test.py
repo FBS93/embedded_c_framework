@@ -156,8 +156,9 @@ def flash_via_gdb(test_binary):
     test_binary,
     "-batch",
     "-ex", f"target remote {RPI_HOST}:{GDB_PORT}",
-    "-ex", "monitor reset halt",
-    "-ex", f"monitor program {remote_path} verify",
+    "-ex", "monitor reset",
+    "-ex", "monitor halt",
+    "-ex", "load",
     "-ex", "quit",
   ])
 
@@ -203,7 +204,8 @@ def main():
     TEST_BINARY,
     "-batch",
     "-ex", f"target remote {RPI_HOST}:{GDB_PORT}",
-    "-ex", "monitor reset run",
+    "-ex", "monitor reset",
+    "-ex", "continue&",
     "-ex", "quit",
   ])
 
