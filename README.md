@@ -1,1 +1,1 @@
-See [Embedded C Workbench documentation](doc/ecw.md)
+See [Embedded C Embedded C Framework documentation](src/doc/ecf.md)

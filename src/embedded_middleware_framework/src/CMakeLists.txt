@@ -1,0 +1,11 @@
+add_subdirectory(emf_array_fifo)
+add_subdirectory(emf_bitmask)
+add_subdirectory(emf_cobs)
+add_subdirectory(emf_crc)
+add_subdirectory(emf_endian)
+add_subdirectory(emf_log)
+add_subdirectory(emf_print)
+add_subdirectory(emf_test_report)
+add_subdirectory(emf_utils)
+
+

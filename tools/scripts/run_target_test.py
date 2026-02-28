@@ -20,7 +20,7 @@
 # Intended for CI and automated hardware testing using CTest.
 #
 # @copyright
-# Copyright (c) 2025 FBS93.
+# Copyright (c) 2026 FBS93.
 # See the LICENSE.md file of this project for license details.
 # This notice shall be retained in all copies or substantial portions
 # of the software.

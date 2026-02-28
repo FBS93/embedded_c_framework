@@ -7,6 +7,7 @@
       "generator": "Unix Makefiles",
       "binaryDir": "${sourceDir}/build/${presetName}",
       "cacheVariables": {
+        "ECF_TEST": "ON",
         "CMAKE_BUILD_TYPE": "Debug",
         "CMAKE_C_FLAGS": "-Wall -Wextra -Wconversion -Werror",
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
@@ -16,13 +17,22 @@
       "name": "host",
       "displayName": "Host",
       "inherits": "base",
-      "toolchainFile": "tools/cmake/toolchains/linux_gcc.cmake"
+      "toolchainFile": "tools/cmake/toolchains/linux_gcc.cmake",
+      "cacheVariables": {
+        "EBF_CORE": "EBF_CORE_OS",
+        "EBF_PORT": "EBF_PORT_POSIX_NON_PREEMPTIVE"
+      }
     },
     {
-      "name": "target",
-      "displayName": "Target",
+      "name": "target_stm32f103c8tx",
+      "displayName": "Target STM32F103C8Tx",
       "inherits": "base",
-      "toolchainFile": "tools/cmake/toolchains/arm_gcc.cmake"
+      "toolchainFile": "tools/cmake/toolchains/arm_gcc.cmake",
+      "cacheVariables": {
+        "EBF_CORE": "EBF_CORE_BAREMETAL",
+        "EBF_PORT": "EBF_PORT_ARM_CORTEX_M",
+        "ECF_TARGET_PLATFORM": "stm32f103c8tx"
+      }
     }
   ]
 }
