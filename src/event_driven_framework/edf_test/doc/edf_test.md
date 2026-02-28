@@ -10,6 +10,35 @@ Each test case is composed of two phases:
 - Init: The test prepares the system with the desired initial conditions and then stimulates it by publishing the event that triggers the behavior under test.
 - Verify: Once all other AOs have processed the init event and any subsequent events derived from it, the test AO is invoked, with the verification phase bound exclusively to a specific event, and executes the validation logic using the built-in macros. After verification, the framework automatically proceeds to the init phase of the next test case.
 
+```mermaid
+sequenceDiagram
+  participant EDF_PUB_SUB as EDF Publish/Subscribe mechanism
+  participant AO1 as Application AO
+  participant AO2 as Application AO
+  participant EDF_TEST_AO as EDF Test AO
+
+  Note over EDF_TEST_AO: Test case start
+  EDF_TEST_AO->>EDF_TEST_AO: Init phase
+  EDF_TEST_AO->>EDF_PUB_SUB: Publish new event
+
+  EDF_PUB_SUB-->>AO1: Event delivered
+  
+  Note over AO1: Processed first (highest priority)
+  AO1->>AO1: Process event
+
+  EDF_PUB_SUB-->>AO2: Event delivered
+
+  Note over AO2: Processed after
+  AO2->>AO2: Process event
+
+  EDF_PUB_SUB-->>EDF_TEST_AO: Event delivered
+
+  Note over EDF_TEST_AO: Processed last (lowest priority)
+  EDF_TEST_AO->>EDF_TEST_AO: Verify phase
+
+  Note over EDF_TEST_AO: Test case end
+```
+
 This approach enables fully automated, in-system testing within a single self-contained executable, without modifying application logic, relying on external tools, or introducing intrusive logging, while preserving real execution behavior and timing characteristics.
 
 # Glossary
@@ -21,5 +50,3 @@ This approach enables fully automated, in-system testing within a single self-co
 # Usage example
 
 @todo
-
-@todo In the overview chapter, add diagram illustrating the test AO in relation to application AOs, showing priority levels and event delivery flow, should be included to visually represent the execution order and testing mechanism.
