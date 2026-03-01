@@ -27,6 +27,11 @@
       ],
     },
     {
+      "label": "connect_rpi_ssh",
+      "type": "shell",
+      "command": "${TASKS_PATH}/connect_rpi_ssh.sh"
+    },
+    {
       "label": "run_target_gdb_server",
       "type": "shell",
       "command": "${TASKS_PATH}/run_target_gdb_server.sh"

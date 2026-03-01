@@ -61,7 +61,10 @@
         {
             "label": "🧰 Toolbox",
             "tasks": [
-                // @todo Add toolbox task to open an VSCode SSH terminal connection to the Raspberry Pi using devcontainer.json environment variables
+                {
+                    "label": " 🔗 Connect Raspberry Pi (SSH)",
+                    "task": "connect_rpi_ssh"
+                },
                 {
                     "label": " 📃 Enable target logging",
                     "task": "run_target_logging_server"
