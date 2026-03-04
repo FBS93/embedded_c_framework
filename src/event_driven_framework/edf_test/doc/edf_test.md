@@ -10,6 +10,8 @@ Each test case is composed of two phases:
 - Init: The test prepares the system with the desired initial conditions and then stimulates it by publishing the event that triggers the behavior under test.
 - Verify: Once all other AOs have processed the init event and any subsequent events derived from it, the test AO is invoked, with the verification phase bound exclusively to a specific event, and executes the validation logic using the built-in macros. After verification, the framework automatically proceeds to the init phase of the next test case.
 
+The following diagram illustrates the event flow of a simple test case.
+
 ```mermaid
 sequenceDiagram
   participant EDF_PUB_SUB as EDF Publish/Subscribe mechanism
@@ -22,22 +24,21 @@ sequenceDiagram
   EDF_TEST_AO->>EDF_PUB_SUB: Publish new event
 
   EDF_PUB_SUB-->>AO1: Event delivered
-  
   Note over AO1: Processed first (highest priority)
   AO1->>AO1: Process event
 
   EDF_PUB_SUB-->>AO2: Event delivered
-
   Note over AO2: Processed after
   AO2->>AO2: Process event
 
   EDF_PUB_SUB-->>EDF_TEST_AO: Event delivered
-
   Note over EDF_TEST_AO: Processed last (lowest priority)
   EDF_TEST_AO->>EDF_TEST_AO: Verify phase
 
   Note over EDF_TEST_AO: Test case end
 ```
+
+Additional events may be generated and processed before the event bound to the verify phase reaches the Test AO. Regardless of intermediate event processing, the verify phase executes only after all higher-priority AOs have processed that event and any events derived from it.
 
 This approach enables fully automated, in-system testing within a single self-contained executable, without modifying application logic, relying on external tools, or introducing intrusive logging, while preserving real execution behavior and timing characteristics.
 
