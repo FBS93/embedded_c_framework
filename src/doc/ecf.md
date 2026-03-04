@@ -5,11 +5,15 @@ ECF is a collection of open-source frameworks, adapted and extended to provide a
 ECF is composed of the following frameworks:
 - [Embedded Base Framework (EBF)](../embedded_base_framework/doc/ebf.md)
 - [Embedded Assert Framework (EAF)](../embedded_assert_framework/doc/eaf.md)
-- [Event Driven Framework (EDF)](../event_driven_framework/doc/edf.md), together with [EDF_Test](../event_driven_framework/edf_test/doc/edf_test.md)
+- [Event Driven Framework (EDF)](../event_driven_framework/doc/edf.md), together with [EDF Test](../event_driven_framework/edf_test/doc/edf_test.md)
 - [Embedded Middleware Framework (EMF)](../embedded_middleware_framework/doc/emf.md)
 - [Embedded Test Framework (ETF)](../embedded_test_framework/doc/etf.md)
 - [Embedded Fake Framework (EFF)](../embedded_fake_framework/doc/eff.md)
 - [Embedded Platform Framework (EPF)](../embedded_platform_framework/doc/epf.md)
+
+The following diagram illustrates the ECF structure and the platform dependencies of each framework. See the [Glossary](#glossary) for definitions of the terms used in the diagram.
+
+![ECF Platform Dependencies Diagram](assets/ECF_platform_dependencies_diagram.drawio.png)
 
 ECF is designed according to the following principles:
 - No dynamic memory allocation is used.
