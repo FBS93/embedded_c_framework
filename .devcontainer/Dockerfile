@@ -1,5 +1,4 @@
-# Use the official Ubuntu 24.04 LTS image as the base
-FROM ubuntu:24.04
+FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
 # Prevent interactive prompts during package installations
 ENV DEBIAN_FRONTEND=noninteractive
@@ -48,17 +47,7 @@ RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION
 ENV PATH="/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi/bin:${PATH}"
 
 ###############################################################################
-# User configuration
+# Set default working directory inside the container
 ###############################################################################
 
-# Create non-root user, set bash as default shell, and enable passwordless sudo
-RUN useradd -m -s /bin/bash fbs && \
-    usermod -aG sudo fbs && \
-    echo "fbs ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/fbs && \
-    chmod 0440 /etc/sudoers.d/fbs
-
-# Switch to 'fbs' user
-USER fbs
-
-# Set default workdir
 WORKDIR /workspaces/embedded_c_workbench
