@@ -34,7 +34,10 @@ The host can then connect to the configured TCP port to receive runtime logs.
 
 The Raspberry Pi must have ser2net installed:
 
+Install on the Raspberry Pi:
+    
 ```bash
+ssh "${RPI_USER}@${RPI_HOST}"
 sudo apt-get update
 sudo apt-get install -y ser2net
 ```

@@ -6,10 +6,23 @@ This document describes the minimal Raspberry Pi configuration required to use i
 
 ## Setup
 
-For automated workflows, it is recommended to use a dedicated, locally isolated Raspberry Pi configured for this purpose with passwordless SSH access, as described below:
+For automated workflows, it is recommended to use a dedicated, locally isolated Raspberry Pi configured for this purpose with passwordless SSH access, as described below.
+
+Connect to the Raspberry Pi via SSH.
 
 ```bash
-sudo passwd -d fbs
+ssh "${RPI_USER}@${RPI_HOST}"
+```
+
+Remove the user password.
+
+```bash
+sudo passwd -d <RPI_USER>
+```
+
+Edit the SSH configuration file.
+
+```bash
 sudo nano /etc/ssh/sshd_config
 ```
 
@@ -20,7 +33,7 @@ PasswordAuthentication yes
 PermitEmptyPasswords yes
 ```
 
-Then restart SSH:
+Restart the SSH service.
 
 ```bash
 sudo systemctl restart ssh

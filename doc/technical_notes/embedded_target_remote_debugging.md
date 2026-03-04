@@ -61,13 +61,13 @@ When using SEGGER J-Link GDB Server:
 2. Copy the installer to the Raspberry Pi:
 
     ```bash
-    scp JLink_Linux_*.deb <user>@<rpi_ip>:/tmp
+    scp JLink_Linux_*.deb "${RPI_USER}@${RPI_HOST}":/tmp
     ```
 
 3. Install on the Raspberry Pi:
 
     ```bash
-    ssh <user>@<rpi_ip>
+    ssh "${RPI_USER}@${RPI_HOST}"
     cd /tmp
     sudo dpkg -i JLink_Linux_*.deb
     sudo apt -f install
