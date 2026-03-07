@@ -9,7 +9,7 @@
         "LOG_BAUD_RATE": "115200", // Baud rate used for logging interface.
         "TARGET_RX_TIMEOUT": "10", // Maximum allowed inactivity time (seconds) without receiving data from the target.
         "WORKSPACE_FOLDER": "${containerWorkspaceFolder}", // Absolute path to the workspace folder inside the container.
-        "SVD_FILE": "" // Path to the SVD file used for target debugging.
+        "SVD_FILE": "/workspaces/embedded_c_framework/src/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
     },
     "customizations": {
         "vscode": {
