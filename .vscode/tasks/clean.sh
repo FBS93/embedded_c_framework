@@ -15,4 +15,7 @@ source_dir=$2
 build_dir="${source_dir}/build/${preset}"
 rm -rf "$build_dir"
 
+# Clean __pycache__ folders recursively
+find "$source_dir" -type d -name "__pycache__" -exec rm -rf {} +
+
 echo "✅ Clean completed."
