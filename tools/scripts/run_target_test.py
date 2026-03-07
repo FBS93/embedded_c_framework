@@ -66,6 +66,9 @@ LOG_PORT = None
 # Maximum allowed inactivity time (seconds) without receiving data from target.
 TARGET_RX_TIMEOUT = None
 
+# Timeout budget (seconds) used for network-latency related waits.
+NETWORK_LATENCY_TIMEOUT = None
+
 # Absolute path to the workspace folder inside the container.
 WORKSPACE_FOLDER = None
 
@@ -105,7 +108,7 @@ def get_env(name):
 # Terminates the program if any required configuration value is missing.
 ##
 def init_config():
-  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT, TARGET_RX_TIMEOUT, WORKSPACE_FOLDER, TEST_BINARY
+  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT, TARGET_RX_TIMEOUT, NETWORK_LATENCY_TIMEOUT, WORKSPACE_FOLDER, TEST_BINARY
 
   # Validate command-line arguments
   if len(sys.argv) < 2:
@@ -116,7 +119,8 @@ def init_config():
   RPI_HOST = get_env("RPI_HOST")
   GDB_PORT = int(get_env("GDB_PORT"))
   LOG_PORT = int(get_env("LOG_PORT"))
-  TARGET_RX_TIMEOUT = int(get_env("TARGET_RX_TIMEOUT"))
+  TARGET_RX_TIMEOUT = float(get_env("TARGET_RX_TIMEOUT"))
+  NETWORK_LATENCY_TIMEOUT = float(get_env("NETWORK_LATENCY_TIMEOUT"))
   WORKSPACE_FOLDER = get_env("WORKSPACE_FOLDER")
   TEST_BINARY = sys.argv[1]
 
@@ -156,8 +160,6 @@ def flash_via_gdb(test_binary):
     "-ex", "quit",
   ])
 
-  print("✅ Flash OK.", flush=True)
-
 ##
 # @brief Main test execution workflow.
 #
@@ -182,10 +184,10 @@ def main():
   run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_logging_server.sh"])
 
   print("Connecting to target logging server ...", flush=True)
-  serial = socket.create_connection((RPI_HOST, LOG_PORT), timeout=5)
+  serial = socket.create_connection((RPI_HOST, LOG_PORT), timeout=NETWORK_LATENCY_TIMEOUT)
+  serial.settimeout(0.2)
 
   # Flush stale serial data.
-  serial.settimeout(0.2)
   try:
     while True:
       serial.recv(4096)
@@ -209,7 +211,6 @@ def main():
   )
 
   print("Capturing test output:", flush=True)
-  serial.settimeout(1) # Use short timeout to periodically check for inactivity.
   buffer = ""
   last_rx = time.time() # Timestamp of last received data.
 
@@ -217,7 +218,7 @@ def main():
   try:
     while True:
       try:
-        data = serial.recv(1024).decode(errors="replace")
+        data = serial.recv(4096).decode(errors="replace")
       except socket.timeout:
         data = ""
 

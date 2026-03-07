@@ -8,6 +8,7 @@
         "LOG_PORT": "${localEnv:LOG_PORT}", // TCP port used for logging.
         "LOG_BAUD_RATE": "115200", // Baud rate used for logging interface.
         "TARGET_RX_TIMEOUT": "10", // Maximum allowed inactivity time (seconds) without receiving data from the target.
+        "NETWORK_LATENCY_TIMEOUT": "1.5", // Timeout budget (seconds) used for network-latency waits.
         "WORKSPACE_FOLDER": "${containerWorkspaceFolder}", // Absolute path to the workspace folder inside the container.
         "SVD_FILE": "/workspaces/embedded_c_framework/src/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
     },
@@ -24,7 +25,8 @@
                 "spencerwmiles.vscode-task-buttons",
                 "jebbs.plantuml",
                 "bierner.markdown-mermaid",
-                "bierner.markdown-preview-github-styles"
+                "bierner.markdown-preview-github-styles",
+                "openai.chatgpt"
             ]
         }
     }

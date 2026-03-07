@@ -5,7 +5,7 @@ set -e
 # This script automatically selects the FIRST device found in:
 #   /dev/serial/by-id/
 #
-# If multiple USB/serial adapters are connected to the Raspberry Pi, this may 
+# If multiple USB/serial adapters are connected to the Raspberry Pi, this may
 # select the wrong one. In that case, manual filtering must be added.
 # -----------------------------------------------------------------------------
 
@@ -14,8 +14,23 @@ set -e
 : "${RPI_HOST:?Missing RPI_HOST}"
 : "${LOG_PORT:?Missing LOG_PORT}"
 : "${LOG_BAUD_RATE:?Missing LOG_BAUD_RATE}"
+: "${NETWORK_LATENCY_TIMEOUT:?Missing NETWORK_LATENCY_TIMEOUT}"
+: "${WORKSPACE_FOLDER:?Missing WORKSPACE_FOLDER}"
 
-ssh "$RPI_USER@$RPI_HOST" bash << EOF
+# Local and remote file paths used to deploy and run the logging server.
+LOCAL_SCRIPT="${WORKSPACE_FOLDER}/tools/scripts/run_target_logging_server.py"
+REMOTE_SCRIPT="/tmp/run_target_logging_server.py"
+REMOTE_LOG="/tmp/run_target_logging_server.log"
+
+if [ ! -f "${LOCAL_SCRIPT}" ]; then
+  echo "❌ Missing local script: ${LOCAL_SCRIPT}"
+  exit 1
+fi
+
+# Copy target logging server script to Raspberry Pi (overwrite if exists).
+scp -o StrictHostKeyChecking=accept-new "${LOCAL_SCRIPT}" "${RPI_USER}@${RPI_HOST}:${REMOTE_SCRIPT}" >/dev/null
+
+ssh -o StrictHostKeyChecking=accept-new "${RPI_USER}@${RPI_HOST}" bash << EOF
 set -e
 
 # Find serial device.
@@ -28,42 +43,42 @@ fi
 SERIAL_DEV="/dev/serial/by-id/\$SERIAL_NAME"
 echo "USB serial device found: \$SERIAL_DEV."
 
-# Generate runtime config.
-CFG=/tmp/ser2net_config.yaml
-
-cat > \$CFG << CFGEOF
-connection: &serial_dev
-  accepter: tcp,$LOG_PORT
-  enable: on
-  options:
-    banner: false
-  connector: serialdev,\$SERIAL_DEV,${LOG_BAUD_RATE}n81,local
-CFGEOF
-
-# Kill previous ser2net instance.
-/usr/bin/pkill ser2net 2>/dev/null || true
-
-# Wait until the serial device node becomes available again.
-for i in {1..20}; do
-    if [ -e "$SERIAL_DEV" ]; then
-        break
-    fi
-    /usr/bin/sleep 0.1
-done
-
-# Start ser2net (absolute path required in non-interactive SSH).
-nohup /usr/sbin/ser2net -c \$CFG > /tmp/ser2net.log 2>&1 &
-
-# Wait for TCP port.
-for i in {1..20}; do
-    if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
-        echo "✅ Serial bridge ready on TCP port $LOG_PORT."
+# Reuse existing logging server when healthy and matching device/port.
+if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT" && \
+   /usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} \${SERIAL_DEV} ${LOG_PORT} ${LOG_BAUD_RATE}" >/dev/null; then
+    if bash -c "exec 9<>/dev/tcp/127.0.0.1/$LOG_PORT" 2>/dev/null; then
+        exec 9>&-
+        exec 9<&-
+        echo "✅ Logging server already listening on port $LOG_PORT."
         exit 0
     fi
+fi
+
+# Stop stale instances before starting a fresh one.
+if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
+    /usr/bin/fuser -k ${LOG_PORT}/tcp 2>/dev/null || true
+fi
+/usr/bin/pkill -f "python3 ${REMOTE_SCRIPT}" 2>/dev/null || true
+
+# Start logging server.
+nohup python3 "${REMOTE_SCRIPT}" "\${SERIAL_DEV}" "${LOG_PORT}" "${LOG_BAUD_RATE}" \
+    > "${REMOTE_LOG}" 2>&1 &
+
+# Wait for TCP port.
+TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT} * 1000) }')
+while true; do
+    if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
+        echo "✅ Logging server ready on port $LOG_PORT."
+        exit 0
+    fi
+    if [ "\$TIMEOUT_MS" -le 0 ]; then
+        break
+    fi
     /usr/bin/sleep 0.2
+    TIMEOUT_MS=\$((TIMEOUT_MS - 200))
 done
 
-echo "❌ ERROR: ser2net not running."
-/usr/bin/tail -n 20 /tmp/ser2net.log
+echo "❌ Logging server failed."
+/usr/bin/tail -n 40 "${REMOTE_LOG}" || true
 exit 1
 EOF

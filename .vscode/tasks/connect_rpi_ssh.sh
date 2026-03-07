@@ -7,4 +7,4 @@ set -e
 
 echo "Connecting to ${RPI_USER}@${RPI_HOST}..."
 
-exec ssh "${RPI_USER}@${RPI_HOST}"
+exec ssh -o StrictHostKeyChecking=accept-new "${RPI_USER}@${RPI_HOST}"

@@ -5,6 +5,7 @@ set -e
 : "${RPI_USER:?Missing RPI_USER}"
 : "${RPI_HOST:?Missing RPI_HOST}"
 : "${GDB_PORT:?Missing GDB_PORT}"
+: "${NETWORK_LATENCY_TIMEOUT:?Missing NETWORK_LATENCY_TIMEOUT}"
 
 # GDB server run command.
 #
@@ -23,10 +24,13 @@ GDB_SERVER_RUN_CMD="JLinkGDBServer \
   -port ${GDB_PORT} \
   -nogui"
 
-ssh "$RPI_USER@$RPI_HOST" bash << EOF
+# Log file used by the GDB server on the Raspberry Pi.
+REMOTE_LOG="/tmp/run_target_gdb_server.log"
+
+ssh -o StrictHostKeyChecking=accept-new "$RPI_USER@$RPI_HOST" bash << EOF
 set -e
 
-# If port is already open, done.
+# Reuse existing GDB server if already running.
 if ss -ltn | grep -q ":$GDB_PORT"; then
     echo "✅ GDB server already listening on port $GDB_PORT."
     exit 0
@@ -36,21 +40,23 @@ fi
 fuser -k ${GDB_PORT}/tcp 2>/dev/null || true
 
 # Start GDB server.
-nohup $GDB_SERVER_RUN_CMD > /tmp/gdb_server.log 2>&1 &
-
-# Allow GDB server startup before port check.
-sleep 2
+nohup $GDB_SERVER_RUN_CMD > "$REMOTE_LOG" 2>&1 &
 
 # Wait for TCP port.
-for i in {1..20}; do
+TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT} * 1000) }')
+while true; do
     if ss -ltn | grep -q ":$GDB_PORT"; then
         echo "✅ GDB server ready on port $GDB_PORT."
         exit 0
     fi
+    if [ "\$TIMEOUT_MS" -le 0 ]; then
+        break
+    fi
     sleep 0.2
+    TIMEOUT_MS=\$((TIMEOUT_MS - 200))
 done
 
 echo "❌ GDB server failed."
-tail -n 20 /tmp/gdb_server.log
+tail -n 40 "$REMOTE_LOG"
 exit 1
 EOF

@@ -8,6 +8,12 @@
     "editor.tabSize": 2,
     "git.autofetch": true,
     "git-graph.showStatusBarItem": false,
+    "cmake.ctestArgs": [
+        "--test-output-size-passed",
+        "0",
+        "--test-output-size-failed",
+        "0"
+    ],
     "debug.showInStatusBar": "always",
     "cmake.options.advanced": {
         "variant": { //Debug, Release,...
