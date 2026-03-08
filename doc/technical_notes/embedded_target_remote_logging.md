@@ -40,4 +40,4 @@ Make sure that the environment variables in [devcontainer.json](../../.devcontai
 - `RPI_USER` and `RPI_HOST` must match the Raspberry Pi SSH credentials.
 - `LOG_PORT` must match the port used for serial logging.
 - `LOG_BAUD_RATE` must match the target serial configuration.
-- `NETWORK_LATENCY_TIMEOUT` defines the maximum wait time used by readiness checks for the logging server.
+- `NETWORK_LATENCY_TIMEOUT_S` defines the maximum wait time used by readiness checks for the logging server.

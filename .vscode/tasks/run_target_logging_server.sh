@@ -14,7 +14,7 @@ set -e
 : "${RPI_HOST:?Missing RPI_HOST}"
 : "${LOG_PORT:?Missing LOG_PORT}"
 : "${LOG_BAUD_RATE:?Missing LOG_BAUD_RATE}"
-: "${NETWORK_LATENCY_TIMEOUT:?Missing NETWORK_LATENCY_TIMEOUT}"
+: "${NETWORK_LATENCY_TIMEOUT_S:?Missing NETWORK_LATENCY_TIMEOUT_S}"
 : "${WORKSPACE_FOLDER:?Missing WORKSPACE_FOLDER}"
 
 # Local and remote file paths used to deploy and run the logging server.
@@ -65,7 +65,7 @@ nohup python3 "${REMOTE_SCRIPT}" "\${SERIAL_DEV}" "${LOG_PORT}" "${LOG_BAUD_RATE
     > "${REMOTE_LOG}" 2>&1 &
 
 # Wait for TCP port.
-TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT} * 1000) }')
+TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT_S} * 1000) }')
 while true; do
     if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT"; then
         echo "✅ Logging server ready on port $LOG_PORT."

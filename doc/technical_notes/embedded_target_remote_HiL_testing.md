@@ -10,8 +10,8 @@ The script orchestrates the full remote test workflow through a Raspberry Pi con
 
 Make sure that the environment variables in [devcontainer.json](../../.devcontainer/devcontainer.json) are configured for the HiL setup and target environment:
 
-- `TARGET_RX_TIMEOUT` indicates the maximum allowed inactivity time (in seconds) during which no logging data is received from the target. If this timeout expires, the HiL test is considered failed.
-- `NETWORK_LATENCY_TIMEOUT` defines the maximum wait time used by readiness checks for Raspberry Pi services.
+- `TARGET_RX_TIMEOUT_S` indicates the maximum allowed inactivity time (in seconds) during which no logging data is received from the target. If this timeout expires, the HiL test is considered failed.
+- `NETWORK_LATENCY_TIMEOUT_S` defines the maximum wait time used by readiness checks for Raspberry Pi services.
 - `WORKSPACE_FOLDER` indicates the absolute path to the workspace folder inside the container.
 
 ## CTest integration example

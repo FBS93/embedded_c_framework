@@ -5,7 +5,7 @@ set -e
 : "${RPI_USER:?Missing RPI_USER}"
 : "${RPI_HOST:?Missing RPI_HOST}"
 : "${GDB_PORT:?Missing GDB_PORT}"
-: "${NETWORK_LATENCY_TIMEOUT:?Missing NETWORK_LATENCY_TIMEOUT}"
+: "${NETWORK_LATENCY_TIMEOUT_S:?Missing NETWORK_LATENCY_TIMEOUT_S}"
 
 # GDB server run command.
 #
@@ -43,7 +43,7 @@ fuser -k ${GDB_PORT}/tcp 2>/dev/null || true
 nohup $GDB_SERVER_RUN_CMD > "$REMOTE_LOG" 2>&1 &
 
 # Wait for TCP port.
-TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT} * 1000) }')
+TIMEOUT_MS=\$(awk 'BEGIN { print int(${NETWORK_LATENCY_TIMEOUT_S} * 1000) }')
 while true; do
     if ss -ltn | grep -q ":$GDB_PORT"; then
         echo "✅ GDB server ready on port $GDB_PORT."

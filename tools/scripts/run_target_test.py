@@ -64,10 +64,10 @@ GDB_PORT = None
 LOG_PORT = None
 
 # Maximum allowed inactivity time (seconds) without receiving data from target.
-TARGET_RX_TIMEOUT = None
+TARGET_RX_TIMEOUT_S = None
 
 # Timeout budget (seconds) used for network-latency related waits.
-NETWORK_LATENCY_TIMEOUT = None
+NETWORK_LATENCY_TIMEOUT_S = None
 
 # Absolute path to the workspace folder inside the container.
 WORKSPACE_FOLDER = None
@@ -108,7 +108,7 @@ def get_env(name):
 # Terminates the program if any required configuration value is missing.
 ##
 def init_config():
-  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT, TARGET_RX_TIMEOUT, NETWORK_LATENCY_TIMEOUT, WORKSPACE_FOLDER, TEST_BINARY
+  global RPI_USER, RPI_HOST, GDB_PORT, LOG_PORT, TARGET_RX_TIMEOUT_S, NETWORK_LATENCY_TIMEOUT_S, WORKSPACE_FOLDER, TEST_BINARY
 
   # Validate command-line arguments
   if len(sys.argv) < 2:
@@ -119,8 +119,8 @@ def init_config():
   RPI_HOST = get_env("RPI_HOST")
   GDB_PORT = int(get_env("GDB_PORT"))
   LOG_PORT = int(get_env("LOG_PORT"))
-  TARGET_RX_TIMEOUT = float(get_env("TARGET_RX_TIMEOUT"))
-  NETWORK_LATENCY_TIMEOUT = float(get_env("NETWORK_LATENCY_TIMEOUT"))
+  TARGET_RX_TIMEOUT_S = float(get_env("TARGET_RX_TIMEOUT_S"))
+  NETWORK_LATENCY_TIMEOUT_S = float(get_env("NETWORK_LATENCY_TIMEOUT_S"))
   WORKSPACE_FOLDER = get_env("WORKSPACE_FOLDER")
   TEST_BINARY = sys.argv[1]
 
@@ -184,7 +184,7 @@ def main():
   run([f"{WORKSPACE_FOLDER}/.vscode/tasks/run_target_logging_server.sh"])
 
   print("Connecting to target logging server ...", flush=True)
-  serial = socket.create_connection((RPI_HOST, LOG_PORT), timeout=NETWORK_LATENCY_TIMEOUT)
+  serial = socket.create_connection((RPI_HOST, LOG_PORT), timeout=NETWORK_LATENCY_TIMEOUT_S)
   serial.settimeout(0.2)
 
   # Flush stale serial data.
@@ -238,8 +238,8 @@ def main():
           print("\n❌ Test fail.", flush=True)
           break
 
-      # Exit if no data has been received for TARGET_RX_TIMEOUT.
-      if ((time.time() - last_rx) > TARGET_RX_TIMEOUT):
+      # Exit if no data has been received for TARGET_RX_TIMEOUT_S.
+      if ((time.time() - last_rx) > TARGET_RX_TIMEOUT_S):
         print("\n❌ Timeout: no output from target.", flush=True)
         break
 
