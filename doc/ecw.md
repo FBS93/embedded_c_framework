@@ -30,6 +30,7 @@ ECW includes:
 - Automated [embedded target remote HiL testing](technical_notes/embedded_target_remote_HiL_testing.md) via CTest.
 - GCC toolchains for host and ARM embedded target builds. See [toolchains](../tools/cmake/toolchains/) folder.
 - CMake functions and scripts to automate the build process. See [cmake/functions](../tools/cmake/functions/) and [tasks](../.vscode/tasks/) folders.
+- Automated source formatting for C/C++ (`clang-format`) and assembler ([asm_format.py](../tools/scripts/asm_format.py)).
 - [Embedded C coding guidelines](embedded_c_coding_guidelines/embedded_c_coding_guidelines.md).
 - [Python template](python_coding_guidelines/template.py) used for verification, scripting, and environment setup within the project.
 - Technical notes related to embedded systems. See [technical_notes](technical_notes/) folder.

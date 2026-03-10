@@ -344,7 +344,7 @@ The following template shall be used for `.S` files
  * This software is provided "as is", without any express or implied warranty.
  * The user assumes all responsibility for its use and any consequences.
  ******************************************************************************/
- 
+
 /*******************************************************************************
  * ASSEMBLER SETTINGS
  ******************************************************************************/
@@ -490,11 +490,7 @@ All C source code shall comply with the static analysis rules defined in the `.c
 ### Clang-format
 ---
 
-All C source code shall follow the formatting rules defined in the `.clang-format` file below.
-
-```yaml
-@todo
-```
+C/C++ files shall be formatted using `Clang-format` with the [.clang-format](../../.clang-format) configuration file.
 
 ---
 ### CMake-format
@@ -510,10 +506,8 @@ All CMake files (`CMakeLists.txt`, `.cmake`) shall follow the formatting rules d
 ### Assembly format
 ---
 
-@todo: Since there is no widely adopted open-source formatting tool for assembly (`.S`) files, evaluate the possibility to of creating a simple custom script or tool to enforce basic formatting rules such as:
+Assembly source files shall use the .S extension (uppercase) to ensure the preprocessor is applied.
 
-- Consistent indentation levels.
-- Absence of trailing spaces.
-- Maximum line length or lines of code per file limits.
+Assembly (`.S`) files shall be formatted using the [asm_format.py](../../tools/scripts/asm_format.py) formatter.
 
 ---

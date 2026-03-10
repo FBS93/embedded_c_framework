@@ -2,10 +2,29 @@
     "cmake.sourceDirectory": "${workspaceFolder}",
     "workbench.tree.indent": 16,
     "workbench.tree.expandMode": "doubleClick",
-    "editor.formatOnSave": true,
     "editor.autoIndent": "full",
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnSave": true
+    },
+    "[asm]": {
+        "editor.formatOnSave": false
+    },
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.S$",
+                "cmd": "python3 ${workspaceFolder}/tools/scripts/asm_format.py ${file}"
+            }
+        ]
+    },
     "git.autofetch": true,
     "git-graph.showStatusBarItem": false,
     "cmake.ctestArgs": [
@@ -74,6 +93,10 @@
                 {
                     "label": " 📃 Enable target logging",
                     "task": "run_target_logging_server"
+                },
+                {
+                    "label": "🧼 Format all source files",
+                    "task": "format",
                 }
             ],
             "tooltip": "Software tools"

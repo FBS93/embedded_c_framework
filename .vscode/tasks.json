@@ -40,6 +40,14 @@
       "label": "run_target_logging_server",
       "type": "shell",
       "command": "${TASKS_PATH}/run_target_logging_server.sh"
+    },
+    {
+      "label": "format",
+      "type": "shell",
+      "command": "${TASKS_PATH}/format.sh",
+      "args": [
+        "${workspaceFolder}/src"
+      ]
     }
   ]
 }
