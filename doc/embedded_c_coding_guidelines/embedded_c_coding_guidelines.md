@@ -69,10 +69,20 @@ typedef struct
 
 The use of the `const` keyword is only allowed for the following use cases:
 
-1. **ROM placement**: For global or module-scope variables that shall be stored in read-only memory.
-2. **Pass-by-reference input parameter protection**: For function parameters that point to user-provided data which shall not be modified, as specified in the function documentation (i.e. input-only, not input/output).
+1. **ROM placement**: For global or module-scope objects intended to be stored in read-only memory.
+2. **Pass-by-reference input parameter protection**: For function parameters that point to user-provided data which shall not be modified by the function, as specified in the function documentation (i.e. input-only parameters).
+3. **Return type protection**: For function return types that return a pointer to data which shall not be modified by the caller (i.e. read-only data).
+4. **Typedef declarations**: For typedef declarations used to define types representing read-only data or pointers to data which shall not be modified.
 
-The use of `const` to protect pass-by-value or local variables is **not permitted**. This restriction is not due to any negative functional effects, but rather to maintain consistency across the codebase. Allowing `const` in these cases would make its usage arbitrary or require applying it systematically to nearly all local variables, which would reduce clarity and add unnecessary verbosity without providing actual protection or benefit. 
+Unlike `volatile`, the use of `const` does not require a dedicated justification, as its purpose is typically clear from the declaration and the associated API documentation.
+
+The use of `const` to protect pass-by-value parameters or ordinary local variables is **not permitted**. This restriction is not due to any negative functional effects, but rather to maintain consistency across the codebase. Allowing `const` in these cases would make its usage arbitrary or require applying it systematically to nearly all local variables, which would reduce clarity and add unnecessary verbosity without providing actual protection or benefit. 
+
+Discarding a `const` qualifier by typecast is normally not permitted. However, it is allowed within framework or library internal code when const is used only to enforce a read-only contract in the public API and the underlying object is not actually defined as const and not located in read-only memory. In such cases, the cast shall be explicit and accompanied by the following comment:
+
+```c
+// Typecast to discard const qualifier.
+```
 
 An example of correct `const` usage is shown below:
 
@@ -91,8 +101,16 @@ const uint16_t lookupTable[256] = { /* ... */ };
  * @param[out] checksum Pointer to store the calculated checksum.
  */
 void calculateChecksum(const uint8_t * data_in, 
-					   uint16_t length, 
-					   uint16_t * checksum);
+                       uint16_t length, 
+                       uint16_t * checksum);
+
+void internal_update(const MyObject * obj)
+{
+    MyObject * mutable_obj;
+
+    mutable_obj = (MyObject *)obj; // Typecast to discard const qualifier.
+    mutable_obj->internal_state = 1;
+}
 ```
 
 ---
