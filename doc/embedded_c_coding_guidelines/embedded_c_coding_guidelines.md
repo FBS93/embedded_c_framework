@@ -70,11 +70,13 @@ typedef struct
 The use of the `const` keyword is only allowed for the following use cases:
 
 1. **ROM placement**: For global or module-scope objects intended to be stored in read-only memory.
-2. **Pass-by-reference input parameter protection**: For function parameters that point to user-provided data which shall not be modified by the function, as specified in the function documentation (i.e. input-only parameters).
+2. **Pass-by-reference input parameter protection**: For function parameters that point to user-provided data which shall not be modified by the function, as specified in the function documentation (i.e. read-only parameters).
 3. **Return type protection**: For function return types that return a pointer to data which shall not be modified by the caller (i.e. read-only data).
 4. **Typedef declarations**: For typedef declarations used to define types representing read-only data or pointers to data which shall not be modified.
 
 Unlike `volatile`, the use of `const` does not require a dedicated justification, as its purpose is typically clear from the declaration and the associated API documentation.
+
+When `const` is used with pointer types to protect the data referenced by the pointer, the `const` qualifier shall be placed before the base type (e.g. `const uint8_t * buffer`) to ensure a consistent declaration style across the codebase.
 
 The use of `const` to protect pass-by-value parameters or ordinary local variables is **not permitted**. This restriction is not due to any negative functional effects, but rather to maintain consistency across the codebase. Allowing `const` in these cases would make its usage arbitrary or require applying it systematically to nearly all local variables, which would reduce clarity and add unnecessary verbosity without providing actual protection or benefit. 
 
