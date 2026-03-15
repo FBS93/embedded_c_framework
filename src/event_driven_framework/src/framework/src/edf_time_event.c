@@ -97,25 +97,25 @@ void EDF_timeEvent_new(EDF_timeEvent_t* me,
   // Initialize time event attributes.
   me->next = NULL;
   me->ao = ao;
-  me->ctr = 0U;
+  me->cnt = 0U;
   me->period = 0U;
   me->tick_rate = tick_rate;
   me->is_linked = false;
 }
 
 void EDF_timeEvent_arm(EDF_timeEvent_t* me,
-                       EDF_timeEvent_ctr_t start,
-                       EDF_timeEvent_ctr_t period)
+                       EDF_timeEvent_cnt_t start,
+                       EDF_timeEvent_cnt_t period)
 {
   EBF_CRITICAL_SECTION_ENTRY();
 
   EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
-  EAF_ASSERT_IN_CRITICAL_SECTION(me->ctr == 0U);
+  EAF_ASSERT_IN_CRITICAL_SECTION(me->cnt == 0U);
   EAF_ASSERT_IN_CRITICAL_SECTION(me->ao != NULL);
   EAF_ASSERT_IN_CRITICAL_SECTION(me->tick_rate < EDF_MAX_TICK_RATE);
   EAF_ASSERT_IN_CRITICAL_SECTION(start != 0U);
 
-  me->ctr = start;
+  me->cnt = start;
   me->period = period;
 
   /**
@@ -144,10 +144,10 @@ bool EDF_timeEvent_disarm(EDF_timeEvent_t* me)
   EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
 
   // Was the time event actually armed?
-  if (me->ctr != 0U)
+  if (me->cnt != 0U)
   {
     was_armed = true;
-    me->ctr = 0U;  // Schedule removal from the list.
+    me->cnt = 0U;  // Schedule removal from the list.
   }
   else
   {
@@ -160,7 +160,7 @@ bool EDF_timeEvent_disarm(EDF_timeEvent_t* me)
   return was_armed;
 }
 
-bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_ctr_t time)
+bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_cnt_t time)
 {
   bool was_armed;
 
@@ -172,7 +172,7 @@ bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_ctr_t time)
   EAF_ASSERT_IN_CRITICAL_SECTION(time != 0U);
 
   // Was the time event not running?
-  if (me->ctr == 0U)
+  if (me->cnt == 0U)
   {
     was_armed = false;
 
@@ -197,26 +197,26 @@ bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_ctr_t time)
   }
 
   // Set new counter value.
-  me->ctr = time;
+  me->cnt = time;
 
   EBF_CRITICAL_SECTION_EXIT();
 
   return was_armed;
 }
 
-EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t* me)
+EDF_timeEvent_cnt_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t* me)
 {
-  EDF_timeEvent_ctr_t ctr;
+  EDF_timeEvent_cnt_t cnt;
 
   EBF_CRITICAL_SECTION_ENTRY();
 
   EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
 
-  ctr = me->ctr;
+  cnt = me->cnt;
 
   EBF_CRITICAL_SECTION_EXIT();
 
-  return ctr;
+  return cnt;
 }
 
 void EDF_timeEvent_tick(uint8_t tick_rate)
@@ -280,7 +280,7 @@ void EDF_timeEvent_tick(uint8_t tick_rate)
       te = *te_link;  // Continue from the newly attached list.
     }
 
-    if (te->ctr == 0U)
+    if (te->cnt == 0U)
     {
       // "te" scheduled for removal.
       *te_link = te->next;  // Unlink.
@@ -289,18 +289,18 @@ void EDF_timeEvent_tick(uint8_t tick_rate)
 
       EBF_CRITICAL_SECTION_EXIT();
     }
-    else if (te->ctr == 1U)
+    else if (te->cnt == 1U)
     {
       if (te->period != 0U)
       {
-        te->ctr = te->period;  // Periodic --> reload counter.
+        te->cnt = te->period;  // Periodic --> reload counter.
 
         // Advance te_link to the next node.
         te_link = &te->next;
       }
       else
       {
-        te->ctr = 0U;         // One-shot --> disarm.
+        te->cnt = 0U;         // One-shot --> disarm.
         *te_link = te->next;  // Unlink.
         te->is_linked = false;
         // Do not advance te_link, because we just unlinked "te".
@@ -313,7 +313,7 @@ void EDF_timeEvent_tick(uint8_t tick_rate)
     }
     else
     {
-      te->ctr--;  // Normal countdown.
+      te->cnt--;  // Normal countdown.
 
       // Advance te_link to the next node.
       te_link = &te->next;
@@ -336,7 +336,7 @@ void EDF_timeEvent_tick(uint8_t tick_rate)
  *
  * A time event can be "disarmed but still linked" for the duration of one
  * tick interval:
- * - EDF_timeEvent_disarm() sets ctr=0 but does not unlink the time event.
+ * - EDF_timeEvent_disarm() sets cnt=0 but does not unlink the time event.
  * - Unlinking is performed exclusively in EDF_timeEvent_tick().
  */
 

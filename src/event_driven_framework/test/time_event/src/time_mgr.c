@@ -225,8 +225,8 @@ void timeMgr_clearExpirationCnt(void)
 void timeMgr_armPeriodicTimer5ms(void)
 {
   EDF_timeEvent_arm(&timeEvent.periodic_5ms,
-                    (EDF_timeEvent_ctr_t)(5U / TICK_RATE_1_MS),
-                    (EDF_timeEvent_ctr_t)(5U / TICK_RATE_1_MS));
+                    (EDF_timeEvent_cnt_t)(5U / TICK_RATE_1_MS),
+                    (EDF_timeEvent_cnt_t)(5U / TICK_RATE_1_MS));
 }
 
 void timeMgr_disarmPeriodicTimer5ms(void)
@@ -237,8 +237,8 @@ void timeMgr_disarmPeriodicTimer5ms(void)
 void timeMgr_armPeriodicTimer100ms(void)
 {
   EDF_timeEvent_arm(&timeEvent.periodic_100ms,
-                    (EDF_timeEvent_ctr_t)(100U / TICK_RATE_1_MS),
-                    (EDF_timeEvent_ctr_t)(100U / TICK_RATE_1_MS));
+                    (EDF_timeEvent_cnt_t)(100U / TICK_RATE_1_MS),
+                    (EDF_timeEvent_cnt_t)(100U / TICK_RATE_1_MS));
 }
 
 void timeMgr_disarmPeriodicTimer100ms(void)
@@ -249,8 +249,8 @@ void timeMgr_disarmPeriodicTimer100ms(void)
 void timeMgr_armPeriodicTimer5ms100ms(void)
 {
   EDF_timeEvent_arm(&timeEvent.periodic_5ms_100ms,
-                    (EDF_timeEvent_ctr_t)(5U / TICK_RATE_1_MS),
-                    (EDF_timeEvent_ctr_t)(100U / TICK_RATE_1_MS));
+                    (EDF_timeEvent_cnt_t)(5U / TICK_RATE_1_MS),
+                    (EDF_timeEvent_cnt_t)(100U / TICK_RATE_1_MS));
 }
 
 void timeMgr_disarmPeriodicTimer5ms100ms(void)
@@ -261,8 +261,8 @@ void timeMgr_disarmPeriodicTimer5ms100ms(void)
 void timeMgr_armOneShotTimer100ms(void)
 {
   EDF_timeEvent_arm(&timeEvent.one_shot_100ms,
-                    (EDF_timeEvent_ctr_t)(100U / TICK_RATE_1_MS),
-                    (EDF_timeEvent_ctr_t)(0U));
+                    (EDF_timeEvent_cnt_t)(100U / TICK_RATE_1_MS),
+                    (EDF_timeEvent_cnt_t)(0U));
 }
 
 void timeMgr_disarmOneShotTimer100ms(void)

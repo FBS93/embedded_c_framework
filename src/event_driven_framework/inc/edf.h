@@ -185,12 +185,6 @@ void EDF_onIdle(void);
  */
 
 /**
- * @todo Review and unify naming convention: replace all occurrences of
- * "ctr" (counter) with "cnt", or vice versa, to maintain consistency across the
- * codebase.
- */
-
-/**
  * @todo Add coding guidelines defining mandatory suffixes (U, UL, ULL)
  * for numeric literals to ensure type safety and consistency.
  */

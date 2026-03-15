@@ -138,7 +138,7 @@ void EDF_activeObject_publish(const EDF_event_t* e)
     EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt < (2U * EDF_MAX_ACTIVE_OBJECT));
 
     // Typecast to discard const qualifier.
-    EDF_event_incrementRefCtr_((EDF_event_t*)e);
+    EDF_event_incrementRefCnt_((EDF_event_t*)e);
   }
 
   // Make a local, modifiable copy of the signal subscribers list.
@@ -320,7 +320,7 @@ void EDF_activeObject_recall(EDF_activeObject_t* me, EDF_eventQueue_t* e_queue)
     EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt >= 2U);
 
     // Decrement ref counter for removing event from deferred queue.
-    EDF_event_decrementRefCtr_(e);
+    EDF_event_decrementRefCnt_(e);
   }
 
   EBF_CRITICAL_SECTION_EXIT();
@@ -431,7 +431,7 @@ void EDF_activeObject_postFIFO(EDF_activeObject_t* me, const EDF_event_t* e)
       EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt < (2U * EDF_MAX_ACTIVE_OBJECT));
 
       // Typecast to discard const qualifier.
-      EDF_event_incrementRefCtr_((EDF_event_t*)e);
+      EDF_event_incrementRefCnt_((EDF_event_t*)e);
     }
 
     me->e_queue.n_free--;
@@ -492,7 +492,7 @@ void EDF_activeObject_postLIFO(EDF_activeObject_t* me, const EDF_event_t* e)
       EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt < (2U * EDF_MAX_ACTIVE_OBJECT));
 
       // Typecast to discard const qualifier.
-      EDF_event_incrementRefCtr_((EDF_event_t*)e);
+      EDF_event_incrementRefCnt_((EDF_event_t*)e);
     }
 
     me->e_queue.n_free--;

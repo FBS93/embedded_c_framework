@@ -67,7 +67,7 @@ typedef struct
 {
   EDF_activeObject_t super;             /**< Active object base class*/
   EDF_event_ptr* event_buff;            /**< Event buffer */
-  EDF_eventQueue_ctr_t event_buff_size; /**< Event buffer size */
+  EDF_eventQueue_cnt_t event_buff_size; /**< Event buffer size */
   const EDFTest_testEntry_t* tests;     /**< Tests */
   uint16_t test_idx;                    /**< Current test index */
   uint16_t skip_cnt;                    /**< Number of tests skipped */

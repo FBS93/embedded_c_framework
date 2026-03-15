@@ -217,7 +217,7 @@ void EDF_stop(void)
 void EDF_activeObject_start(EDF_activeObject_t* me,
                             EDF_activeObject_prio_t prio,
                             EDF_event_ptr* q_storage,
-                            EDF_eventQueue_ctr_t q_len,
+                            EDF_eventQueue_cnt_t q_len,
                             void* stack_storage,
                             uint_fast16_t stack_size,
                             const EDF_event_t* e)

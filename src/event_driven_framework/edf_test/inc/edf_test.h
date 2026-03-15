@@ -65,7 +65,7 @@
  */
 #define EDF_TEST_EVENT_BUFF(size)          \
   EDF_event_ptr EDFTest_eventBuffer[size]; \
-  const EDF_eventQueue_ctr_t EDFTest_eventBufferSize = size;
+  const EDF_eventQueue_cnt_t EDFTest_eventBufferSize = size;
 
 /**
  * @brief Declares and defines a test case.
@@ -197,7 +197,7 @@ extern EDF_event_ptr EDFTest_eventBuffer[];
  *
  * Defined in the test source file.
  */
-extern const EDF_eventQueue_ctr_t EDFTest_eventBufferSize;
+extern const EDF_eventQueue_cnt_t EDFTest_eventBufferSize;
 
 /**
  * @brief Array of test entries.

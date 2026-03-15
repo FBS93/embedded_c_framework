@@ -144,7 +144,7 @@ void EDF_pool_init(void* pool_storage,
 
   /**
    * Dynamic range check.
-   * Only needed when EDF_pool_blockCtr_t is 8 or 16 bits;
+   * Only needed when EDF_pool_blockCnt_t is 8 or 16 bits;
    * for 32-bit, n_total always fits.
    */
 #if (EDF_MAX_POOL_BLOCK == 1U)
@@ -154,7 +154,7 @@ void EDF_pool_init(void* pool_storage,
 #endif
 
   // Set pool init values
-  new_pool->n_total = (EDF_pool_blockCtr_t)n_total;
+  new_pool->n_total = (EDF_pool_blockCnt_t)n_total;
   new_pool->n_free = new_pool->n_total;
   new_pool->start = (void**)pool_storage;
   new_pool->end = free_block;

@@ -185,7 +185,7 @@ static void* ticker_thread(void* arg)
         t = *t_link;  // Continue from the newly attached list.
       }
 
-      if (t->ctr == 0U)
+      if (t->cnt == 0U)
       {
         // "t" scheduled for removal.
         *t_link = t->next;  // Unlink.
@@ -194,16 +194,16 @@ static void* ticker_thread(void* arg)
 
         (void)pthread_mutex_unlock(&me->mutex);
       }
-      else if (t->ctr == 1U)
+      else if (t->cnt == 1U)
       {
         if (t->period != 0U)
         {
-          t->ctr = t->period;  // Periodic --> reload counter.
+          t->cnt = t->period;  // Periodic --> reload counter.
           t_link = &t->next;   // Advance t_link to the next node.
         }
         else
         {
-          t->ctr = 0U;        // One-shot --> disarm.
+          t->cnt = 0U;        // One-shot --> disarm.
           *t_link = t->next;  // Unlink.
           t->is_linked = false;
           // Do not advance t_link, because we just unlinked "t".
@@ -216,7 +216,7 @@ static void* ticker_thread(void* arg)
       }
       else
       {
-        t->ctr--;           // Normal countdown.
+        t->cnt--;           // Normal countdown.
         t_link = &t->next;  // Advance t_link to the next node.
 
         (void)pthread_mutex_unlock(&me->mutex);
@@ -320,7 +320,7 @@ void EPF_timeEvent_new(EPF_timer_entry_t* timer_entry, EPF_timer_callback_t cb)
   // Initialize timer attributes.
   timer_entry->next = NULL;
   timer_entry->cb = cb;
-  timer_entry->ctr = 0U;
+  timer_entry->cnt = 0U;
   timer_entry->period = 0U;
   timer_entry->is_linked = false;
 }
@@ -335,12 +335,12 @@ void EPF_timer_arm(EPF_timer_t* me,
   EAF_ASSERT_BLOCK_BEGIN();
   EAF_ASSERT_IN_BLOCK(me->ticker_tid != 0);
   EAF_ASSERT_IN_BLOCK(timer_entry != NULL);
-  EAF_ASSERT_IN_BLOCK(timer_entry->ctr == 0U);
+  EAF_ASSERT_IN_BLOCK(timer_entry->cnt == 0U);
   EAF_ASSERT_IN_BLOCK(timer_entry->cb != NULL);
   EAF_ASSERT_IN_BLOCK(start != 0U);
   EAF_ASSERT_BLOCK_END();
 
-  timer_entry->ctr = ns_to_ticks(start);
+  timer_entry->cnt = ns_to_ticks(start);
   timer_entry->period = ns_to_ticks(period);
 
   /**
@@ -372,10 +372,10 @@ bool EPF_timer_disarm(EPF_timer_t* me, EPF_timer_entry_t* timer_entry)
   EAF_ASSERT_BLOCK_END();
 
   // Was the timer actually armed?
-  if (timer_entry->ctr != 0U)
+  if (timer_entry->cnt != 0U)
   {
     was_armed = true;
-    timer_entry->ctr = 0U;  // Schedule removal from the list.
+    timer_entry->cnt = 0U;  // Schedule removal from the list.
   }
   else
   {
@@ -404,7 +404,7 @@ bool EPF_timer_rearm(EPF_timer_t* me,
   EAF_ASSERT_BLOCK_END();
 
   // Was the timer not running?
-  if (timer_entry->ctr == 0U)
+  if (timer_entry->cnt == 0U)
   {
     was_armed = false;
 
@@ -429,7 +429,7 @@ bool EPF_timer_rearm(EPF_timer_t* me,
   }
 
   // Set new counter value.
-  timer_entry->ctr = ns_to_ticks(time);
+  timer_entry->cnt = ns_to_ticks(time);
 
   (void)pthread_mutex_unlock(&me->mutex);
 
@@ -439,17 +439,17 @@ bool EPF_timer_rearm(EPF_timer_t* me,
 uint64_t EPF_timer_currentCounter(EPF_timer_t* me,
                                   EPF_timer_entry_t* timer_entry)
 {
-  uint64_t ctr;
+  uint64_t cnt;
 
   (void)pthread_mutex_lock(&me->mutex);
 
   EAF_ASSERT(timer_entry != NULL);
 
-  ctr = ticks_to_ns(timer_entry->ctr);
+  cnt = ticks_to_ns(timer_entry->cnt);
 
   (void)pthread_mutex_unlock(&me->mutex);
 
-  return ctr;
+  return cnt;
 }
 
 /**
@@ -457,7 +457,7 @@ uint64_t EPF_timer_currentCounter(EPF_timer_t* me,
  *
  * A timer can be "disarmed but still linked" for the duration of one
  * tick interval:
- * - EPF_timer_disarm() sets ctr = 0, but does not unlink the timer.
+ * - EPF_timer_disarm() sets cnt = 0, but does not unlink the timer.
  * - Unlinking is performed exclusively in ticker_thread().
  */
 

@@ -134,14 +134,14 @@ EDF_event_t* EDF_event_initMutable(uint_fast16_t e_size, int sig)
   return e;
 }
 
-void EDF_event_incrementRefCtr_(EDF_event_t* me)
+void EDF_event_incrementRefCnt_(EDF_event_t* me)
 {
   EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
 
   me->ref_cnt++;
 }
 
-void EDF_event_decrementRefCtr_(EDF_event_t* me)
+void EDF_event_decrementRefCnt_(EDF_event_t* me)
 {
   EAF_ASSERT_IN_CRITICAL_SECTION(me != NULL);
 
@@ -162,7 +162,7 @@ void EDF_event_gc(EDF_event_t* e)
     {
       EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt > 0U);
 
-      EDF_event_decrementRefCtr_(e);
+      EDF_event_decrementRefCnt_(e);
 
       EBF_CRITICAL_SECTION_EXIT();
     }

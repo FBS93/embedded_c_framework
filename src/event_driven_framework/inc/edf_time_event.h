@@ -51,11 +51,11 @@
  * @brief Time event queue counter type.
  */
 #if (EDF_TIME_EVENT_MAX_TICK == 1U)
-typedef uint8_t EDF_timeEvent_ctr_t;
+typedef uint8_t EDF_timeEvent_cnt_t;
 #elif (EDF_TIME_EVENT_MAX_TICK == 2U)
-typedef uint16_t EDF_timeEvent_ctr_t;
+typedef uint16_t EDF_timeEvent_cnt_t;
 #elif (EDF_TIME_EVENT_MAX_TICK == 4U)
-typedef uint32_t EDF_timeEvent_ctr_t;
+typedef uint32_t EDF_timeEvent_cnt_t;
 #endif
 
 /**
@@ -66,8 +66,8 @@ typedef struct EDF_timeEvent_t
   EDF_event_t super;            /**< Base type. */
   struct EDF_timeEvent_t* next; /**< Link to the next time event in the list. */
   EDF_activeObject_t* ao;       /**< Associated active object. */
-  EDF_timeEvent_ctr_t ctr;      /**< Down-counter until expiration (ticks). */
-  EDF_timeEvent_ctr_t period;   /**< Reload value for periodic timer, 0 for
+  EDF_timeEvent_cnt_t cnt;      /**< Down-counter until expiration (ticks). */
+  EDF_timeEvent_cnt_t period;   /**< Reload value for periodic timer, 0 for
                                      one-shot timer (ticks). */
   uint8_t tick_rate;            /**< Tick rate index. */
   bool is_linked; /**< True if the time event is currently linked. */
@@ -103,8 +103,8 @@ void EDF_timeEvent_new(EDF_timeEvent_t* me,
  * timer (ticks).
  */
 void EDF_timeEvent_arm(EDF_timeEvent_t* me,
-                       EDF_timeEvent_ctr_t start,
-                       EDF_timeEvent_ctr_t period);
+                       EDF_timeEvent_cnt_t start,
+                       EDF_timeEvent_cnt_t period);
 
 /**
  * @brief Disarms a time event.
@@ -121,7 +121,7 @@ bool EDF_timeEvent_disarm(EDF_timeEvent_t* me);
  * @param[in] time Time until expiration (ticks).
  * @return true if the time event was already armed, false if it was not.
  */
-bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_ctr_t time);
+bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_cnt_t time);
 
 /**
  * @brief Gets the current counter value of a time event.
@@ -129,7 +129,7 @@ bool EDF_timeEvent_rearm(EDF_timeEvent_t* me, EDF_timeEvent_ctr_t time);
  * @param[in] me Pointer to the time event instance.
  * @return Current tick counter of the time event (ticks).
  */
-EDF_timeEvent_ctr_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t* me);
+EDF_timeEvent_cnt_t EDF_timeEvent_currentCounter(const EDF_timeEvent_t* me);
 
 /**
  * @brief Processes time events for a given tick rate.

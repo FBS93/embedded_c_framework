@@ -70,7 +70,7 @@ typedef struct EPF_timer_entry_t
 {
   struct EPF_timer_entry_t* next; /**< Link to the next timer in the list. */
   EPF_timer_callback_t cb; /**< User-defined callback executed on expiration. */
-  uint64_t ctr;            /**< Down-counter until expiration (ticks). */
+  uint64_t cnt;            /**< Down-counter until expiration (ticks). */
   uint64_t period; /**< Reload value for periodic timer, 0 for one-shot timer
                         (ticks). */
   bool is_linked;  /**< True if the timer is currently linked. */

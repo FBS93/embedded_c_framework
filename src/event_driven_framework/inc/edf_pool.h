@@ -60,11 +60,11 @@ typedef uint32_t EDF_pool_blockSize_t;
  * @brief Pool block counter type.
  */
 #if (EDF_MAX_POOL_BLOCK == 1U)
-typedef uint8_t EDF_pool_blockCtr_t;
+typedef uint8_t EDF_pool_blockCnt_t;
 #elif (EDF_MAX_POOL_BLOCK == 2U)
-typedef uint16_t EDF_pool_blockCtr_t;
+typedef uint16_t EDF_pool_blockCnt_t;
 #elif (EDF_MAX_POOL_BLOCK == 4U)
-typedef uint32_t EDF_pool_blockCtr_t;
+typedef uint32_t EDF_pool_blockCnt_t;
 #endif
 
 /**
@@ -79,9 +79,9 @@ typedef struct
   void** end;                      /**< Pointer past the last block. */
   void** free_head;                /**< Head of the free block list. */
   EDF_pool_blockSize_t block_size; /**< Size of each block in bytes. */
-  EDF_pool_blockCtr_t n_total;     /**< Total number of blocks in the pool. */
-  EDF_pool_blockCtr_t n_free;      /**< Number of free blocks available. */
-  EDF_pool_blockCtr_t n_min;       /**< Minimum number of free blocks ever
+  EDF_pool_blockCnt_t n_total;     /**< Total number of blocks in the pool. */
+  EDF_pool_blockCnt_t n_free;      /**< Number of free blocks available. */
+  EDF_pool_blockCnt_t n_min;       /**< Minimum number of free blocks ever
                                         observed. */
 } EDF_pool_t;
 

@@ -81,7 +81,7 @@ EAF_DEFINE_THIS_FILE(__FILE__);
 
 void EDF_eventQueue_init(EDF_eventQueue_t* me,
                          const EDF_event_t** q_storage,
-                         EDF_eventQueue_ctr_t q_len)
+                         EDF_eventQueue_cnt_t q_len)
 {
   EBF_CRITICAL_SECTION_ENTRY();
 
@@ -89,10 +89,10 @@ void EDF_eventQueue_init(EDF_eventQueue_t* me,
 
   me->front_e = NULL;  // No events in the queue.
   me->ring = q_storage;
-  me->end = (EDF_eventQueue_ctr_t)q_len;
+  me->end = (EDF_eventQueue_cnt_t)q_len;
   me->head = 0U;
   me->tail = 0U;
-  me->n_free = (EDF_eventQueue_ctr_t)(q_len + 1U);  // +1 for front_e.
+  me->n_free = (EDF_eventQueue_cnt_t)(q_len + 1U);  // +1 for front_e.
   me->n_min = me->n_free;
 
   EBF_CRITICAL_SECTION_EXIT();
@@ -118,7 +118,7 @@ void EDF_eventQueue_postFIFO(EDF_eventQueue_t* me, const EDF_event_t* e)
       EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt < (2U * EDF_MAX_ACTIVE_OBJECT));
 
       // Typecast to discard const qualifier.
-      EDF_event_incrementRefCtr_((EDF_event_t*)e);
+      EDF_event_incrementRefCnt_((EDF_event_t*)e);
     }
 
     me->n_free--;
@@ -178,7 +178,7 @@ void EDF_eventQueue_postLIFO(EDF_eventQueue_t* me, const EDF_event_t* e)
       EAF_ASSERT_IN_CRITICAL_SECTION(e->ref_cnt < (2U * EDF_MAX_ACTIVE_OBJECT));
 
       // Typecast to discard const qualifier.
-      EDF_event_incrementRefCtr_((EDF_event_t*)e);
+      EDF_event_incrementRefCnt_((EDF_event_t*)e);
     }
 
     --me->n_free;
