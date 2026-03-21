@@ -13,6 +13,11 @@
         "ENGRAM_DATA_DIR": "${containerWorkspaceFolder}/.engram", // Path where the Engram database is stored. Should be located inside the workspace folder so data persists across container rebuilds.
         "SVD_FILE": "/workspaces/embedded_c_framework/src/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
     },
+    "mounts": [
+      // Load OpenCode credentials and settings from host.
+      "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind",
+      "source=${localEnv:HOME}/.config/opencode,target=/home/vscode/.config/opencode,type=bind"
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
@@ -27,8 +32,7 @@
                 "emeraldwalk.runonsave",
                 "jebbs.plantuml",
                 "bierner.markdown-mermaid",
-                "bierner.markdown-preview-github-styles",
-                "openai.chatgpt"
+                "bierner.markdown-preview-github-styles"
             ]
         }
     }

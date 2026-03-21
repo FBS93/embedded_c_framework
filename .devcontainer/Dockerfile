@@ -60,8 +60,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install AI Gentle Stack from the GitHub release tarball
-# We avoid install.sh because it fails in Docker with "tmpdir: unbound variable" error.
-ARG GENTLE_AI_VERSION=1.6.3
+ARG GENTLE_AI_VERSION=1.7.4
 RUN set -eux; \
     cd /tmp; \
     curl -fsSLO "https://github.com/Gentleman-Programming/gentle-ai/releases/download/v${GENTLE_AI_VERSION}/gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz"; \
@@ -78,11 +77,9 @@ RUN curl -fsSL https://opencode.ai/install | bash
 
 # Execute AI Gentle Stack install command
 RUN gentle-ai install \
-    --agent opencode \
-    --preset custom \
-    --component engram,sdd,skills,persona,permissions,gga \
-    --skill sdd-init,sdd-explore,sdd-propose,sdd-spec,sdd-design,sdd-tasks,sdd-apply,sdd-verify,sdd-archive,skill-creator \
-    --persona neutral
+  --preset full-gentleman \
+  --agents opencode \
+  --persona neutral
 
 # Ensure Go-installed binaries are in PATH so OpenCode can launch the engram MCP server
 ENV PATH="/home/vscode/.local/bin:/home/vscode/go/bin:${PATH}"
