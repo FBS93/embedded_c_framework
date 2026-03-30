@@ -34,7 +34,7 @@ This script:
 - Exposes the GDB server on the configured TCP port.
 - Verifies that the GDB server is listening before returning.
 
-Once running, the host can connect to the exposed port using GDB or compatible debug tools.
+Once running, the host can connect to the exposed port using GDB or compatible debug tools. This can be done using the preconfigured VS Code launch configurations in [launch.json](../../.vscode/launch.json) with the `cortex-debug` extension for target debugging.
 
 ## Dependencies
 

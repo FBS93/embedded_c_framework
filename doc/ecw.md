@@ -61,3 +61,5 @@ All user-configurable settings of the template are exposed through environment v
 @todo Add automated fuzz testing.
 
 @todo Add a linter.
+
+@todo  Document Python guidelines, build configuration and source formatting doc.
