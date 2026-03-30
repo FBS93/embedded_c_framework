@@ -8,7 +8,7 @@ project(embedded_c_framework C ASM)
 
 if(DEFINED ECF_TARGET_PLATFORM)
     # Add target platform specific cmake configurations.
-    include(src/platform/${ECF_TARGET_PLATFORM}/cmake/platform.cmake)
+    include(sw/ecf/platform/${ECF_TARGET_PLATFORM}/cmake/platform.cmake)
 endif()
 
 add_link_options(
@@ -36,8 +36,8 @@ if(ECF_TEST)
     enable_testing() 
 
     # Add ECF custom cmake functions related to test and mock.
-    include(src/tools/cmake/functions/ecf_test.cmake)
-    include(src/tools/cmake/functions/ecf_mock.cmake)
+    include(sw/ecf/tools/cmake/functions/ecf_test.cmake)
+    include(sw/ecf/tools/cmake/functions/ecf_mock.cmake)
 endif()
 
 # ******************************************************************************
@@ -113,7 +113,7 @@ if(NOT DEFINED EDF_HSM_MAX_DEPTH)
 endif()
 
 # ******************************************************************************
-# Include source directories.
+# Include software directory.
 # ******************************************************************************
 
-add_subdirectory(src)
+add_subdirectory(sw)

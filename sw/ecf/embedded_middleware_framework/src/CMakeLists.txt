@@ -1,6 +1,6 @@
 add_subdirectory(emf_array_fifo)
-add_subdirectory(emf_byte_fifo)
 add_subdirectory(emf_bitmask)
+add_subdirectory(emf_byte_fifo)
 add_subdirectory(emf_cobs)
 add_subdirectory(emf_crc)
 add_subdirectory(emf_endian)

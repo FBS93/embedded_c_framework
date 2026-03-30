@@ -73,7 +73,7 @@ function(create_mock_from_file header_path mock_directory_path)
   add_custom_command(
     OUTPUT ${mock_src} ${mock_hdr}
     COMMAND ${PYTHON_EXECUTABLE}
-            ${PROJECT_SOURCE_DIR}/src/tools/scripts/eff_gen.py
+            ${PROJECT_SOURCE_DIR}/sw/ecf/tools/scripts/eff_gen.py
             -i ${header_abs_path}
             -o ${mock_directory_abs}/mock/${mock_name}
     DEPENDS ${header_abs_path})
@@ -181,7 +181,7 @@ function(create_mock_from_dir mock_lib_name headers_dir mock_directory_path)
   add_custom_command(
     OUTPUT ${mock_outputs}
     COMMAND ${PYTHON_EXECUTABLE}
-            ${PROJECT_SOURCE_DIR}/src/tools/scripts/eff_gen.py
+            ${PROJECT_SOURCE_DIR}/sw/ecf/tools/scripts/eff_gen.py
             -i ${headers_dir_abs}
             -o ${mock_directory_abs}/mock/${mock_lib_name}
     DEPENDS ${header_files}
