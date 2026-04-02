@@ -18,8 +18,8 @@ Define software requirements from system requirements, system architecture and h
 
 1. Review the system requirements, system architecture, and hardware-software interface.
 2. Identify the needs to be addressed by the software requirements.
-3. Define the software requirements derived from the input work products.
-4. Define traceability between software requirements and input work products.
+3. Define the software requirements derived from the system requirements, system architecture, and hardware-software interface.
+4. Define traceability from software requirements to system requirements, system architecture, and hardware-software interface.
 5. Check the software requirements for completeness, consistency, and correctness.
 
 ## Guidelines

@@ -37,6 +37,16 @@ These skills map directly to development processes and should be used following 
 | `sw-integration-test` | Define and implement software integration tests against software architecture to validate that the software detailed design and software implementation correctly realizes it. | skills/sw-integration-test/SKILL.md |
 | `sw-qualification-test` | Define and implement software qualification tests against software requirements to validate that the software architecture, software detailed design, and software implementation correctly realizes them. | skills/sw-qualification-test/SKILL.md |
 
+### Mechanical domain
+
+| Skill | Purpose | Path |
+|---|---|---|
+| `mech-requirements` | Define mechanical requirements from system requirements and system architecture. | skills/mech-requirements/SKILL.md |
+| `mech-architecture` | Define mechanical architecture from mechanical requirements. | skills/mech-architecture/SKILL.md |
+| `mech-implementation` | Implement the mechanical design from mechanical requirements and mechanical architecture. | skills/mech-implementation/SKILL.md |
+| `mech-integration-test` | Define and implement mechanical integration tests against mechanical architecture to validate that the mechanical implementation correctly realizes it. | skills/mech-integration-test/SKILL.md |
+| `mech-qualification-test` | Define and implement mechanical qualification tests against mechanical requirements to validate that the mechanical architecture and mechanical implementation correctly realize them. | skills/mech-qualification-test/SKILL.md |
+
 ## Supporting skills
 
 These skills support the development process but are not tied to a specific V-model process.
@@ -45,5 +55,6 @@ These skills support the development process but are not tied to a specific V-mo
 |---|---|---|
 | `sys-review` | Review system process work products before closure. | skills/sys-review/SKILL.md |
 | `sw-review` | Review software process work products before closure. | skills/sw-review/SKILL.md |
+| `mech-review` | Review mechanical process work products before closure. | skills/mech-review/SKILL.md |
 | `sw-debug` | Debug software issues by investigating problems and deriving accurate conclusions based on evidence to enable correct resolution. | skills/sw-debug/SKILL.md |
 | `workbench-debug` | Debug and resolve development environment issues by investigating problems and deriving accurate conclusions based on evidence. | skills/workbench-debug/SKILL.md |

@@ -27,7 +27,7 @@ Architecture components shall have the following attributes:
 - A unique and descriptive name for the component, following the pattern: `<domain>c_<architectureComponentName>`.
   - `<domain>` identifies the engineering domain using its abbreviation in lower case.
   - `<architectureComponentName>` is the unique component name written in camelCase.
-- A description defining the component. The description shall include all necessary information to fully specify the component, written in a clear and concise manner. When other architecture elements are referenced from the architecture component, their usage shall be explicitly defined (i.e., interfaces should specify whether they are used as input, output, or bidirectional, and parameters should specify their effect on the component behavior).
+- A description defining the component. The description shall include all necessary information to fully specify the component, written in a clear and concise manner. When other architecture elements are referenced from the architecture component, their usage shall be explicitly defined (i.e., referenced interfaces should specify how they are used by the component and, when applicable, how they are implemented by it; referenced parameters should specify their effect on the component behavior).
 - Upstream traceability to one or more requirements. Shall be defined as a list of Markdown links referencing the corresponding requirements.
 - References to other architecture elements when applicable. Shall be defined as a list of Markdown links referencing the target element identifier.
 

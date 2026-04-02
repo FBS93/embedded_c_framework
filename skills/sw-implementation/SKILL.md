@@ -17,9 +17,7 @@ metadata:
 ## Critical Patterns
 
 - Shall follow the provided resources.
-- Shall align with software requirements (no inconsistencies).
-- Shall align with software architecture (no inconsistencies).
-- Shall align with software detailed design (no inconsistencies).
+- Shall align with software requirements, software architecture and software detailed design (no inconsistencies).
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key software implementation decisions.
 - Shall request final validation before closing the software implementation to ensure no further iterations are needed.

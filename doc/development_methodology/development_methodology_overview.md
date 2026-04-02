@@ -12,6 +12,7 @@ This document defines the development methodology adopted by Embedded C Workbenc
 | sys | Abbreviation of the system domain used in naming conventions. |
 | sw | Abbreviation of the software domain used in naming conventions. |
 | hw | Abbreviation of the hardware domain used in naming conventions. |
+| mech | Abbreviation of the mechanical domain used in naming conventions. |
 
 ## V-model overview
 
@@ -28,7 +29,7 @@ The development flow is organized across the following domains:
 - System domain: Defines and validates the system based on specifications.
 - Engineering domains (one or more depending on system needs): Define and validate domain-specific implementations based on the system domain (e.g., software, hardware, ...). Engineering domains are typically developed in parallel. However, dependencies between domains may define a prioritized execution flow when required. For example:
   - Software domain may depend on hardware domain for low-level drivers or hardware interfaces.
-  - Hardware domain may depend on mechanical constraints to define PCB dimensions.
+  - Hardware domain may depend on mechanical domain for enclosure constraints, connector accessibility, or mounting constraints.
 
 This methodology enforces a structured flow, establishing full traceability from system requirements down to engineering domains implementation and back to system-level validation, ensuring that all requirements are consistently implemented and validated.
 
@@ -50,6 +51,10 @@ See [software domain overview](software_domain/software_domain_overview.md).
 
 See [hardware domain overview](hardware_domain/hardware_domain_overview.md).
 
+### Mechanical domain
+
+See [mechanical domain overview](mechanical_domain/mechanical_domain_overview.md).
+
 ## Work products organization
 
 The workspace shall be organized by domain. Each domain shall have a dedicated folder containing the work products generated for that domain. The workspace folder structure shall be as follows:
@@ -59,6 +64,7 @@ spec/
 sys/
 sw/
 hw/
+mech/
 ```
 
 Additional folders may exist anywhere in the workspace that are not part of the defined work products organization. These folders may be used to support implementation or project-specific needs. The defined structure establishes the minimum organization required to locate work products unambiguously.
