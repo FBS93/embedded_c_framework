@@ -38,7 +38,7 @@ The implementation of each software unit shall:
 - Use and link only the external dependencies defined in the software detailed design.
 - Expose all header files as `PUBLIC` to allow full validation of the software detailed design. The `<sw_unit_name>.h` header shall be the primary interface intended for usage by other software units.
 - Use a library name matching the software unit name defined in the detailed design, using lower_snake_case.
-- Follow the rules defined in [embedded_c_guidelines.md](../../../embedded_c_coding_guidelines/embedded_c_coding_guidelines.md)
+- Follow the rules defined in [embedded_c_guidelines.md](../resources/embedded_c_coding_guidelines.md)
 - Implement a source file (`.c`) for each header file (`.h`) defined in the software unit detailed design, using the same name as the corresponding header file.
 
 The [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md) shall be used as a reference for the implementation of the software units.

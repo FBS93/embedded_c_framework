@@ -1,3 +1,3 @@
-- [xxxyyy](xxxyyy)
-apuntar a un doc generic de sw debug que mencioni metodologies y estretegies de resolucio de problemes
-y apart referencies a tooling del workbench per debuggar com host debugger, target debugger, presets disponibles per optimitzar menys el codi i poder inspeccionar millor, logic analyzer quan estigui disponible, etc...
+- [Software domain overview](../../../doc/development_methodology/software_domain/software_domain_overview.md)
+- [Dual targeting setup](../../../doc/resources/dual_targeting_setup.md)
+- [Embedded target remote debugging](../../../doc/resources/embedded_target_remote_debugging.md)

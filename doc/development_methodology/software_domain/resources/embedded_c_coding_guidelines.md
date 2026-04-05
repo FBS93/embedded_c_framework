@@ -511,7 +511,7 @@ All C source code shall comply with the static analysis rules defined in the `.c
 ### Clang-format
 ---
 
-C/C++ files shall be formatted using `Clang-format` with the [.clang-format](../../.clang-format) configuration file.
+C/C++ files shall be formatted using `Clang-format` with the [.clang-format](../../../../.clang-format) configuration file.
 
 ---
 ### CMake-format
@@ -529,6 +529,6 @@ All CMake files (`CMakeLists.txt`, `.cmake`) shall follow the formatting rules d
 
 Assembly source files shall use the .S extension (uppercase) to ensure the preprocessor is applied.
 
-Assembly (`.S`) files shall be formatted using the [asm_format.py](../../tools/scripts/asm_format.py) formatter.
+Assembly (`.S`) files shall be formatted using the [asm_format.py](../../../../tools/scripts/asm_format.py) formatter.
 
 ---

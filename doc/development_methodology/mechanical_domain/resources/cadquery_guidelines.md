@@ -13,7 +13,7 @@
 ### Python coding guidelines
 ---
 
-All rules defined in the [Python coding guidelines](../python_coding_guidelines/python_coding_guidelines.md) shall apply unless explicitly overridden in this document.
+All rules defined in the [Python coding guidelines](../../resources/python_coding_guidelines.md) shall apply unless explicitly overridden in this document.
 
 ---
 

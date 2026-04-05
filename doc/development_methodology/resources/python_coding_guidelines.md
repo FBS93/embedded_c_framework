@@ -238,7 +238,7 @@ python -m compileall
 ### Ruff
 ---
 
-Python files shall be formatted using `Ruff` with the [pyproject.toml](../../pyproject.toml) configuration file.
+Python files shall be formatted using `Ruff` with the [pyproject.toml](../../../pyproject.toml) configuration file.
 
 @todo Integrate Ruff into the repository formatting script.
 ---
