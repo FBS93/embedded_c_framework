@@ -3,42 +3,48 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 # Prevent interactive prompts during package installations
 ENV DEBIAN_FRONTEND=noninteractive
 
-###############################################################################
-# Common libraries and packages
-###############################################################################
+################################################################################
+# Common packages
+################################################################################
 
-# Update package list and install general dependencies
-#
+RUN apt-get update && apt-get install -y \
+    git \
+    wget \
+    sudo \
+    locales \
+    python3 \
+    python3-pip \
+    python3-dev \
+    python-is-python3 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pytest globally in the devcontainer so it is available to the
+# whole workspace without introducing an additional virtual environment layer.
+# --break-system-packages is intentional here because this is a controlled
+# development container image rather than a shared host Python installation.
+RUN python -m pip install --break-system-packages pytest
+
+# Configure locale (UTF-8)
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+################################################################################
+# Software domain
+################################################################################
+
 # udev is required by VS Code Serial Monitor extension
 # https://github.com/microsoft/vscode-serial-monitor/issues/137#issuecomment-1804710798
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     gdb \
-    python3 \
-    python3-pip \
-    python3-dev \
-    python-is-python3 \
-    git \
-    wget \
-    sudo \
-    locales \
     udev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Configure locale (UTF-8)
-ENV LANG=C.UTF-8
-ENV LC_ALL=C.UTF-8
-
-###############################################################################
-# Install ARM GNU toolchain
-###############################################################################
-
-# ARM GNU toolchain version
-ARG ARM_GCC_VERSION=15.2.rel1
-
 # Download and install ARM GNU Toolchain
+ARG ARM_GCC_VERSION=15.2.rel1
 RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION}/binrel/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz && \
     tar -xf arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz -C /opt && \
     rm arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz
@@ -46,9 +52,39 @@ RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION
 # Add toolchain to PATH
 ENV PATH="/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi/bin:${PATH}"
 
-###############################################################################
-# Install AI support with OpenCode and AI Gentle Stack
-###############################################################################
+################################################################################
+# Mechanical domain
+################################################################################
+
+RUN apt-get update && apt-get install -y \
+    libdbus-1-3 \
+    libegl1 \
+    libfontconfig1 \
+    libgl1 \
+    libopengl0 \
+    libsm6 \
+    libx11-xcb1 \
+    libxcb-cursor0 \
+    libxcb-icccm4 \
+    libxext6 \
+    libxcb-keysyms1 \
+    libxcb-xinerama0 \
+    libxkbcommon-x11-0 \
+    libxrender1 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install CadQuery tooling globally in the devcontainer so it is available to the
+# whole workspace without introducing an additional virtual environment layer.
+# --break-system-packages is intentional here because this is a controlled
+# development container image rather than a shared host Python installation.
+RUN python -m pip install --break-system-packages \
+    cadquery \
+    cq-editor
+
+################################################################################
+# AI support with OpenCode and AI Gentle Stack
+################################################################################
 
 # Install extra dependencies required by AI Gentle Stack
 RUN apt-get update && apt-get install -y \
@@ -59,7 +95,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install AI Gentle Stack from the GitHub release tarball
+# Download and install AI Gentle Stack from the GitHub release tarball
 ARG GENTLE_AI_VERSION=1.18.2
 RUN set -eux; \
     cd /tmp; \
