@@ -14,9 +14,8 @@
         "SVD_FILE": "/workspaces/embedded_c_framework/sw/ecf/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
     },
     "mounts": [
-      // Load OpenCode credentials and settings from host.
-      "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind",
-      "source=${localEnv:HOME}/.config/opencode,target=/home/vscode/.config/opencode,type=bind"
+      // Load OpenCode credentials from host.
+      "source=${localEnv:HOME}/.local/share/opencode,target=/home/vscode/.local/share/opencode,type=bind"
     ],
     "customizations": {
         "vscode": {
