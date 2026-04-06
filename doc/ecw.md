@@ -18,6 +18,9 @@ All user-configurable settings of the template are exposed through environment v
 
 # Usage example
 
+The following resources provide practical entry points for using ECW:
+- Getting started. See [getting_started.md](resources/getting_started.md).
+
 @todo Add a guide explaining how to update an existing project to a newer version of this template (by adding the template as a remote).
 
 @todo Add automated fuzz testing.
