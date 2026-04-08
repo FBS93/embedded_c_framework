@@ -19,10 +19,23 @@ ECF is designed according to the following principles:
 - No dynamic memory allocation is used.
 - Fully deterministic execution with predictable resource management.
 - Strict separation between platform-independent and platform-specific code.
-- High configurability through [CMake parametrization](../../CMakeLists.txt), making it suitable for both high-performance and highly resource-constrained platforms.
+- High configurability through [CMake parametrization](../../../CMakeLists.txt), making it suitable for both high-performance and highly resource-constrained platforms.
 - Unified stdin/stdout abstraction for consistent and extensible logging across all supported platforms.
 - Designed for straightforward testing of the framework and applications built on top of it.
 - Designed for dual-target execution model.
+
+## Build configuration
+
+The ECF build configuration is mainly controlled through the following CMake cache variables:
+
+| Variable | Description |
+|---|---|
+| `EBF_CORE` | Selects the [Core](../embedded_base_framework/doc/ebf.md#glossary) used by EBF. |
+| `EBF_PORT` | Selects the [Port](../embedded_base_framework/doc/ebf.md#glossary) used by EBF. |
+| `ECF_TARGET_PLATFORM` | Selects the target platform package. When defined, it loads the platform-specific CMake configuration and platform integration files. |
+| `ECF_TEST` | Enables `CTest`, the ECF CMake test and mock helper functions and the ECF tests. |
+
+These variables are typically defined in the project [CMakePresets.json](../../../CMakePresets.json).
 
 # Glossary
 

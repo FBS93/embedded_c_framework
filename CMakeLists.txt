@@ -43,12 +43,12 @@ endif()
 # ******************************************************************************
 # ECF configuration.
 #
-# These variables can be overridden by the parent project using `set(...)`
-# before calling `add_subdirectory(embedded_c_framework)`.
+# These variables can be overridden using `set(...)` before adding ECF through 
+# CMake.
 #
 # Example:
 #     set(EBF_CORE "EBF_CORE_BAREMETAL")
-#     add_subdirectory(embedded_c_framework)
+#     add_subdirectory(ecf)
 # ******************************************************************************
 
 # @todo Verify whether if(NOT DEFINED ...) is strictly necessary to avoid

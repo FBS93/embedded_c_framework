@@ -10,7 +10,7 @@ When implementing stdin/stdout interfaces by overriding EBF weak functions, be a
 
 If stdin/stdout can be used from multiple contexts with different priorities (i.e. they act as shared resources), their implementation shall be protected using `EBF_CRITICAL_SECTION_ENTRY()` and `EBF_CRITICAL_SECTION_EXIT()`.
 
-All configuration options for this library are documented in the "EBF default configuration" section of [CMakeLists.txt](../../../CMakeLists.txt).
+All configuration options for this library are documented in the "EBF default configuration" section of [CMakeLists.txt](../../../../CMakeLists.txt).
 
 # Glossary
 
