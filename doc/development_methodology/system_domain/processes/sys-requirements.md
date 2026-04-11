@@ -33,6 +33,7 @@ System requirements shall define an additional domain attribute to specify the e
 The domain attribute shall:
 - Be defined as a list of engineering domain abbreviations in lower case.
 - Specify all domains responsible for implementing or fulfilling the requirement.
+- Be used to support the identification of the engineering domains applicable to the project.
 - Be used to support downstream allocation of system requirements to engineering domain requirements.
 
 The domain attribute shall be included in all system requirements using the following requirement template:

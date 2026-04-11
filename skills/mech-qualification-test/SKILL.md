@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with mechanical requirements (no inconsistencies).
 - Shall ensure all mechanical qualification tests are derived from mechanical requirements by adding explicit traceability between them.
 - Shall define and implement the mechanical qualification tests against the mechanical requirements to validate that the mechanical architecture and mechanical implementation correctly realize them.

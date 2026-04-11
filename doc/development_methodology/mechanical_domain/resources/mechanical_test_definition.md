@@ -15,7 +15,8 @@ The mechanical tests shall:
     - Upstream traceability to the mechanical traceable element being tested. This shall be defined as a list of Markdown links referencing the corresponding mechanical traceable elements.
 - Be implemented in Python using [pytest](https://docs.pytest.org/).
 - Follow the rules defined in [cadquery_guidelines.md](cadquery_guidelines.md).
-- Be designed to validate in a fully automated way whenever possible. When full automation is not feasible, tests shall define a structured sequence of manual steps, where each step requires user confirmation (`OK`/`NOK`) for the observed result. Automated and manual-assisted tests shall be defined separately to allow independent execution.
+- Be designed to validate in a fully automated way whenever possible. When full automation is not feasible, tests shall define a structured sequence of manual steps, where each step requires human confirmation (`OK`/`NOK`) for the observed result.
+- Define automated and manual-assisted tests separately to allow independent execution.
 
 The following additions to the Markdown document template shall be applied for mechanical tests, in addition to the template defined in [python_coding_guidelines.md](../../resources/python_coding_guidelines.md#test-documentation):
 

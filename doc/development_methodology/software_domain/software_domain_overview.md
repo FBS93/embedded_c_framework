@@ -3,14 +3,14 @@
 ## Glossary
 
 | Term | Definition |
-|------|------------|
+|---|---|
 | Software requirement | Traceable element of the software requirements defining a requirement to be implemented. |
 | Software component | Traceable element of the software architecture representing an indivisible architectural element that addresses one or more needs specified by software requirements. |
 | Software interface | Traceable element of the software architecture defining the interaction between software components. |
 | Software parameter | Traceable element of the software architecture defining configurable or fixed values that affect the software behavior. |
 | Software design | Traceable element of the software architecture defining architectural decisions. |
 | Software unit | Traceable element of the detailed design built as a static library (`.a`). |
-| Software integration test | Traceable element validating interactions between software components and the defined software architecture. |
+| Software integration test | Traceable element validating the software architecture. |
 | Software qualification test | Traceable element validating the software requirements. |
 
 ## Processes
@@ -34,7 +34,15 @@ sw/
   arch/
   src/
     i_test/
+      <integration_test_name>/
+        doc/
+        inc/
+        src/
     q_test/
+      <qualification_test_name>/
+        doc/
+        inc/
+        src/
     <software-unit>/
       doc/
       inc/

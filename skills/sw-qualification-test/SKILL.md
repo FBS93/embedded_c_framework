@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with software requirements (no inconsistencies).
 - Shall ensure all software qualification tests are derived from software requirements by adding explicit traceability between them.
 - Shall define and implement the software qualification tests against the software requirements to validate that the software architecture, software detailed design, and software implementation correctly realizes them.

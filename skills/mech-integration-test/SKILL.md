@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with mechanical architecture (no inconsistencies).
 - Shall ensure all mechanical integration tests are derived from mechanical architecture by adding explicit traceability between them.
 - Shall define and implement the mechanical integration tests against the mechanical architecture to validate that the mechanical implementation correctly realizes it.

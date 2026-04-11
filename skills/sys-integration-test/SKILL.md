@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with system architecture (no inconsistencies).
 - Shall ensure all system integration tests are derived from system architecture by adding explicit traceability between them.
 - Shall define and implement the system integration tests against system architecture to validate that the system implementation correctly realizes it.

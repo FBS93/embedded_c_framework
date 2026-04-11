@@ -16,7 +16,8 @@ The system tests shall:
     - Upstream traceability to the system traceable elements being tested. This shall be defined as a list of Markdown links referencing the corresponding system traceable elements.
 - Be implemented in Python using [pytest](https://docs.pytest.org/).
 - Follow the rules defined in [python_coding_guidelines.md](../../resources/python_coding_guidelines.md).
-- Be designed to stimulate the system externally and observe its behavior in a fully automated way whenever possible. When full automation is not feasible, tests shall define a structured sequence of manual steps executed through the available interfaces (e.g., terminal), where each step requires user confirmation (OK/NOK) for the observed behavior. Automated and manual-assisted tests shall be defined separately to allow independent execution.
+- Be designed to validate in a fully automated way whenever possible. When full automation is not feasible, tests shall define a structured sequence of manual steps, where each step requires human confirmation (`OK`/`NOK`) for the observed result.
+- Define automated and manual-assisted tests separately to allow independent execution.
 
 The following template shall be used:
 

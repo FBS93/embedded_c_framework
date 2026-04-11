@@ -7,7 +7,6 @@ Define the common requirements definition across the engineering domains.
 ## Requirements structure
 
 The requirements shall be structured in the following documents:
-
 - One or more `<domain>_<functional_domain>.md` documents containing requirements for each identified functional domain. The requirements in these documents shall follow the format defined in the [Functional domain requirements](#functional-domain-requirements).
 - `<domain>_interfaces.md` containing requirements defining all interfaces. The requirements in this document shall follow the format defined in the [Interface requirements](#interface-requirements).
 - `<domain>_parameters.md` containing requirements defining all parameters. The requirements in this document shall follow the format defined in the [Parameter requirements](#parameter-requirements).

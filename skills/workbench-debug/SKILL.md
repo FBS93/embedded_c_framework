@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current task.
 - Shall identify and isolate issues by validating each part of the development environment independently.
 - Shall use controlled and reproducible steps to diagnose problems.
 - Shall ensure any temporary changes introduced for debugging purposes are controlled and reverted once the issue is resolved.

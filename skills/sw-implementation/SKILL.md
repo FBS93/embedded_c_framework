@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with software requirements, software architecture and software detailed design (no inconsistencies).
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key software implementation decisions.

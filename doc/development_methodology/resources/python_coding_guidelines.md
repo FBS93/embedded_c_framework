@@ -3,7 +3,7 @@
 ## Glossary
 
 | Term | Definition |
-|------|------------|
+|---|---|
 | Module | Python source file (`.py`) implementing a specific functionality. |
 | Package | Set of related Python modules grouped in a directory and sharing a common namespace. |
 | Scope | Visibility of a name that defines where it can be accessed within the program. |
@@ -192,7 +192,7 @@ The following template shall be used to document packages and modules in a separ
 # Glossary
 
 | Term | Definition |
-|------|------------|
+|---|---|
 | <Term used in the package/module> | <Definition of the term in the context of the package/module>. |
 
 # Usage example

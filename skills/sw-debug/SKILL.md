@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current task.
 - Shall use deterministic and minimal reproduction cases to isolate defects.
 - Shall prioritize debugging on host for fast iteration and reproducibility.
 - Shall escalate to target debugging only when the issue depends on hardware behavior, timing, or cannot be reproduced on host.

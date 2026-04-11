@@ -9,6 +9,7 @@ Implement the software from software requirements, software architecture and sof
 - Software requirements
 - Software architecture
 - Software detailed design
+- Tools
 
 ## Output work products
 
@@ -17,9 +18,10 @@ Implement the software from software requirements, software architecture and sof
 ## Steps
 
 1. Review the software requirements, software architecture and software detailed design.
-2. Implement each software unit according to its software detailed design.
-3. Ensure consistency between the implementation and the software detailed design, software architecture and software requirements.
-4. Check the software implementation for completeness, consistency, and correctness.
+2. Review available tools required for the implementation.
+3. Implement each software unit according to its software detailed design.
+4. Ensure consistency between implementation, software detailed design, software architecture and software requirements.
+5. Check the software implementation for completeness, consistency, and correctness.
 
 ## Guidelines
 

@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current task.
 - Shall ensure all mechanical process work products are complete and consistent.
 - Shall identify missing traceability, inconsistencies, or deviations from the defined mechanical process.
 - Shall verify that documentation is DRY (Don't Repeat Yourself) by adding references instead of duplicating content.

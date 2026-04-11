@@ -3,7 +3,7 @@
 ## Glossary
 
 | Term | Definition |
-|------|------------|
+|---|---|
 | Module | Set of `.c` and `.h` files sharing the same base name that implement a specific functionality. |
 | Library | One or more related modules grouped under a common prefix or functional domain, representing a higher-level functional abstraction and built as a static library (`.a`). |
 | Scope | Visibility of a symbol that defines where it can be accessed within the program. |
@@ -455,7 +455,7 @@ The following template shall be used to document libraries and modules in a sepa
 # Glossary
 
 | Term | Definition |
-|------|------------|
+|---|---|
 | <Term used in the library/module> | <Definition of the term in the context of the library/module>. |
 
 # Usage example

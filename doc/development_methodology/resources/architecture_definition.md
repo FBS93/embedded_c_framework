@@ -7,7 +7,6 @@ Define the common architecture definition across the engineering domains.
 ## Architecture structure
 
 The architecture shall be structured in the following documents:
-
 - `<domain>_components.md` containing components of the architecture. The components in this document shall follow the format defined in the [Architecture components](#architecture-components).
 - `<domain>_interfaces.md` containing interfaces defining the interactions between components. The interfaces in this document shall follow the format defined in the [Architecture interfaces](#architecture-interfaces).
 - `<domain>_parameters.md` containing parameters defining configurable or fixed values affecting the behavior. The parameters in this document shall follow the format defined in the [Architecture parameters](#architecture-parameters).

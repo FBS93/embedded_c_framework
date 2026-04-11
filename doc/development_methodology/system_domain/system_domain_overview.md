@@ -3,7 +3,7 @@
 ## Glossary
 
 | Term | Definition |
-|------|------------|
+|---|---|
 | System requirement | Traceable element of the system requirements defining a requirement to be implemented. |
 | System component | Traceable element of the system architecture representing an indivisible architectural element that addresses one or more needs specified by system requirements. |
 | System interface | Traceable element of the system architecture defining the interaction between system components. |

@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with software architecture (no inconsistencies).
 - Shall ensure all software integration tests are derived from software architecture by adding explicit traceability between them.
 - Shall define and implement the software integration tests against the software architecture to validate that the software detailed design and software implementation correctly realizes it.

@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with mechanical requirements and mechanical architecture (no inconsistencies).
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval on key mechanical implementation decisions.

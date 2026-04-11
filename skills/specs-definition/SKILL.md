@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with stakeholder specifications (no inconsistencies).
 - Shall iteratively interact with the user by asking clarification questions until all stakeholder specifications are complete, consistent, and unambiguous.
 - Shall progressively refine and update the specifications work product during the interaction.

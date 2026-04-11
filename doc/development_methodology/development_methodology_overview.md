@@ -31,6 +31,12 @@ The development flow is organized across the following domains:
   - Software domain may depend on hardware domain for low-level drivers or hardware interfaces.
   - Hardware domain may depend on mechanical domain for enclosure constraints, connector accessibility, or mounting constraints.
 
+Not all engineering domains shall apply to all projects.
+
+The applicable engineering domains shall be determined from the system needs.
+
+Work products belonging to engineering domains that do not apply to the project shall not be considered part of the project development scope and shall not be expected as required inputs to downstream processes.
+
 This methodology enforces a structured flow, establishing full traceability from system requirements down to engineering domains implementation and back to system-level validation, ensuring that all requirements are consistently implemented and validated.
 
 ## Specifications
@@ -57,7 +63,11 @@ See [mechanical domain overview](mechanical_domain/mechanical_domain_overview.md
 
 ## Work products organization
 
-The workspace shall be organized by domain. Each domain shall have a dedicated folder containing the work products generated for that domain. The workspace folder structure shall be as follows:
+The workspace shall be organized by domain.
+
+Each applicable engineering domain shall have a dedicated folder containing the work products generated for that domain.
+
+The workspace folder structure shall be as follows when all engineering domains apply:
 
 ```text
 spec/

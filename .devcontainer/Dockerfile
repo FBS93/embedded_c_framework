@@ -53,6 +53,12 @@ RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION
 ENV PATH="/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi/bin:${PATH}"
 
 ################################################################################
+# Hardware domain
+################################################################################
+
+# @todo install Kicad, Pyspice and other tools related to the hardware domain
+
+################################################################################
 # Mechanical domain
 ################################################################################
 

@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with system requirements and system architecture (no inconsistencies).
 - Shall ensure all mechanical requirements are derived from system requirements and system architecture by adding explicit traceability between them.
 - Shall avoid embedding design implementation details in mechanical requirements.

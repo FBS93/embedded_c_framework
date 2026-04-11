@@ -47,10 +47,10 @@ The following specification template shall be used:
 
 ### Tools work product
 
-A dedicated `tools.md` document shall be defined to capture all available tools for project development, validation and debugging by reviewing stakeholder specifications. 
+A dedicated `tools.md` document shall be defined to capture all project-specific tools for project implementation, test and debugging by reviewing stakeholder specifications. 
 
 Each tool of the `tools.md` document shall:
-- Define all project-specific tools available for implementation, validation, and debugging.
+- Define all project-specific tools available for implementation, test and debugging.
 - Describe how each tool shall be used. 
   - Reference how it is integrated into the [Embedded C Workbench (xxxyyy aquest nom pot cmbiar)](../../../ecw.md) when applicable instead of redefining it.
   - Reference tool-specific manuals or stakeholder documentation that support its usage.

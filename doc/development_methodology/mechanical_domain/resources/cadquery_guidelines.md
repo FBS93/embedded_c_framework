@@ -3,10 +3,8 @@
 ## Glossary
 
 | Term | Definition |
-|------|------------|
+|---|---|
 | Component | CadQuery source file defining a single geometric component. |
-| Reference geometry | Geometry used as design input or validation support and not intended to be reused as a standalone component. |
-| Export artifact | File generated from a CadQuery source model (e.g., `.step`, `.stl`, `.svg`). |
 
 ## Code review criteria
 
@@ -40,9 +38,9 @@ Examples: `export_stl`, `export_step`, `export_svg`
 
 ---
 
-Exported file names shall use the component name in lower_snake_case format.
+Exported file names shall use the source file name in lower_snake_case format.
 
-Example: `component_name.stl`
+Example: `source_file_name.stl`
 
 ---
 
@@ -50,7 +48,7 @@ Example: `component_name.stl`
 ---
 
 Mechanical component files shall:
-- Define all component-defining values explicitly in the `CONSTANTS` section.
+- Define all component-defining values explicitly in the `CONSTANTS` section and keep them separated from the geometry construction logic.
 - Define a component builder function named `build_component`.
 - Define one or more export functions named using the `export_` prefix when exported files are required.
 - Define a preview function named `preview_component` when direct preview support is needed.

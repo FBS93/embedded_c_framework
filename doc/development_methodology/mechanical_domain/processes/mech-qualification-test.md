@@ -9,6 +9,7 @@ Define and implement mechanical qualification tests against mechanical requireme
 - Mechanical requirements
 - Mechanical architecture
 - Mechanical implementation
+- Tools
 
 ## Output work products
 
@@ -17,10 +18,11 @@ Define and implement mechanical qualification tests against mechanical requireme
 ## Steps
 
 1. Review the mechanical requirements.
-2. Identify mechanical requirements requiring validation.
-3. Define and implement the mechanical qualification tests.
-4. Define traceability between mechanical qualification tests and the corresponding mechanical requirements.
-5. Check the mechanical qualification tests for completeness, consistency, and correctness.
+2. Review available tools required to implement and execute mechanical qualification tests.
+3. Identify mechanical requirements requiring validation.
+4. Define and implement the mechanical qualification tests.
+5. Define traceability between mechanical qualification tests and the corresponding mechanical requirements.
+6. Check the mechanical qualification tests for completeness, consistency, and correctness.
 
 ## Guidelines
 
@@ -29,7 +31,9 @@ Define and implement mechanical qualification tests against mechanical requireme
 The mechanical qualification test work product shall follow the [Mechanical test definition](../resources/mechanical_test_definition.md).
 
 In addition to the [Mechanical test definition](../resources/mechanical_test_definition.md), the mechanical qualification tests shall:
-- Be derived from the mechanical requirements to validate that the mechanical architecture and mechanical implementation correctly realize them. The mechanical architecture may be used as complementary input to understand how the mechanical solution is defined and to support test implementation, but it shall not be the validation target. The mechanical implementation shall be used only as the element under test.
+- Be derived from the mechanical requirements to validate that the mechanical architecture and mechanical implementation correctly realize them.
+- Use the mechanical architecture as complementary input only to understand how the mechanical solution is defined and to support test implementation.
+- Use the mechanical implementation only as the element under test.
 - Define at least one qualification test for each mechanical requirement, ensuring full coverage of all mechanical requirements.
 - Have a unique and well-defined objective. Multiple tests may be defined when required to validate different aspects of the same mechanical requirement.
 - Validate the mechanical solution from an external perspective, without relying on internal implementation details.

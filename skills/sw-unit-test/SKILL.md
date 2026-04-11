@@ -16,7 +16,7 @@ metadata:
 
 ## Critical Patterns
 
-- Shall follow the provided resources.
+- Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
 - Shall align with software detailed design (no inconsistencies).
 - Shall ensure all software unit tests are derived from software detailed design by adding explicit traceability between them.
 - Shall define and implement the software unit tests against the software detailed design to validate that the software implementation correctly realizes it.

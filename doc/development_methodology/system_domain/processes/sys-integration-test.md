@@ -18,7 +18,7 @@ Define and implement system integration tests against system architecture to val
 
 1. Review the system architecture.
 2. Review system implementation to understand how it is implemented and how the interfaces between system components can be validated at system level.
-3. Review available tools to stimulate and observe the system.
+3. Review available tools required to implement and execute system integration tests.
 4. Identify system architecture elements requiring validation.
 5. Define and implement the system integration tests.
 6. Define traceability between system integration tests and the corresponding system architecture elements.
@@ -31,8 +31,9 @@ Define and implement system integration tests against system architecture to val
 The system integration test work product shall follow the [System test definition](../resources/system_test_definition.md).
 
 In addition to the [System test definition](../resources/system_test_definition.md), the system integration tests shall:
-- Be derived from the system architecture to validate that the system implementation correctly realizes it. The system implementation may be used as complementary input to understand system interactions and to support test implementation, but it shall not be the validation target and shall be used only as the element under test.
-- Use the available tools to stimulate the system and observe its behavior, selecting the most appropriate tool for the intended validation.
+- Be derived from the system architecture to validate that the system implementation correctly realizes it.
+- Use the system implementation as complementary input only to understand system interactions and to support test implementation.
+- Use the system implementation only as the element under test.
 - Define at least one integration test for each dynamic view represented as a sequence diagram, ensuring that all interactions defined through interfaces between system components are validated.
 - Have a unique and well-defined objective. Multiple tests may be defined when required to validate the same interaction scenario.
 - Use observable system interfaces between system components or external system interfaces to stimulate the system and observe its behavior.

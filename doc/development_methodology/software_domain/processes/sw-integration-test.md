@@ -9,6 +9,7 @@ Define and implement software integration tests against software architecture to
 - Software architecture
 - Software detailed design
 - Software implementation
+- Tools
 
 ## Output work products
 
@@ -17,10 +18,11 @@ Define and implement software integration tests against software architecture to
 ## Steps
 
 1. Review the software architecture.
-2. Identify software architecture elements requiring validation.
-3. Define and implement the software integration tests.
-4. Define traceability between software integration tests and the corresponding software architecture elements.
-5. Check the software integration tests for completeness, consistency, and correctness.
+2. Review available tools required to implement and execute software integration tests.
+3. Identify software architecture elements requiring validation.
+4. Define and implement the software integration tests.
+5. Define traceability between software integration tests and the corresponding software architecture elements.
+6. Check the software integration tests for completeness, consistency, and correctness.
 
 ## Guidelines
 
@@ -29,7 +31,9 @@ Define and implement software integration tests against software architecture to
 The software integration test work product shall follow the [Software test definition](../resources/software_test_definition.md).
 
 In addition to the [Software test definition](../resources/software_test_definition.md), the software integration tests shall:
-- Be derived from the software architecture to validate that the software detailed design and software implementation correctly realizes it. The software detailed design may be used as complementary input to understand how software interacts and to support test implementation, but it shall not be the validation target. The software implementation shall be used only as the executable element under test.
+- Be derived from the software architecture to validate that the software detailed design and software implementation correctly realizes it.
+- Use the software detailed design as complementary input only to understand how software interacts and to support test implementation.
+- Use the software implementation only as the element under test.
 - Define at least one integration test for each dynamic view represented as a sequence diagram, ensuring that all interactions defined through interfaces between software components are validated.
 - Have a unique and well-defined objective. Multiple tests may be defined when required to validate the same interaction scenario.
 - Be implemented in C using [Embedded Test Framework (ETF)](../../../../sw/ecf/embedded_test_framework/doc/etf.md) or [EDF Test Framework (EDFTest)](../../../../sw/ecf/event_driven_framework/edf_test/doc/edf_test.md), depending on the interaction model:

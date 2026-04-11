@@ -10,6 +10,7 @@ Define and implement software qualification tests against software requirements 
 - Software architecture
 - Software detailed design
 - Software implementation
+- Tools
 
 ## Output work products
 
@@ -18,10 +19,11 @@ Define and implement software qualification tests against software requirements 
 ## Steps
 
 1. Review the software requirements.
-2. Identify software requirements requiring validation.
-3. Define and implement the software qualification tests.
-4. Define traceability between software qualification tests and the corresponding software requirements.
-5. Check the software qualification tests for completeness, consistency, and correctness.
+2. Review available tools required to implement and execute software qualification tests.
+3. Identify software requirements requiring validation.
+4. Define and implement the software qualification tests.
+5. Define traceability between software qualification tests and the corresponding software requirements.
+6. Check the software qualification tests for completeness, consistency, and correctness.
 
 ## Guidelines
 
@@ -30,7 +32,9 @@ Define and implement software qualification tests against software requirements 
 The software qualification test work product shall follow the [Software test definition](../resources/software_test_definition.md).
 
 In addition to the [Software test definition](../resources/software_test_definition.md), the software qualification tests shall:
-- Be derived from the software requirements to validate that the software architecture, software detailed design, and software implementation correctly realizes them. The software architecture and software detailed design may be used as complementary input to understand how software interacts and to support test implementation, but it shall not be the validation target. The software implementation shall be used only as the executable element under test.
+- Be derived from the software requirements to validate that the software architecture, software detailed design, and software implementation correctly realizes them.
+- Use the software architecture and software detailed design as complementary input only to understand how software interacts and to support test implementation.
+- Use the software implementation only as the element under test.
 - Define at least one qualification test for each software requirement, ensuring full coverage of all software requirements.
 - Have a unique and well-defined objective. Multiple tests may be defined when required to validate different aspects of the same software requirement.
 - Be implemented in C using [Embedded Test Framework (ETF)](../../../../sw/ecf/embedded_test_framework/doc/etf.md) or [EDF Test Framework (EDFTest)](../../../../sw/ecf/event_driven_framework/edf_test/doc/edf_test.md), depending on the implemented architecture model.
