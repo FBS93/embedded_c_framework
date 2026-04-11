@@ -1,10 +1,8 @@
-See [Embedded C Workbench documentation](doc/ecw.md) for project-specific documentation.
+See [Embedded Workbench documentation](doc/ew.md) for project-specific documentation.
 
 xxxyyy mirar be les tools/scripts que s'han de moure a la carpeta sw degut a la restructuracio del template
 xxxyyy la carpeta sw tambe hauria de tenir una carpeta doc amb guies especifiques de domini amb lo següent?
 xxxyyy o millor fero en doc root fer carpetes de domini y ficar tot alla? potser millor aixi y deixar mes neta la carpeta especifica de domini
-
-
 
 @todo Document the platform integration pattern based on platform.cmake and ect_add_executable().
 

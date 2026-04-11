@@ -1,5 +1,5 @@
 {
-    "name": "embedded_c_workbench",
+    "name": "embedded_workbench",
     "dockerFile": "Dockerfile",
     "containerEnv": {
         "RPI_USER": "${localEnv:RPI_USER}", // Raspberry Pi SSH username.
@@ -11,7 +11,7 @@
         "NETWORK_LATENCY_TIMEOUT_S": "1.5", // Timeout budget (seconds) used for network-latency waits.
         "WORKSPACE_FOLDER": "${containerWorkspaceFolder}", // Absolute path to the workspace folder inside the container.
         "ENGRAM_DATA_DIR": "${containerWorkspaceFolder}/.engram", // Path where the Engram database is stored. Should be located inside the workspace folder so data persists across container rebuilds.
-        "SVD_FILE": "/workspaces/embedded_c_framework/sw/ecf/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
+        "SVD_FILE": "/workspaces/embedded_workbench/sw/ecf/platform/stm32f103c8tx/svd/STM32F103.svd" // Path to the SVD file used for target debugging.
     },
     "mounts": [
       // Load OpenCode credentials from host.

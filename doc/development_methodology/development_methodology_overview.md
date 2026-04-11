@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document defines the development methodology adopted by Embedded C Workbench based on a V-model approach.
+This document defines the development methodology adopted by [Embedded Workbench](../ew.md) based on a V-model approach.
 
 ## Glossary
 

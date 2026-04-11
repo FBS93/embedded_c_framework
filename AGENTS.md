@@ -1,8 +1,8 @@
-# Embedded C Workbench skills
+# Embedded Workbench skills
 
-Skills for the Embedded C Workbench. Load the smallest skill that fits the task.
+Skills for the Embedded Workbench. Load the smallest skill that fits the task.
 
-The development methodology adopted by the Embedded C Workbench follows a V-model approach. The specific methodology and processes to be followed are defined in [development_methodology_overview.md](doc/development_methodology/development_methodology_overview.md).
+The development methodology adopted by the Embedded Workbench follows a V-model approach. The specific methodology and processes to be followed are defined in [development_methodology_overview.md](doc/development_methodology/development_methodology_overview.md).
 
 Some skills represent V-model processes, while others are supporting skills.
 
