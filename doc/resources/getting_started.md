@@ -9,7 +9,6 @@ The expected development entry point is VS Code running the provided devcontaine
 ## Host prerequisites
 
 The host environment shall provide the following:
-
 - VS Code with the `ms-vscode-remote.vscode-remote-extensionpack` extension installed.
 - OpenCode installed. If any AI provider account is authenticated, the devcontainer reuses the host OpenCode credentials through the bind mount defined in [devcontainer.json](../../.devcontainer/devcontainer.json).
 - Host GUI support for containerized graphical applications.

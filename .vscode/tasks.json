@@ -47,11 +47,20 @@
       "command": "${TASKS_PATH}/run_opencode_web_gui.sh"
     },
     {
+      "label": "run_repo_sync",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_repo_sync.sh",
+      "args": [
+        "${workspaceFolder}"
+      ]
+    },
+    {
       "label": "format",
       "type": "shell",
       "command": "${TASKS_PATH}/format.sh",
       "args": [
-        "${workspaceFolder}/sw"
+        "${workspaceFolder}/sw",
+        "${workspaceFolder}"
       ]
     }
   ]

@@ -4,16 +4,14 @@ set -e
 # Parse command-line arguments
 # Input:
 #  - SOURCE_DIR: directory where recursive formatting starts.
-if [ "$#" -lt 1 ]; then
-    echo "Usage: $0 [SOURCE_DIR]"
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 [SOURCE_DIR] [WORKSPACE_ROOT]"
     exit 1
 fi
 
 source_dir="$1"
+workspace_root="$2"
 clang_format_bin=""
-script_path="$(realpath "${BASH_SOURCE[0]}")"
-script_dir="$(dirname "$script_path")"
-workspace_root="$(realpath "${script_dir}/../..")"
 asm_formatter="${workspace_root}/tools/scripts/asm_format.py"
 # Resolve clang-format binary:
 # 1) Use clang-format from PATH.

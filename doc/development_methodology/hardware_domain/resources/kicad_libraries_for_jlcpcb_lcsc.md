@@ -45,5 +45,8 @@ The current methodology does not define a dedicated project-specific KiCad libra
 @todo Specify the paths where the Primary and Fallback KiCad libraries are located within the workspace.
 
 @todo Download the original repositories for both kicad libraries and integrate them into the workspace tooling.
+https://github.com/CDFER/JLCPCB-Kicad-Library
+https://github.com/CDFER/jlcpcb-parts-database
+https://github.com/CDFER/cd_fer-kicad-repository
 
 @todo Explore https://github.com/Bouni/kicad-jlcpcb-tools to evaluate whether the provided KiCad plugins can be useful for generating PCB fabrication and assembly files for JLCPCB.
