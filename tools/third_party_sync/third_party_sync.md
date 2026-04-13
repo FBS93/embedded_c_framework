@@ -1,6 +1,6 @@
-# repo_sync overview
+# third_party_sync overview
 
-`repo_sync.py` synchronizes third-party snapshots into workspace paths declared in `repos.json` and tracks resolved snapshot state in `repos.lock.json`.
+`third_party_sync.py` synchronizes third-party snapshots into workspace paths declared in `repos.json` and tracks resolved snapshot state in `repos.lock.json`.
 
 # Glossary
 
@@ -13,13 +13,13 @@
 # Usage example
 
 ```bash
-python tools/repo_sync/repo_sync.py
+python tools/third_party_sync/third_party_sync.py
 ```
 
 Synchronize only one manifest entry by `id`:
 
 ```bash
-python tools/repo_sync/repo_sync.py --repository-id repo_a
+python tools/third_party_sync/third_party_sync.py --repository-id repo_a
 ```
 
 Manifest format (`repos.json`):

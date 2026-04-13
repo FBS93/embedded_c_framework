@@ -57,9 +57,9 @@
       "command": "${TASKS_PATH}/run_opencode_web_gui.sh"
     },
     {
-      "label": "run_repo_sync",
+      "label": "run_third_party_sync",
       "type": "shell",
-      "command": "${TASKS_PATH}/run_repo_sync.sh",
+      "command": "${TASKS_PATH}/run_third_party_sync.sh",
       "args": [
         "${workspaceFolder}"
       ]

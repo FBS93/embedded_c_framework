@@ -91,8 +91,8 @@
                     "task": "run_opencode_web_gui"
                 },
                 {
-                    "label": "🔄 Sync third-party repos",
-                    "task": "run_repo_sync"
+                    "label": "🔄 Sync third-party repositories",
+                    "task": "run_third_party_sync"
                 },
                 {
                     "label": "🔗 Connect Raspberry Pi (SSH)",

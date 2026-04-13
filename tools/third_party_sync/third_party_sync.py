@@ -7,7 +7,7 @@
 # workspace snapshots updated to resolved GitHub references.
 #
 # Full manifest, lock, and behavior documentation is defined in:
-# tools/repo_sync/repo_sync.md
+# tools/third_party_sync/third_party_sync.md
 #
 # Optional environment variable:
 #   GH_TOKEN Personal access token for GitHub API requests.
@@ -79,12 +79,12 @@ def parse_args():
   )
   parser.add_argument(
     "--manifest",
-    default="tools/repo_sync/repos.json",
+    default="tools/third_party_sync/repos.json",
     help="Path to manifest file.",
   )
   parser.add_argument(
     "--lock",
-    default="tools/repo_sync/repos.lock.json",
+    default="tools/third_party_sync/repos.lock.json",
     help="Path to lock file.",
   )
   parser.add_argument(
@@ -266,7 +266,7 @@ def parse_github_slug(repository_url):
 def github_api_get_json(url, github_token):
   headers = {
     "Accept": "application/vnd.github+json",
-    "User-Agent": "embedded-workbench-repo-sync",
+    "User-Agent": "embedded-workbench-third-party-sync",
   }
 
   if github_token:
@@ -299,7 +299,7 @@ def github_api_get_json(url, github_token):
 def github_api_get_json_or_none(url, github_token):
   headers = {
     "Accept": "application/vnd.github+json",
-    "User-Agent": "embedded-workbench-repo-sync",
+    "User-Agent": "embedded-workbench-third-party-sync",
   }
 
   if github_token:
@@ -341,7 +341,7 @@ def resolve_commit_sha(repository_slug, ref_name, github_token, error_context):
 
   headers = {
     "Accept": "application/vnd.github+json",
-    "User-Agent": "embedded-workbench-repo-sync",
+    "User-Agent": "embedded-workbench-third-party-sync",
   }
 
   if github_token:
@@ -516,7 +516,7 @@ def resolve_snapshot(repository_slug, ref_type, ref_value, github_token):
 def download_file(url, destination_path, github_token):
   headers = {
     "Accept": "application/vnd.github+json",
-    "User-Agent": "embedded-workbench-repo-sync",
+    "User-Agent": "embedded-workbench-third-party-sync",
   }
 
   if github_token:
@@ -687,7 +687,7 @@ def synchronize_repositories(repositories, lock_data, workspace_root, dry_run, g
     )
 
     if not dry_run:
-      with tempfile.TemporaryDirectory(prefix="repo_sync_") as temporary_directory:
+      with tempfile.TemporaryDirectory(prefix="third_party_sync_") as temporary_directory:
         tarball_path = Path(temporary_directory) / "release.tar"
         download_file(snapshot_metadata["tarball_url"], tarball_path, github_token)
         extract_tarball_to_path(tarball_path, repository_path)
@@ -697,7 +697,7 @@ def synchronize_repositories(repositories, lock_data, workspace_root, dry_run, g
   return {"repositories": updated_lock_repositories}
 
 ##
-# @brief Main repository synchronization workflow.
+# @brief Main third-party synchronization workflow.
 #
 # Orchestrates:
 # - Parse command-line arguments.

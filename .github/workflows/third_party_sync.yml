@@ -1,4 +1,4 @@
-name: Repo Sync
+name: Third-party sync
 
 on:
   workflow_dispatch:
@@ -22,7 +22,7 @@ jobs:
           import os
           from pathlib import Path
 
-          manifest_path = Path("tools/repo_sync/repos.json")
+          manifest_path = Path("tools/third_party_sync/repos.json")
           manifest_data = json.loads(manifest_path.read_text(encoding="utf-8"))
           repositories = manifest_data.get("repositories", [])
           matrix = {
@@ -49,7 +49,7 @@ jobs:
       contents: write
       pull-requests: write
     concurrency:
-      group: repo-sync-${{ matrix.id }}
+      group: third-party-sync-${{ matrix.id }}
       cancel-in-progress: false
     env:
       GH_TOKEN: ${{ github.token }}
@@ -80,7 +80,7 @@ jobs:
 
           for pr_data in pr_list:
             head_ref_name = pr_data["headRefName"]
-            if head_ref_name.startswith(f"chore/repo-sync/{repository_id}-"):
+            if head_ref_name.startswith(f"chore/third-party-sync/{repository_id}-"):
               print(head_ref_name)
               break
           PY
@@ -95,17 +95,17 @@ jobs:
       - name: Synchronize repository snapshot
         if: steps.open_pr.outputs.skip != 'true'
         run: |
-          python3 tools/repo_sync/repo_sync.py \
+          python3 tools/third_party_sync/third_party_sync.py \
             --repository-id "$REPOSITORY_ID" \
-            --manifest tools/repo_sync/repos.json \
-            --lock tools/repo_sync/repos.lock.json \
+            --manifest tools/third_party_sync/repos.json \
+            --lock tools/third_party_sync/repos.lock.json \
             --workspace .
 
       - name: Detect repository changes
         if: steps.open_pr.outputs.skip != 'true'
         id: changes
         run: |
-          status_output="$(git status --porcelain -- "$REPOSITORY_PATH" "tools/repo_sync/repos.lock.json")"
+          status_output="$(git status --porcelain -- "$REPOSITORY_PATH" "tools/third_party_sync/repos.lock.json")"
           if [ -n "$status_output" ]; then
             printf 'changed=true\n' >> "$GITHUB_OUTPUT"
             printf 'Detected changes for %s\n' "$REPOSITORY_ID"
@@ -125,7 +125,7 @@ jobs:
           from pathlib import Path
 
           repository_id = os.environ["REPOSITORY_ID"]
-          lock_data = json.loads(Path("tools/repo_sync/repos.lock.json").read_text(encoding="utf-8"))
+          lock_data = json.loads(Path("tools/third_party_sync/repos.lock.json").read_text(encoding="utf-8"))
           lock_entry = lock_data["repositories"][repository_id]
 
           source = lock_entry.get("source")
@@ -140,13 +140,13 @@ jobs:
 
           sanitized_id = re.sub(r"[^a-zA-Z0-9._-]+", "-", repository_id).strip("-")
           sanitized_target = re.sub(r"[^a-zA-Z0-9._-]+", "-", target_label).strip("-")
-          branch_name = f"chore/repo-sync/{sanitized_id}-{sanitized_target}-{os.environ['GITHUB_RUN_ID']}"
-          title = f"chore(repo-sync): update {repository_id} to {target_label}"
+          branch_name = f"chore/third-party-sync/{sanitized_id}-{sanitized_target}-{os.environ['GITHUB_RUN_ID']}"
+          title = f"chore(third-party-sync): update {repository_id} to {target_label}"
           body = "\n".join([
             "## Summary",
             f"- Update `{repository_id}` to `{target_label}`.",
             f"- Sync third-party content in `{os.environ['REPOSITORY_PATH']}`.",
-            "- Update `tools/repo_sync/repos.lock.json` with the resolved snapshot metadata.",
+            "- Update `tools/third_party_sync/repos.lock.json` with the resolved snapshot metadata.",
           ])
 
           with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
@@ -162,7 +162,7 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         run: |
           git checkout -b "${{ steps.metadata.outputs.branch_name }}"
-          git add -- "$REPOSITORY_PATH" "tools/repo_sync/repos.lock.json"
+          git add -- "$REPOSITORY_PATH" "tools/third_party_sync/repos.lock.json"
           git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
             commit -m "${{ steps.metadata.outputs.title }}"
           git push --set-upstream origin "${{ steps.metadata.outputs.branch_name }}"
