@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "gentle-ai": {
+      "published_at": "2026-04-13T15:12:57Z",
+      "resolved_commit": "4d03acafeb61e14e7fb20ca7fc59a53f175eb8b5",
+      "resolved_release": "v1.20.0",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/Gentleman-Programming/gentle-ai/tarball/v1.20.0"
+    }
+  }
 }
