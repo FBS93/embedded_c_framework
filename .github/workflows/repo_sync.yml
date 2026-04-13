@@ -167,7 +167,9 @@ jobs:
             commit -m "${{ steps.metadata.outputs.title }}"
           git push --set-upstream origin "${{ steps.metadata.outputs.branch_name }}"
 
-          printf "%s\n" "${{ steps.metadata.outputs.body }}" > pr_body.txt
+          cat > pr_body.txt <<'EOF'
+          ${{ steps.metadata.outputs.body }}
+          EOF
 
           gh pr create \
             --base main \
