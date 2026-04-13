@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "jlcpcb-parts-database": {
+      "commit_date": "2026-04-02T06:14:33Z",
+      "default_branch": "main",
+      "resolved_commit": "f748ce790904ad7ffea9a46230fdaeaf7b7aa03d",
+      "source": "default_branch_head",
+      "tarball_url": "https://api.github.com/repos/CDFER/jlcpcb-parts-database/tarball/f748ce790904ad7ffea9a46230fdaeaf7b7aa03d"
+    }
+  }
 }
