@@ -80,6 +80,16 @@
         "${workspaceFolder}/sw",
         "${workspaceFolder}"
       ]
+    },
+    {
+      "label": "lint",
+      "type": "shell",
+      "command": "${TASKS_PATH}/lint.sh",
+      "args": [
+        "${workspaceFolder}/sw",
+        "${workspaceFolder}",
+        "${command:cmake.activeConfigurePresetName}"
+      ]
     }
   ]
 }

@@ -40,6 +40,8 @@ ENV LC_ALL=C.UTF-8
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
+    clang-format \
+    clang-tidy \
     gdb \
     udev \
     && apt-get clean \
@@ -53,6 +55,14 @@ RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION
 
 # Add toolchain to PATH
 ENV PATH="/opt/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi/bin:${PATH}"
+
+# Install software-domain Python tooling globally in the devcontainer so it is 
+# available to the whole workspace without introducing an additional virtual 
+# environment layer.  --break-system-packages is intentional here because this 
+# is a controlled development container image rather than a shared host Python 
+# installation.
+RUN python -m pip install --break-system-packages \
+    cmakelang
 
 ################################################################################
 # Hardware domain

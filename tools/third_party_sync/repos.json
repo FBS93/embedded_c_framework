@@ -1,6 +1,13 @@
 {
   "repositories": [
     {
+      "id": "actions-template-sync",
+      "url": "https://github.com/AndreasAugustin/actions-template-sync",
+      "path": "third_party/AndreasAugustin/actions-template-sync",
+      "ref_type": "auto",
+      "ref": ""
+    },
+    {
       "id": "gentle-ai",
       "url": "https://github.com/Gentleman-Programming/gentle-ai",
       "path": "third_party/Gentleman-Programming/gentle-ai",

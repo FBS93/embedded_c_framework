@@ -221,9 +221,9 @@ def main():
   changed_count = format_files(asm_files)
   warnings = collect_line_length_warnings(asm_files)
 
-  print(f"✅ ASM formatter: processed {len(asm_files)} files, updated {changed_count}.", flush=True)
+  print(f"ASM formatter: processed {len(asm_files)} files, updated {changed_count}.", flush=True)
   for warning in warnings:
-    print(f"⚠️ {warning}", flush=True)
+    print(f"Warning: {warning}", flush=True)
 
 
 # ==============================================================================

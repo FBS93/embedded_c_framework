@@ -78,3 +78,10 @@ mech/
 ```
 
 Additional folders may exist anywhere in the workspace that are not part of the defined work products organization. These folders may be used to support implementation or project-specific needs. The defined structure establishes the minimum organization required to locate work products unambiguously.
+
+## Resources
+
+- Requirements definition. See [resources/requirements_definition.md](resources/requirements_definition.md).
+- Architecture definition. See [resources/architecture_definition.md](resources/architecture_definition.md).
+- Cross-domain interface definition. See [resources/cross_domain_interface_definition.md](resources/cross_domain_interface_definition.md).
+- Python coding guidelines. See [resources/python_coding_guidelines.md](resources/python_coding_guidelines.md).

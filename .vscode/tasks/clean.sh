@@ -1,21 +1,26 @@
 #!/usr/bin/env bash
 set -e
 
-# Check if the correct number of arguments is provided
+# Parse command-line arguments.
 if [ "$#" -lt 2 ]; then
     echo "Usage: $0 [PRESET] [SOURCE_DIR]"
     exit 1
 fi
 
-# Parse command-line arguments
-preset=$1
-source_dir=$2
+preset="$1"
+source_dir="$2"
 
-# Clean build artifacts
+# Validate source directory input.
+if [ ! -d "${source_dir}" ]; then
+    echo "❌ Error: source directory not found: ${source_dir}"
+    exit 1
+fi
+
+# Clean build artifacts.
 build_dir="${source_dir}/build/${preset}"
-rm -rf "$build_dir"
+rm -rf "${build_dir}"
 
-# Clean __pycache__ folders recursively
-find "$source_dir" -type d -name "__pycache__" -exec rm -rf {} +
+# Clean __pycache__ folders recursively.
+find "${source_dir}" -type d -name "__pycache__" -exec rm -rf {} +
 
 echo "✅ Clean completed."

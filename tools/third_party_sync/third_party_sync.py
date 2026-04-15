@@ -6,9 +6,6 @@
 # This script reads a manifest JSON file with repository entries and keeps local
 # workspace snapshots updated to resolved GitHub references.
 #
-# Full manifest, lock, and behavior documentation is defined in:
-# tools/third_party_sync/third_party_sync.md
-#
 # Optional environment variable:
 #   GH_TOKEN Personal access token for GitHub API requests.
 #

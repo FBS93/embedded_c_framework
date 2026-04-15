@@ -119,6 +119,10 @@
                 {
                     "label": "🧼 Format all source files",
                     "task": "format",
+                },
+                {
+                    "label": "🔎 Run linter",
+                    "task": "lint"
                 }
             ],
             "tooltip": "Software toolbox"

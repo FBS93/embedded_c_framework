@@ -501,27 +501,19 @@ All code shall compile with **GCC** without warnings, using the following flags 
 ### Clang-tidy
 ---
 
-All C source code shall comply with the static analysis rules defined in the `.clang-tidy` file below.
-
-```yaml
-@todo
-```
+All C files shall be statically analyzed using `clang-tidy` with the [.clang-tidy](../../../../.clang-tidy) configuration file.
 
 ---
 ### Clang-format
 ---
 
-C/C++ files shall be formatted using `Clang-format` with the [.clang-format](../../../../.clang-format) configuration file.
+All C files shall be formatted using `clang-format` with the [.clang-format](../../../../.clang-format) configuration file.
 
 ---
 ### CMake-format
 ---
 
-All CMake files (`CMakeLists.txt`, `.cmake`) shall follow the formatting rules defined in the `.cmake-format.yaml` file below.
-
-```yaml
-@todo
-```
+All CMake files shall be formatted using `cmake-format` with the [.cmake-format.yaml](../../../../.cmake-format.yaml) configuration file.
 
 ---
 ### Assembly format
