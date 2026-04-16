@@ -18,7 +18,7 @@ set -e
 : "${WORKSPACE_FOLDER:?Missing WORKSPACE_FOLDER}"
 
 # Local and remote file paths used to deploy and run the logging server.
-LOCAL_SCRIPT="${WORKSPACE_FOLDER}/tools/scripts/run_target_logging_server.py"
+LOCAL_SCRIPT="${WORKSPACE_FOLDER}/tools/run_target_logging_server/run_target_logging_server.py"
 REMOTE_SCRIPT="/tmp/run_target_logging_server.py"
 REMOTE_LOG="/tmp/run_target_logging_server.log"
 

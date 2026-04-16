@@ -16,17 +16,14 @@ Target serial interface --> USB-Serial Adapter --> Raspberry Pi --> TCP --> Host
 
 ## Logging Setup
 
-Logging is enabled by executing [run_target_logging_server.sh](../../.vscode/tasks/run_target_logging_server.sh) 
-
-@todo Review markdown links. Hint: search all links using `](`  
-@todo Document that this script can be run via VS Code task buttons.
+Logging is enabled by executing [run_target_logging_server.sh](../../../../.vscode/tasks/run_target_logging_server.sh)
 
 This script:
-- Copies [run_target_logging_server.py](../../tools/scripts/run_target_logging_server.py) to the Raspberry Pi.
+- Copies the script provided by the [run_target_logging_server tool](../../../../tools/run_target_logging_server/run_target_logging_server.md) to the Raspberry Pi.
 - Connects to the Raspberry Pi via SSH.
 - Selects the first available serial device.
 - Reuses an already healthy running target logging server when available.
-- If not, starts [run_target_logging_server.py](../../tools/scripts/run_target_logging_server.py) on the Raspberry Pi with the selected serial device, configured TCP port and configured baud rate.
+- If not, starts the script provided by the [run_target_logging_server tool](../../../../tools/run_target_logging_server/run_target_logging_server.md) on the Raspberry Pi with the selected serial device, configured TCP port and configured baud rate.
 - Verifies that the target logging server is running.
 
 The host can then connect to the configured TCP port to receive runtime logs.
@@ -35,7 +32,7 @@ The host can then connect to the configured TCP port to receive runtime logs.
 
 The Raspberry Pi must have Python 3 installed (default in Raspberry Pi OS).
 
-Make sure that the environment variables in [devcontainer.json](../../.devcontainer/devcontainer.json) are configured for the logging setup and target environment:
+Make sure that the environment variables in [devcontainer.json](../../../../.devcontainer/devcontainer.json) are configured for the logging setup and target environment:
 
 - `RPI_USER` and `RPI_HOST` must match the Raspberry Pi SSH credentials.
 - `LOG_PORT` must match the port used for serial logging.

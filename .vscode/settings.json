@@ -21,7 +21,7 @@
         "commands": [
             {
                 "match": "\\.S$",
-                "cmd": "python3 ${workspaceFolder}/tools/scripts/asm_format.py ${file}"
+                "cmd": "python3 ${workspaceFolder}/tools/asm_format/asm_format.py ${file}"
             }
         ]
     },

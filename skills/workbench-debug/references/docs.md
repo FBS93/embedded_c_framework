@@ -1,3 +1,3 @@
 - [Embedded Workbench overview](../../../doc/ew.md)
 - [Dual targeting setup](../../../doc/resources/dual_targeting_setup.md)
-- [Embedded target remote debugging](../../../doc/resources/embedded_target_remote_debugging.md)
+

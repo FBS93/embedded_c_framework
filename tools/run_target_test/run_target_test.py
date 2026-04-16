@@ -3,14 +3,6 @@
 # ==============================================================================
 # @brief Automated embedded target test runner.
 #
-# This script automates embedded target testing by:
-# - Starting GDB server on a remote Raspberry Pi.
-# - Flashing firmware via the GDB server.
-# - Starting a serial-to-TCP bridge.
-# - Running the target firmware.
-# - Capturing serial output.
-# - Reporting PASS/FAIL.
-#
 # Usage:
 #   run_target_test.py <test_binary>
 #

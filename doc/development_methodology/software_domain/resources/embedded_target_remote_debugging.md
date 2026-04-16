@@ -20,11 +20,8 @@ Target MCU --> Debug Probe --> Raspberry Pi --> GDB Server --> TCP/GDB --> Host
 
 ## Debug Setup
 
-Remote debugging is enabled by executing  
-[run_target_gdb_server.sh](../../.vscode/tasks/run_target_gdb_server.sh)
-
-@todo Review markdown links. Hint: search all links using `](`  
-@todo Document that this script can be run via VS Code task buttons.
+Remote debugging is enabled by executing
+[run_target_gdb_server.sh](../../../../.vscode/tasks/run_target_gdb_server.sh)
 
 This script:
 
@@ -34,7 +31,7 @@ This script:
 - Exposes the GDB server on the configured TCP port.
 - Verifies that the GDB server is listening before returning.
 
-Once running, the host can connect to the exposed port using GDB or compatible debug tools. This can be done using the preconfigured VS Code launch configurations in [launch.json](../../.vscode/launch.json) with the `cortex-debug` extension for target debugging.
+Once running, the host can connect to the exposed port using GDB or compatible debug tools. This can be done using the preconfigured VS Code launch configurations in [launch.json](../../../../.vscode/launch.json) with the `cortex-debug` extension for target debugging.
 
 ## Dependencies
 
@@ -81,13 +78,13 @@ When using SEGGER J-Link GDB Server:
     JLinkGDBServer -version
     ```
 
-Make sure that the environment variables in [devcontainer.json](../../.devcontainer/devcontainer.json) are configured for the installed GDB server and target environment:
+Make sure that the environment variables in [devcontainer.json](../../../../.devcontainer/devcontainer.json) are configured for the installed GDB server and target environment:
 
 - `RPI_USER` and `RPI_HOST` must match the Raspberry Pi SSH credentials.
 - `GDB_PORT` must match the port used by the GDB server.
 - `NETWORK_LATENCY_TIMEOUT_S` defines the maximum wait time used by readiness checks for the GDB server.
 - `SVD_FILE` must be set to the path of the SVD file used for target debugging.
 
-Make sure that the variables in [run_target_gdb_server.sh](../../.vscode/tasks/run_target_gdb_server.sh) are configured for the installed GDB server and target environment:
+Make sure that the variables in [run_target_gdb_server.sh](../../../../.vscode/tasks/run_target_gdb_server.sh) are configured for the installed GDB server and target environment:
 
 - `GDB_SERVER_RUN_CMD` must be adapted to start the selected GDB server.

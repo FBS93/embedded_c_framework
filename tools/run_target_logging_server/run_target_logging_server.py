@@ -3,13 +3,6 @@
 # ==============================================================================
 # @brief TCP logging bridge for Raspberry Pi.
 #
-# This script creates a serial-to-TCP bridge on the Raspberry Pi by:
-# - Opening the specified serial device in raw mode.
-# - Binding a TCP server on the specified port.
-# - Accepting multiple concurrent TCP clients.
-# - Broadcasting target serial RX data to all connected TCP clients.
-# - Forwarding TCP TX data from any connected client to the serial interface.
-#
 # Usage:
 #   python3 run_target_logging_server.py <serial_device> <tcp_port> <baud_rate>
 #

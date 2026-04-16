@@ -521,6 +521,6 @@ All CMake files shall be formatted using `cmake-format` with the [.cmake-format.
 
 Assembly source files shall use the .S extension (uppercase) to ensure the preprocessor is applied.
 
-Assembly (`.S`) files shall be formatted using the [asm_format.py](../../../../tools/scripts/asm_format.py) formatter.
+Assembly (`.S`) files shall be formatted using the [asm_format.py](../../../../tools/asm_format/asm_format.py) formatter.
 
 ---

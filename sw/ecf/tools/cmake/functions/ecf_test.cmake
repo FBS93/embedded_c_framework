@@ -67,7 +67,7 @@ function(create_etf_test test_name test_src)
       NAME ${test_name}
       COMMAND
         python3
-        ${PROJECT_SOURCE_DIR}/tools/scripts/run_target_test.py
+        ${PROJECT_SOURCE_DIR}/tools/run_target_test/run_target_test.py
         $<TARGET_FILE:${test_name}>
     )
     set_tests_properties(${test_name} PROPERTIES
@@ -148,7 +148,7 @@ function(create_edf_test test_name test_src)
       NAME ${test_name}
       COMMAND
         python3
-        ${PROJECT_SOURCE_DIR}/tools/scripts/run_target_test.py
+        ${PROJECT_SOURCE_DIR}/tools/run_target_test/run_target_test.py
         $<TARGET_FILE:${test_name}>
     )
     set_tests_properties(${test_name} PROPERTIES

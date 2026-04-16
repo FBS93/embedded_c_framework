@@ -3,12 +3,6 @@
 # ==============================================================================
 # @brief Simple formatter for GNU assembler (.S) files.
 #
-# This script formats assembler files and ensures the following rules:
-# - Tabs are replaced with 2 spaces.
-# - Consistent indentation levels.
-# - Trailing whitespaces are removed.
-# - Line length over 80 columns is reported as a warning.
-#
 # Usage:
 #   asm_format.py <path> [<path> ...]
 #

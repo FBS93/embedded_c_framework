@@ -9,9 +9,9 @@ The containerized development environment provides Software-in-the-Loop (SiL) ca
 - Preconfigured VS Code environment. See [.vscode](../../.vscode/) folder.
 
 The Raspberry Pi runs a frozen, reproducible SD image and exposes standardized interfaces to the development container enabling repeatable target environments, Hardware-in-the-Loop (HiL) capabilities, and low-cost remote target access with the following features:
-- Embedded target remote debugging via GDB server. See [embedded target remote debugging](embedded_target_remote_debugging.md).
-- Embedded target remote logging via serial-to-TCP bridge. See [embedded target remote logging](embedded_target_remote_logging.md).
-- Embedded target remote HiL testing via CTest. See [embedded target remote HiL testing](embedded_target_remote_HiL_testing.md).
+- Embedded target remote debugging via GDB server. See [embedded target remote debugging](../development_methodology/software_domain/resources/embedded_target_remote_debugging.md).
+- Embedded target remote logging via serial-to-TCP bridge. See [embedded target remote logging](../development_methodology/software_domain/resources/embedded_target_remote_logging.md).
+- Embedded target remote HiL testing via CTest. See [embedded target remote HiL testing](../development_methodology/software_domain/resources/embedded_target_remote_HiL_testing.md).
 
 See [raspberry_pi_setup.md](raspberry_pi_setup.md) for Raspberry Pi setup and configuration.
 

@@ -8,7 +8,7 @@ The script orchestrates the full remote test workflow through a Raspberry Pi con
 
 ## Dependencies
 
-Make sure that the environment variables in [devcontainer.json](../../.devcontainer/devcontainer.json) are configured for the HiL setup and target environment:
+Make sure that the environment variables in [devcontainer.json](../../../../.devcontainer/devcontainer.json) are configured for the HiL setup and target environment:
 
 - `TARGET_RX_TIMEOUT_S` indicates the maximum allowed inactivity time (in seconds) during which no logging data is received from the target. If this timeout expires, the HiL test is considered failed.
 - `NETWORK_LATENCY_TIMEOUT_S` defines the maximum wait time used by readiness checks for Raspberry Pi services.
@@ -16,18 +16,18 @@ Make sure that the environment variables in [devcontainer.json](../../.devcontai
 
 ## CTest integration example
 
-The [run_target_test.py](../../tools/scripts/run_target_test.py) Python runner script can be used with the CMake add_test() function as follows, where `hil_target_test` should be replaced with the CMake target name of your HiL test executable:
+The [run_target_test tool](../../../../tools/run_target_test/run_target_test.md) can be used with the CMake `add_test()` function as follows, where `hil_target_test` should be replaced with the CMake target name of your HiL test executable:
 
 ```cmake
 add_test(
   NAME hil_target_test
   COMMAND
     python3
-    ${PROJECT_SOURCE_DIR}/tools/scripts/run_target_test.py
+    ${PROJECT_SOURCE_DIR}/tools/run_target_test/run_target_test.py
     $<TARGET_FILE:hil_target_test>
 )
 ```
 
 When HiL tests are registered this way, they can be executed and reported like regular SiL tests with CTest. They can be run from the command line using CTest or directly from the Testing view in the Activity Bar.
 
-![Testing view in the Activity Bar](../assets/testing_view_in_the_activity_bar.png)
+![Testing view in the Activity Bar](../../../assets/testing_view_in_the_activity_bar.png)

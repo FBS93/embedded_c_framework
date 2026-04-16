@@ -1,4 +1,4 @@
-# kicad_state overview
+# KiCad state overview
 
 `save_kicad_state.py` captures the minimal KiCad user state into `tools/kicad_state/state/<version>/`, and `setup_kicad_state.py` restores that versioned state into the devcontainer user profile.
 
