@@ -48,6 +48,15 @@
       "path": "third_party/TousstNicolas/JLC2KiCad_lib",
       "ref_type": "auto",
       "ref": ""
+    },
+    {
+
+      "id": "kicad-jlcpcb-tools",
+      "url": "https://github.com/Bouni/kicad-jlcpcb-tools",
+      "path": "third_party/Bouni/kicad-jlcpcb-tools",
+      "ref_type": "auto",
+      "ref": ""
+
     }
   ]
 }
