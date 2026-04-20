@@ -1,0 +1,23 @@
+---
+name: Tests
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Install pytest
+        run: pip install pytest
+      - name: Install python packages
+        run: pip install .
+      - name: Run core tests
+        working-directory: core
+        run: pytest version.py
+      - name: Run common tests
+        working-directory: common
+        run: pytest

@@ -1,0 +1,26 @@
+---
+repos:
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.14.14
+    hooks:
+      - id: ruff
+        args:
+          - --fix
+          - --extend-exclude=lib
+      - id: ruff-format
+        exclude: '(^|/)lib'
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.21.2
+    hooks:
+      - id: pyupgrade
+        exclude: ^.lib/
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.47.0
+    hooks:
+      - id: markdownlint
+        args:
+          - --fix
+  # - repo: https://github.com/albertas/deadcode
+  #   rev: 2.4.1
+  #   hooks:
+  #     - id: deadcode
