@@ -1,3 +1,11 @@
 {
-  "repositories": {}
+  "repositories": {
+    "kicad-jlcpcb-tools": {
+      "published_at": "2026-04-14T07:16:06Z",
+      "resolved_commit": "de777bc9c458070dc6177134825bb6233fcd8aa6",
+      "resolved_release": "2026.04.02",
+      "source": "release",
+      "tarball_url": "https://api.github.com/repos/Bouni/kicad-jlcpcb-tools/tarball/2026.04.02"
+    }
+  }
 }
