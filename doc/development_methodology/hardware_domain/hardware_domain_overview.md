@@ -1,5 +1,7 @@
 # Hardware domain overview
 
+@todo Reevaluate this domain implementation workflow in the future. It is preserved in the template, but with the current generation of AI models the implementation results are not yet consistently reliable enough for the active recommended workflow.
+
 ## Glossary
 
 | Term | Definition |
