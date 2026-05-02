@@ -52,5 +52,5 @@ The following template shall be used for the description of this hardware design
 <Hardware assembly description>.
 
 Hardware components:
-- [<HW_COMPONENT_ARCH_X>](#...)
+- [<HW_ARCH_COMPONENT_X>](#...)
 ```

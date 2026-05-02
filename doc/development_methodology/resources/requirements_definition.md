@@ -20,7 +20,7 @@ Each document may be organized into chapters to support hierarchical structuring
 ### Functional domain requirements
 
 Functional domain requirements shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_<FUNC_DOMAIN>_REQ_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_REQ_<FUNC_DOMAIN>_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<FUNC_DOMAIN>` identifies the functional domain and shall match the functional domain used in the document name where the requirement is defined.
@@ -35,7 +35,7 @@ Functional domain requirements shall have the following attributes:
 The following functional domain requirement template shall be used:
 
 ```md
-# <DOMAIN>_<FUNC_DOMAIN>_REQ_<X>
+# <DOMAIN>_REQ_<FUNC_DOMAIN>_<X>
 
 <subject> shall <required behavior>.
 
@@ -52,7 +52,7 @@ References:
 ### Interface requirements
 
 Interface requirements shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_INTERFACE_REQ_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_REQ_INTERFACE_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -65,7 +65,7 @@ Interface requirements shall have the following attributes:
 The following interface requirement template shall be used:
 
 ```md
-# <DOMAIN>_INTERFACE_REQ_<X>
+# <DOMAIN>_REQ_INTERFACE_<X>
 
 Name: <domain>i_<requirementInterfaceName>
 
@@ -78,7 +78,7 @@ Upstream traceability:
 ### Parameter requirements
 
 Parameter requirements shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_PARAMETER_REQ_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_REQ_PARAMETER_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -91,7 +91,7 @@ Parameter requirements shall have the following attributes:
 The following parameter requirement template shall be used:
 
 ```md
-# <DOMAIN>_PARAMETER_REQ_<X>
+# <DOMAIN>_REQ_PARAMETER_<X>
 
 Name: <domain>p_<requirementParameterName>
 

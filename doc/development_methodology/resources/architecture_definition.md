@@ -19,7 +19,7 @@ Each document may be organized into chapters to support hierarchical structuring
 ### Architecture components
 
 Architecture components shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_COMPONENT_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_COMPONENT_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -33,7 +33,7 @@ Architecture components shall have the following attributes:
 The following component template shall be used:
 
 ```md
-# <DOMAIN>_COMPONENT_ARCH_<X>
+# <DOMAIN>_ARCH_COMPONENT_<X>
 
 Name: <domain>c_<architectureComponentName>
 
@@ -49,7 +49,7 @@ References:
 ### Architecture interfaces
 
 Architecture interfaces shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_INTERFACE_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_INTERFACE_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -62,7 +62,7 @@ Architecture interfaces shall have the following attributes:
 The following interface template shall be used:
 
 ```md
-# <DOMAIN>_INTERFACE_ARCH_<X>
+# <DOMAIN>_ARCH_INTERFACE_<X>
 
 Name: <domain>i_<architectureInterfaceName>
 
@@ -75,7 +75,7 @@ Upstream traceability:
 If an interface is directly inherited from an upstream traceable element used as architectural input, an architecture interface shall be created with a single upstream traceability reference to that element and a fixed interface description as follows:
 
 ```md
-# <DOMAIN>_INTERFACE_ARCH_<X>
+# <DOMAIN>_ARCH_INTERFACE_<X>
 
 Interface inherited from upstream definition.
 
@@ -86,7 +86,7 @@ Upstream traceability:
 ### Architecture parameters
 
 Architecture parameters shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_PARAMETER_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_PARAMETER_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -99,7 +99,7 @@ Architecture parameters shall have the following attributes:
 The following parameter template shall be used:
 
 ```md
-# <DOMAIN>_PARAMETER_ARCH_<X>
+# <DOMAIN>_ARCH_PARAMETER_<X>
 
 Name: <domain>p_<architectureParameterName>
 
@@ -112,7 +112,7 @@ Upstream traceability:
 If a parameter is directly inherited from an upstream traceable element used as architectural input, an architecture parameter shall be created with a single upstream traceability reference to that element and a fixed parameter description as follows:
 
 ```md
-# <DOMAIN>_PARAMETER_ARCH_<X>
+# <DOMAIN>_ARCH_PARAMETER_<X>
 
 Parameter inherited from upstream definition.
 
@@ -123,7 +123,7 @@ Upstream traceability:
 ### Architecture designs
 
 Architecture designs shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_DESIGN_ARCH_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `<DOMAIN>_ARCH_DESIGN_<X>`
   - The heading level may vary depending on the document structure.
   - `<DOMAIN>` identifies the engineering domain using its abbreviation in upper case.
   - `<X>` is a monotonically increasing number that shall never be reused.
@@ -136,7 +136,7 @@ Architecture designs shall have the following attributes:
 The following design template shall be used:
 
 ```md
-# <DOMAIN>_DESIGN_ARCH_<X>
+# <DOMAIN>_ARCH_DESIGN_<X>
 
 Name: <domain>d_<architectureDesignName>
 

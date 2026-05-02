@@ -37,7 +37,7 @@ A dedicated `sw_platform.md` requirements document shall be defined to capture p
 Platform requirements shall define platform constraints derived from upstream elements.
 
 Platform requirements shall have the following attributes:
-- A unique identifier defined as a Markdown heading, following the pattern: `SW_PLATFORM_REQ_<X>`
+- A unique identifier defined as a Markdown heading, following the pattern: `SW_REQ_PLATFORM_<X>`
   - The heading level may vary depending on the document structure.
   - `<X>` is a monotonically increasing number that shall never be reused.
 - A description using the following pattern: `<subject> shall <required behavior>.`
@@ -49,7 +49,7 @@ Platform requirements shall have the following attributes:
 The following platform requirement template shall be used:
 
 ```md
-# SW_PLATFORM_REQ_<X>
+# SW_REQ_PLATFORM_<X>
 
 <subject> shall <required behavior>.
 

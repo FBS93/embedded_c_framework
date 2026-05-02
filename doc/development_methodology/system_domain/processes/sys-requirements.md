@@ -41,7 +41,7 @@ The domain attribute shall:
 The domain attribute shall be included in all system requirements using the following requirement template:
 
 ```md
-# SYS_<FUNC_DOMAIN>_REQ_<X>
+# SYS_REQ_<FUNC_DOMAIN>_<X>
 
 <subject> shall <required behavior>.
 
