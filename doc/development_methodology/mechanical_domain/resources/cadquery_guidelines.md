@@ -28,10 +28,6 @@ The component builder function shall be named `build_component`.
 
 ---
 
-The preview function shall be named `preview_component`.
-
----
-
 Export functions shall use lower_snake_case format and start with the prefix `export_`.
 
 Examples: `export_stl`, `export_step`, `export_svg`
@@ -51,7 +47,8 @@ Mechanical component files shall:
 - Define all component-defining values explicitly in the `CONSTANTS` section and keep them separated from the geometry construction logic.
 - Define a component builder function named `build_component`.
 - Define one or more export functions named using the `export_` prefix when exported files are required.
-- Define a preview function named `preview_component` when direct preview support is needed.
+- Ensure the component is rendered in CQ-Editor by invoking `show_object()` on the result of `build_component()` within the script entry point (`if __name__ == "__main__":`).
+- The script entry point shall not contain geometry construction logic other than invoking `build_component()` and passing its result to `show_object()`.
 
 ---
 
