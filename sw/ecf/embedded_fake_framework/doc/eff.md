@@ -2,9 +2,11 @@
 
 EFF is a lightweight, platform-agnostic fake functions framework designed to run on both embedded systems and host environments. Its purpose is to provide:
 - Macro-based creation of fake functions for testing and validation.
-- Fake functions autogeneration script.
+- Fake functions autogeneration tool.
 
-The ECF framework provides [ECF cmake functions](../../tools/cmake/functions/ecf_mock.cmake) that encapsulate the usage of the autogeneration script implemented in [eff_gen.py](../../tools/scripts/eff_gen.py).
+The ECF framework provides [ECF cmake functions](../../tools/cmake/functions/ecf_mock.cmake) that encapsulate the usage of the [EFF autogeneration tool](../../tools/eff_gen/eff_gen.md).
+
+@todo The current generator intentionally targets a pragmatic subset of the C declarations used in this template. If EFF needs full-language coverage in the future, evaluate integrating a dedicated C parser instead of continuing to grow regex-driven parsing. Good candidates include `pycparser` for a pure Python AST workflow, `libclang` via `clang.cindex`, or other maintained clang bindings capable of handling compiler attributes, nested declarators, macros, and more complex function pointer forms.
 
 This framework is a derivative work based on:
 - fff (c) Meekrosoft.
