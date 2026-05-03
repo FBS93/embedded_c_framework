@@ -47,7 +47,7 @@ Each project-specific software unit shall have its own software detailed design 
     - Upstream traceability to one or more software architecture elements. Shall be defined as a list of Markdown links referencing the corresponding software architecture elements.
     - A list of hardware resources used directly by the software unit, including their usage.
     - A list of external library dependencies, including their usage.
-- One header file named `<sw_unit_name>.h` defining the main public header file of the software unit. Additional header files, if any, shall be named following the pattern `<sw_unit_name>_<header_specific_suffix>.h` and are intended to support the internal structure and detailed design of the software unit. All header files of the software unit shall follow the rules defined in [embedded_c_guidelines.md](../resources/embedded_c_coding_guidelines.md).
+- All header files of the software unit. One header file named `<sw_unit_name>.h` shall define the main public header file of the software unit. Additional header files, if any, shall be named following the pattern `<sw_unit_name>_<header_specific_suffix>.h` and are intended to support the internal structure and detailed design of the software unit. All header files of the software unit shall follow the rules defined in [embedded_c_guidelines.md](../resources/embedded_c_coding_guidelines.md).
 
 The following additions to the Markdown document template shall be applied for generic software units, in addition to the template defined in [embedded_c_guidelines.md](../resources/embedded_c_coding_guidelines.md#librarymodule-documentation):
 
