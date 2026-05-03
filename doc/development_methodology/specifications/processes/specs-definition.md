@@ -18,10 +18,10 @@ Define project specifications from stakeholder specifications.
 1. Review the stakeholder specifications.
 2. Identify specification elements by extracting the smallest meaningful text fragments.
 3. Define the specifications.
-4. Check the specifications for completeness, consistency, and correctness.
+4. Check the specifications for completeness, consistency and correctness.
 5. Identify tools available for project development, validation and debugging.
 6. Define the tools.
-7. Check the tools for completeness, consistency, and correctness.
+7. Check the tools for completeness, consistency and correctness.
 
 ## Guidelines
 

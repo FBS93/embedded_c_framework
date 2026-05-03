@@ -11,14 +11,14 @@ metadata:
 
 ## When to Use
 
-- After system requirements, system architecture, and hardware-software interface are approved.
+- After system requirements, system architecture and hardware-software interface are approved.
 - When any software requirements activity is required.
 
 ## Critical Patterns
 
 - Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
-- Shall align with system requirements, system architecture, and hardware-software interface (no inconsistencies).
-- Shall ensure all software requirements are derived from system requirements, system architecture, and hardware-software interface by adding explicit traceability between them.
+- Shall align with system requirements, system architecture and hardware-software interface (no inconsistencies).
+- Shall ensure all software requirements are derived from system requirements, system architecture and hardware-software interface by adding explicit traceability between them.
 - Shall avoid embedding architectural or implementation decisions in software requirements.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval when software requirements are incomplete, ambiguous, or conflicting.

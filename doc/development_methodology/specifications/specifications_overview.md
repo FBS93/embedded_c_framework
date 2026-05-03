@@ -4,7 +4,7 @@
 
 | Term | Definition |
 |---|---|
-| Stakeholder specification | Source information provided by stakeholders describing needs, constraints, and expectations. |
+| Stakeholder specification | Source information provided by stakeholders describing needs, constraints and expectations. |
 | Specification | Traceable element derived from stakeholder specifications representing the smallest meaningful unit of information. |
 | Tool | Project resource used for development, validation, or debugging. |
 

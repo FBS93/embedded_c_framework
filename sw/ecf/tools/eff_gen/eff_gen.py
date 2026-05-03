@@ -55,7 +55,7 @@ import shutil
 ##
 # @brief Matches a full function prototype declaration terminated by @c ;.
 #
-# Captures the declaration prefix, function name, and raw argument list after
+# Captures the declaration prefix, function name and raw argument list after
 # declarations have already been sanitized from comments and preprocessor lines.
 ##
 FUNCTION_PROTOTYPE_PATTERN = re.compile(
@@ -439,7 +439,7 @@ def extract_functions(header_text):
 ##
 # @brief Fake functions generator.
 #
-# Parses command-line arguments, scans header files, and generates
+# Parses command-line arguments, scans header files and generates
 # corresponding mock source and header files.
 ##
 def main():

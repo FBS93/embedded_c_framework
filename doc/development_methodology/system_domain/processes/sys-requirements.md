@@ -18,7 +18,7 @@ Define system requirements from specifications.
 2. Identify the needs to be addressed by the system requirements.
 3. Define the system requirements derived from the specifications.
 4. Define traceability between system requirements and specifications.
-5. Check the system requirements for completeness, consistency, and correctness.
+5. Check the system requirements for completeness, consistency and correctness.
 
 ## Guidelines
 

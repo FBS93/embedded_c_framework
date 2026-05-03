@@ -1,5 +1,5 @@
 # HSM test overview
-This test verifies the correct operation of a deeply nested hierarchical state machine (HSM). The HSM includes multiple levels of hierarchy, transitions between siblings, parent/child states, ancestor/descendant paths, and a choice pseudo-state. The purpose of this test is to confirm that the HSM engine evaluates transitions, entry/exit sequences, and initial transitions strictly according to the HSM rules.
+This test verifies the correct operation of a deeply nested hierarchical state machine (HSM). The HSM includes multiple levels of hierarchy, transitions between siblings, parent/child states, ancestor/descendant paths and a choice pseudo-state. The purpose of this test is to confirm that the HSM engine evaluates transitions, entry/exit sequences and initial transitions strictly according to the HSM rules.
 
 # Use case
 The test instantiates one active object (`hsm`) that implements the full HSM defined in the following diagram:
@@ -42,7 +42,7 @@ state "top" as top {
   state "choice" as C <<choice>>
 }
 
-Each test case publishes the same signal (`TRANSITION`), and the HSM must reach the next expected state according to the predefined transition flow:
+Each test case publishes the same signal (`TRANSITION`) and the HSM must reach the next expected state according to the predefined transition flow:
 - Initial transition: (S11111)
 - S1 --> S211 : Event bubble up + Last common ancestor + Initial transition (S2111)
 - S2111 --> S2112 : Sibling (S2112)

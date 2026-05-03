@@ -187,7 +187,7 @@ The following template shall be used to document packages and modules in a separ
 ```
 # <Package/module name> overview
 
-<High-level description of the purpose, intent, and scope of the package/module>.
+<High-level description of the purpose, intent and scope of the package/module>.
 
 # Glossary
 

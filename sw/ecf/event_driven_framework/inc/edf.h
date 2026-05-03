@@ -175,7 +175,7 @@ void EDF_onIdle(void);
 /**
  * @todo Review and enforce consistent coding style across the framework.
  * This includes comment formatting, naming conventions (functions, variables,
- * types, macros), and implementation patterns. Ensure all modules follow
+ * types, macros) and implementation patterns. Ensure all modules follow
  * the same style guide uniformly.
  */
 

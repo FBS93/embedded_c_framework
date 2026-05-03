@@ -6,7 +6,7 @@ EFF is a lightweight, platform-agnostic fake functions framework designed to run
 
 The ECF framework provides [ECF cmake functions](../../tools/cmake/functions/ecf_mock.cmake) that encapsulate the usage of the [EFF autogeneration tool](../../tools/eff_gen/eff_gen.md).
 
-@todo The current generator intentionally targets a pragmatic subset of the C declarations used in this template. If EFF needs full-language coverage in the future, evaluate integrating a dedicated C parser instead of continuing to grow regex-driven parsing. Good candidates include `pycparser` for a pure Python AST workflow, `libclang` via `clang.cindex`, or other maintained clang bindings capable of handling compiler attributes, nested declarators, macros, and more complex function pointer forms.
+@todo The current generator intentionally targets a pragmatic subset of the C declarations used in this template. If EFF needs full-language coverage in the future, evaluate integrating a dedicated C parser instead of continuing to grow regex-driven parsing. Good candidates include `pycparser` for a pure Python AST workflow, `libclang` via `clang.cindex`, or other maintained clang bindings capable of handling compiler attributes, nested declarators, macros and more complex function pointer forms.
 
 This framework is a derivative work based on:
 - fff (c) Meekrosoft.
@@ -16,8 +16,8 @@ This framework is a derivative work based on:
 
 | Term | Definition |
 |------|------------|
-| Fake Function | Lightweight function replacement used to isolate code under test, control external dependencies, and monitor interactions. Used synonymously with Mock Function in the context of this library. |
-| Mock Function | Lightweight function replacement used to isolate code under test, control external dependencies, and monitor interactions. Used synonymously with Fake Function in the context of this library. |
+| Fake Function | Lightweight function replacement used to isolate code under test, control external dependencies and monitor interactions. Used synonymously with Mock Function in the context of this library. |
+| Mock Function | Lightweight function replacement used to isolate code under test, control external dependencies and monitor interactions. Used synonymously with Fake Function in the context of this library. |
 
 # Usage example
 

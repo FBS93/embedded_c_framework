@@ -19,7 +19,7 @@ Define hardware requirements from system requirements and system architecture.
 2. Identify the needs to be addressed by the hardware requirements.
 3. Define the hardware requirements derived from the system requirements and system architecture.
 4. Define traceability from hardware requirements to system requirements and system architecture.
-5. Check the hardware requirements for completeness, consistency, and correctness.
+5. Check the hardware requirements for completeness, consistency and correctness.
 
 ## Guidelines
 

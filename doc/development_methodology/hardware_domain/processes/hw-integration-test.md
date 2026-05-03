@@ -21,7 +21,7 @@ Define and implement hardware integration tests against hardware architecture to
 3. Identify hardware architecture elements requiring validation.
 4. Define and implement the hardware integration tests.
 5. Define traceability between hardware integration tests and the corresponding hardware architecture elements.
-6. Check the hardware integration tests for completeness, consistency, and correctness.
+6. Check the hardware integration tests for completeness, consistency and correctness.
 
 ## Guidelines
 

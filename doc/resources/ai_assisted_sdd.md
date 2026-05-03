@@ -2,7 +2,7 @@
 
 ## Overview
 
-AI-assisted SDD (Spec Driven Development) defines a workflow in which specifications drive development activities, with AI (Artificial Intelligence) tools supporting design, implementation, and validation tasks. In this template, it is integrated with the V-model development methodology as follows:
+AI-assisted SDD (Spec Driven Development) defines a workflow in which specifications drive development activities, with AI (Artificial Intelligence) tools supporting design, implementation and validation tasks. In this template, it is integrated with the V-model development methodology as follows:
 1. The [V-model development methodology](../development_methodology/development_methodology_overview.md) defines the engineering processes, their inputs, outputs, resources and traceability rules.
 2. The [skills](../../skills/) provided by the repository map those processes to AI-usable entry points.
 3. [AI Gentle Stack](https://github.com/Gentleman-Programming/gentle-ai) provides the AI-assisted SDD environment.
@@ -12,7 +12,7 @@ AI-assisted SDD (Spec Driven Development) defines a workflow in which specificat
 
 | Term | Definition |
 |------|------------|
-| SDD (Spec Driven Development) | Development approach where specifications drive design, implementation, and validation. |
+| SDD (Spec Driven Development) | Development approach where specifications drive design, implementation and validation. |
 
 ## Usage example
 

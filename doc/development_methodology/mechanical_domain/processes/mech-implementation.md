@@ -20,7 +20,7 @@ Implement the mechanical design from mechanical requirements and mechanical arch
 2. Review available tools required for the implementation.
 3. Implement each mechanical component according to its mechanical architecture definition.
 4. Ensure consistency between the implementation and the mechanical architecture and mechanical requirements.
-5. Check the mechanical implementation for completeness, consistency, and correctness.
+5. Check the mechanical implementation for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -36,4 +36,4 @@ The implementation of each mechanical component shall:
 - Be implemented in a single Python source file whose name matches the mechanical component name defined in the architecture, using lower_snake_case. This establishes an implicit 1:1 relationship between the mechanical component and its implementation.
 - Realize the referenced mechanical interfaces and mechanical parameters only through the corresponding mechanical component implementation to which they are linked in the mechanical architecture.
 - Generate all required exported files from the source files and never edit exported files manually.
-- Use the mechanical component source file to generate the required CAD exchange files (`.step`), mesh export files (`.stl`), and 2D projection files (`.svg`) when applicable.
+- Use the mechanical component source file to generate the required CAD exchange files (`.step`), mesh export files (`.stl`) and 2D projection files (`.svg`) when applicable.

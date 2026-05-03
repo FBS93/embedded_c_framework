@@ -376,7 +376,7 @@ EBF_WEAK void EDF_onShutdown(void)
  * the only supported value for scheduling scope is @c PTHREAD_SCOPE_SYSTEM.
  *
  * This means that threads compete for CPU time with all processes
- * running on the machine, and thread priorities are interpreted
+ * running on the machine and thread priorities are interpreted
  * relative to other system processes.
  *
  * If thread priorities are set high enough, no other process (or

@@ -167,7 +167,7 @@ void EMF_print(const char* fmt, const uintptr_t* args);
  * and pointers (e.g., strings).
  *
  * It is critical to use @c uintptr_t for pointers because their size can
- * vary between platforms (e.g., 32-bit vs 64-bit), and storing a pointers like
+ * vary between platforms (e.g., 32-bit vs 64-bit) and storing a pointers like
  * string in a smaller type like @c uint32_t would lead to data loss and
  * invalid pointers. For scalar values that are known to fit in 32 bits,
  * @c uint32_t could be used, but using @c uintptr_t unifies the

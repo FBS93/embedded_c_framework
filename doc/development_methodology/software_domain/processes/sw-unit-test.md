@@ -21,7 +21,7 @@ Define and implement software unit tests against software detailed design to val
 3. Identify which parts of the software detailed design require unit testing.
 4. Define and implement the software unit tests.
 5. Define traceability between software unit tests and the corresponding software detailed design.
-6. Check the software unit tests for completeness, consistency, and correctness.
+6. Check the software unit tests for completeness, consistency and correctness.
 
 ## Guidelines
 

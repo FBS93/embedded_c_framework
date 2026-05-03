@@ -22,7 +22,7 @@ Define and implement mechanical qualification tests against mechanical requireme
 3. Identify mechanical requirements requiring validation.
 4. Define and implement the mechanical qualification tests.
 5. Define traceability between mechanical qualification tests and the corresponding mechanical requirements.
-6. Check the mechanical qualification tests for completeness, consistency, and correctness.
+6. Check the mechanical qualification tests for completeness, consistency and correctness.
 
 ## Guidelines
 

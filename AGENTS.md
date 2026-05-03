@@ -35,7 +35,7 @@ These skills map directly to development processes and should be used following 
 | `sw-implementation` | Implement the software from software requirements, software architecture and software detailed design. | skills/sw-implementation/SKILL.md |
 | `sw-unit-test` | Define and implement software unit tests against software detailed design to validate that the software implementation correctly realizes it. | skills/sw-unit-test/SKILL.md |
 | `sw-integration-test` | Define and implement software integration tests against software architecture to validate that the software detailed design and software implementation correctly realizes it. | skills/sw-integration-test/SKILL.md |
-| `sw-qualification-test` | Define and implement software qualification tests against software requirements to validate that the software architecture, software detailed design, and software implementation correctly realizes them. | skills/sw-qualification-test/SKILL.md |
+| `sw-qualification-test` | Define and implement software qualification tests against software requirements to validate that the software architecture, software detailed design and software implementation correctly realizes them. | skills/sw-qualification-test/SKILL.md |
 
 ### Hardware domain
 

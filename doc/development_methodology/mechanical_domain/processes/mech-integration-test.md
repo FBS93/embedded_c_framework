@@ -21,7 +21,7 @@ Define and implement mechanical integration tests against mechanical architectur
 3. Identify mechanical architecture elements requiring validation.
 4. Define and implement the mechanical integration tests.
 5. Define traceability between mechanical integration tests and the corresponding mechanical architecture elements.
-6. Check the mechanical integration tests for completeness, consistency, and correctness.
+6. Check the mechanical integration tests for completeness, consistency and correctness.
 
 ## Guidelines
 

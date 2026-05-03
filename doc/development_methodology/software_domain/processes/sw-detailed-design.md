@@ -19,7 +19,7 @@ Define software detailed design from software requirements and software architec
 2. Identify the software units required to address the software requirements and software architecture.
 3. Define the detailed design of each software unit.
 4. Define traceability between software detailed design and software architecture.
-5. Check the software detailed design for completeness, consistency, and correctness.
+5. Check the software detailed design for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -35,7 +35,7 @@ All software architecture elements shall be traced to one or more software units
 
 In cases where a software component is refined into multiple software units (1:N), it is recommended to group the corresponding software units under a common folder named the same as the software component.
 
-Software units shall be reused from existing libraries when available. Before creating a new software unit or implementing project-specific functionality within a software unit, it shall be verified whether the required functionality can be provided by [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md). If a specific implementation within a software unit is still required, it shall be assessed whether it can be fully or partially designed as reusable software for other projects, and therefore implemented in [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md). Project-specific software implementation shall be minimized.
+Software units shall be reused from existing libraries when available. Before creating a new software unit or implementing project-specific functionality within a software unit, it shall be verified whether the required functionality can be provided by [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md). If a specific implementation within a software unit is still required, it shall be assessed whether it can be fully or partially designed as reusable software for other projects and therefore implemented in [Embedded C Framework (ECF)](../../../../sw/ecf/doc/ecf.md). Project-specific software implementation shall be minimized.
 
 Each project-specific software unit shall have its own software detailed design and shall consist of:
 - A Markdown document named `<sw_unit_name>.md` following the template defined in [embedded_c_guidelines.md](../resources/embedded_c_coding_guidelines.md#librarymodule-documentation) with the following additional information:
@@ -112,7 +112,7 @@ Hardware resources:
 
 External dependencies:
 - Embedded Assert Framework (EAF): Provides assertions to enforce Design by Contract (DbC) in all undefined fault handling cases.
-- Event Driven Framework (EDF): Provides an event-driven execution model based on active objects, HSMs, and a publish-subscribe mechanism.
+- Event Driven Framework (EDF): Provides an event-driven execution model based on active objects, HSMs and a publish-subscribe mechanism.
 - events: Provides the project-specific event definitions shared across all active objects.
 - <External library name>: <Short description of its usage>
 ```

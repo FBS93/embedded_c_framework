@@ -22,7 +22,7 @@ Define and implement hardware qualification tests against hardware requirements 
 3. Identify hardware requirements requiring validation.
 4. Define and implement the hardware qualification tests.
 5. Define traceability between hardware qualification tests and the corresponding hardware requirements.
-6. Check the hardware qualification tests for completeness, consistency, and correctness.
+6. Check the hardware qualification tests for completeness, consistency and correctness.
 
 ## Guidelines
 

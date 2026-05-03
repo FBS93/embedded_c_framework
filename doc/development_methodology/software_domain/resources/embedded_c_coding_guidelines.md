@@ -464,7 +464,7 @@ The following template shall be used to document libraries and modules in a sepa
 ```
 # <Library/module name> overview
 
-<High-level description of the purpose, intent, and scope of the library/module>.
+<High-level description of the purpose, intent and scope of the library/module>.
 
 # Glossary
 

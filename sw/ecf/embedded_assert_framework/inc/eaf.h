@@ -204,7 +204,7 @@
  * active critical section. These macros do not modify the critical-section
  * state.
  *
- * In contrast, @ref EAF_ASSERT(), @ref EAF_ASSERT_ID(), and the in-block
+ * In contrast, @ref EAF_ASSERT(), @ref EAF_ASSERT_ID() and the in-block
  * assertions (@ref EAF_ASSERT_IN_BLOCK() and @ref EAF_ASSERT_IN_BLOCK_ID())
  * used between @ref EAF_ASSERT_BLOCK_BEGIN() and @ref EAF_ASSERT_BLOCK_END()
  * first check whether execution is already inside a critical section:

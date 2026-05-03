@@ -9,7 +9,7 @@ The available VS Code functions are organized by domain. Each function is listed
 The repository exposes these functions through three VS Code entry point types:
 - Tasks defined in [tasks.json](../../.vscode/tasks.json).
 - Launch configurations defined in [launch.json](../../.vscode/launch.json).
-- Task buttons configured in [settings.json](../../.vscode/settings.json), grouped as workbench, software, hardware, and mechanical toolboxes.
+- Task buttons configured in [settings.json](../../.vscode/settings.json), grouped as workbench, software, hardware and mechanical toolboxes.
 
 ## Workbench
 
@@ -25,7 +25,7 @@ The repository exposes these functions through three VS Code entry point types:
 |---|---|---|---|
 | Build | `build` task, `🔨 Build` task button | Builds the selected software target using the active CMake preset and active CMake build target. | |
 | Clean | `clean` task, `🧹 Clean` task button | Cleans the build artifacts generated for the active CMake preset. | |
-| Format | `format` task, `🧼 Format all source files` task button | Formats repository C, ASM, CMake, and Python sources using the configured repository tooling. ASM files are also formatted on save through VS Code settings. | [Embedded C coding guidelines](../development_methodology/software_domain/resources/embedded_c_coding_guidelines.md), [Python coding guidelines](../development_methodology/resources/python_coding_guidelines.md), [ASM formatter tool](../development_methodology/software_domain/resources/assembler_format_tool.md) |
+| Format | `format` task, `🧼 Format all source files` task button | Formats repository C, ASM, CMake and Python sources using the configured repository tooling. ASM files are also formatted on save through VS Code settings. | [Embedded C coding guidelines](../development_methodology/software_domain/resources/embedded_c_coding_guidelines.md), [Python coding guidelines](../development_methodology/resources/python_coding_guidelines.md), [ASM formatter tool](../development_methodology/software_domain/resources/assembler_format_tool.md) |
 | Lint | `lint` task, `🔎 Run linter` task button | Runs the configured software static analysis workflow using the active CMake preset. | |
 | Fuzz | `run_fuzz` task, `🧪 Run fuzzer` task button | Runs the selected fuzz target using the active CMake build target. | |
 | Fuzz source coverage | `run_fuzz_coverage` task, `📊 Run fuzzer coverage` task button | Replays the fuzz campaign results available for the selected fuzz target to generate coverage reports using the active CMake build target. | [Fuzz example](../../sw/ecf/event_driven_framework/examples/fuzz_example/doc/fuzz_example.md) |

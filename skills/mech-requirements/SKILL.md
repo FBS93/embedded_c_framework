@@ -11,14 +11,14 @@ metadata:
 
 ## When to Use
 
-- After system requirements, system architecture, and hardware-mechanical interface are approved.
+- After system requirements, system architecture and hardware-mechanical interface are approved.
 - When any mechanical requirements activity is required.
 
 ## Critical Patterns
 
 - Shall strictly follow the provided resources and recursively review all referenced documents required to understand the current process, inputs, outputs, rules and directly referenced work products.
-- Shall align with system requirements, system architecture, and hardware-mechanical interface (no inconsistencies).
-- Shall ensure all mechanical requirements are derived from system requirements, system architecture, and hardware-mechanical interface by adding explicit traceability between them.
+- Shall align with system requirements, system architecture and hardware-mechanical interface (no inconsistencies).
+- Shall ensure all mechanical requirements are derived from system requirements, system architecture and hardware-mechanical interface by adding explicit traceability between them.
 - Shall avoid embedding design implementation details in mechanical requirements.
 - Shall keep documentation DRY (Don't Repeat Yourself) by adding references instead of duplicating content.
 - Shall ask for approval when mechanical requirements are incomplete, ambiguous, or conflicting.

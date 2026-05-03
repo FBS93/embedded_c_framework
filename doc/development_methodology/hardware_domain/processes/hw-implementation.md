@@ -22,13 +22,13 @@ Implement the hardware design from hardware requirements and hardware architectu
 2. Review available tools required for the implementation.
 3. Implement each hardware assembly according to its hardware architecture definition.
 4. Ensure consistency between the implementation and the hardware architecture and hardware requirements.
-5. Check the hardware implementation for completeness, consistency, and correctness.
+5. Check the hardware implementation for completeness, consistency and correctness.
 6. Define the hardware-mechanical interface according to the hardware architecture and hardware implementation.
 7. Ensure consistency between hardware-mechanical interface, hardware architecture and hardware implementation.
-8. Check the hardware-mechanical interface for completeness, consistency, and correctness.
+8. Check the hardware-mechanical interface for completeness, consistency and correctness.
 9. Define the hardware-software interface according to the hardware architecture and hardware implementation.
 10. Ensure consistency between hardware-software interface, hardware architecture and hardware implementation.
-11. Check the hardware-software interface for completeness, consistency, and correctness.
+11. Check the hardware-software interface for completeness, consistency and correctness.
 
 ## Guidelines
 
@@ -95,4 +95,4 @@ The hardware-software interface work product may include, for example, when appl
 - Programmable device interfaces and peripherals relevant to firmware implementation.
 - Reference manuals and datasheets for hardware components relevant to firmware implementation.
 - External interrupt sources and the conditions that trigger them.
-- Boot, reset, programming, and debug interfaces.
+- Boot, reset, programming and debug interfaces.

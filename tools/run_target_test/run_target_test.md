@@ -1,6 +1,6 @@
 # Run target test overview
 
-`run_target_test.py` automates remote Hardware-in-the-Loop target execution by flashing a test binary through GDB, enabling remote logging, running the firmware, and translating the observed result into a process exit code suitable for `CTest`.
+`run_target_test.py` automates remote Hardware-in-the-Loop target execution by flashing a test binary through GDB, enabling remote logging, running the firmware and translating the observed result into a process exit code suitable for `CTest`.
 
 It works as follows:
 - Starting GDB server on a remote Raspberry Pi.

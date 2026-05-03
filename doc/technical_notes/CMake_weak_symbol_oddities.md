@@ -11,7 +11,7 @@ This all started when I had finished getting my existing codebase compiling with
 
 ## Weak Symbols
 
-GCC provides a way to create a weak symbol. That is to say that one can define a function as weak, and later override it with a strong implementation. This is often used to provide a default function implementation that a user can later override with something custom. Typically, this is done by using the `__attribute__((weak))` GCC attribute.
+GCC provides a way to create a weak symbol. That is to say that one can define a function as weak and later override it with a strong implementation. This is often used to provide a default function implementation that a user can later override with something custom. Typically, this is done by using the `__attribute__((weak))` GCC attribute.
 
 ```c
 // strong.c
@@ -137,9 +137,9 @@ add_executable(demo weak.c)
 target_link_libraries(demo PRIVATE strong)
 ```
 
-In this CMake snippet, we build `strong.c` as a static library, and link it to the code containing the weak function. The output of this program is `This is a weak function`.
+In this CMake snippet, we build `strong.c` as a static library and link it to the code containing the weak function. The output of this program is `This is a weak function`.
 
->The strong function is omitted from the build because the weak function is linked first, and the strong function is in a static library.
+>The strong function is omitted from the build because the weak function is linked first and the strong function is in a static library.
 
 So how do we fix this?
 
@@ -194,9 +194,9 @@ add_executable(demo main.c)
 target_link_libraries(demo PRIVATE B)
 ```
 
-The result is `undefined reference to 'a'`. This limitation is outlined in the [CMake documentation](https://cmake.org/cmake/help/latest/command/target_link_libraries.html#linking-object-libraries), and is because object libraries do not have a link step, so no linking is done. Fortunately, there is a workaround, which is described in the following section of the documentation.
+The result is `undefined reference to 'a'`. This limitation is outlined in the [CMake documentation](https://cmake.org/cmake/help/latest/command/target_link_libraries.html#linking-object-libraries) and is because object libraries do not have a link step, so no linking is done. Fortunately, there is a workaround, which is described in the following section of the documentation.
 
-An [Interface Library](https://cmake.org/cmake/help/latest/command/add_library.html#interface-libraries) wrapper can be created. Interface libraries do not compile sources, and do not produce output libraries, but can track dependencies and have properties.
+An [Interface Library](https://cmake.org/cmake/help/latest/command/add_library.html#interface-libraries) wrapper can be created. Interface libraries do not compile sources and do not produce output libraries, but can track dependencies and have properties.
 
 >Interface libraries are typically used to model header-only libraries.
 
@@ -216,7 +216,7 @@ target_link_libraries(demo PRIVATE B)
 
 >Since interface libraries do not produce outputs, linking A with target_link_libraries does not directly add the objects to its properties, only things such as the include paths and compile definitions. The objects themselves can be added to the interface libraries properties with the TARGET_OBJECTS generator.
 
-We only need the wrapper around `A`, since its dependencies must be propagated. Because non-object libraries can be linked to object libraries, and `B` is the last library in the dependency chain, `ifaceA` can simply be linked to `B`.
+We only need the wrapper around `A`, since its dependencies must be propagated. Because non-object libraries can be linked to object libraries and `B` is the last library in the dependency chain, `ifaceA` can simply be linked to `B`.
 
 ## Conclusion
 

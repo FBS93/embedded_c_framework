@@ -81,7 +81,7 @@
  * @brief Resets the internal state of a fake function.
  *
  * Calls the reset function associated with the specified fake function,
- * clearing call counts, argument histories, and return value sequences.
+ * clearing call counts, argument histories and return value sequences.
  *
  * @param[in] FUNCNAME Name of the fake function to reset.
  */
