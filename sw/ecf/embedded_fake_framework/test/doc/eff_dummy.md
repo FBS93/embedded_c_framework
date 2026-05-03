@@ -1,6 +1,6 @@
-# eff_dummy overview
+# EFF dummy overview
 
-`eff_dummy` defines a small public API used to validate EFF mock generation and runtime fake behavior. The declarations are intentionally shaped to exercise the parser cases covered by the EFF generator.
+Defines a small public API used to validate EFF mock generation and runtime fake behavior. The declarations are intentionally shaped to exercise the parser cases covered by the EFF generator.
 
 # Glossary
 

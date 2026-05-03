@@ -1,4 +1,4 @@
-# test_eff test overview
+# EFF test overview
 
 This test validates the runtime behavior of generated EFF mocks using a dummy module header that exercises parser-sensitive C declarations.
 

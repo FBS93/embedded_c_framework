@@ -48,7 +48,7 @@ ECF provides CMake functions that encapsulate test executable creation and regis
 
 | Term | Definition |
 |------|------------|
-| @todo |   |
+|   |   |
 
 # Usage example
 
