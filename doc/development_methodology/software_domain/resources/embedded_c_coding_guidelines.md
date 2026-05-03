@@ -385,7 +385,20 @@ The following template shall be used for `.S` files
 
 All code elements shall be documented using **Doxygen** comments.
 
-The following Doxygen tags are allowed:  `@brief`, `@param`, `@return`, `@note`, `@todo`, `@ref`
+The following Doxygen tags are allowed: `@brief`, `@param`, `@return`, `@note`, `@todo`, `@ref`, `@c`, `@par`, `@anchor`, `@warning`
+
+When a documentation fragment needs to be referenced, the following format shall be used:
+
+```c
+/**
+ * @anchor <anchor_name>
+ * @par <Visible title>
+ *
+ * ...
+ */
+```
+
+---
 
 Multi-line documentation blocks shall use the following Doxygen format:
 
@@ -405,6 +418,7 @@ Multi-line documentation blocks shall use the following Doxygen format:
  * @return ...
  */
 ```
+
 ---
 
 Single-line documentation, used to document `struct` or `enum` members, shall use the following Doxygen format:

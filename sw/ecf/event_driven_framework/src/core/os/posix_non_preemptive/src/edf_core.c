@@ -268,10 +268,11 @@ EBF_WEAK void EDF_onIdle(void)
 }
 
 /**
- * @note ticker_thread
+ * @anchor ticker_thread
+ * @par Ticker thread
  *
  * The ticker thread is responsible for periodically invoking
- * `EDF_timeEvent_tick(tick_rate)` at the configured tick rates.
+ * @ref EDF_timeEvent_tick() with the configured @p tick_rate values.
  *
  * @note The EDF framework does not create this thread automatically.
  * It is the user's responsibility to configure and start the ticker

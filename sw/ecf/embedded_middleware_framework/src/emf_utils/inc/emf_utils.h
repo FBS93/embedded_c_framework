@@ -59,7 +59,7 @@
 /**
  * @brief Defines a portable, memory-aligned slot.
  *
- * This macro defines a struct containing an array of `void*` large enough
+ * This macro defines a struct containing an array of @c void* large enough
  * to hold a memory slot of the specified @p size.
  *
  * @code

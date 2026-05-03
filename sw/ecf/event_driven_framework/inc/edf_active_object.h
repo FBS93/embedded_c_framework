@@ -123,14 +123,15 @@ typedef struct
  * EDF_MAX_ACTIVE_OBJECT.
  *
  * @todo Consider separating base priority and preemption-threshold into
- * distinct typedefs and removing the `EDF_activeObject_prio_t` type from all
+ * distinct typedefs and removing the @c EDF_activeObject_prio_t type from all
  * usage sites, to improve clarity and avoid packing both values into a single
  * type.
  */
 typedef uint16_t EDF_activeObject_prio_t;
 
 /**
- * @note preemption-threshold
+ * @anchor preemption_threshold
+ * @par Preemption threshold
  *
  * Each AO has a priority (prio) and an optional preemption-threshold (pthre).
  *   - prio decides scheduling order.
@@ -171,8 +172,9 @@ void EDF_activeObject_init(EDF_activeObject_t* me,
 /**
  * @brief Sets implementation-specific attributes for an active object.
  *
- * This function can only be called after EDF_activeObject_init() and before
- * EDF_activeObject_start(), only if specific attributes need to be configured,
+ * This function can only be called after @ref EDF_activeObject_init() and
+ * before @ref EDF_activeObject_start(), only if specific attributes need to be
+ * configured,
  * depending on the selected core and port.
  *
  * @param[in,out] me Pointer to the active object instance.
@@ -216,8 +218,8 @@ void EDF_activeObject_start(EDF_activeObject_t* me,
  *
  * @note The subscriberList array shall provide exactly [max_signal] entries.
  *
- * @note The subscriberList array shall also include the reserved entries for
- * signals below EDF_HSM_USER_SIGNAL.
+ * @note The @p subscriberList array shall also include the reserved entries for
+ * signals below @ref EDF_HSM_USER_SIGNAL.
  *
  * Example:
  * @code
@@ -237,7 +239,7 @@ void EDF_activeObject_start(EDF_activeObject_t* me,
  * signals.
  *
  * @todo Evaluate whether it is worth optimizing memory usage by avoiding
- * reserved entries for EDF signals (those below EDF_HSM_USER_SIGNAL).
+ * reserved entries for EDF signals (those below @ref EDF_HSM_USER_SIGNAL).
  * These entries remain intentionally unused in the current implementation
  * for indexing simplicity.
  *

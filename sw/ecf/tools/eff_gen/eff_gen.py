@@ -53,7 +53,7 @@ import shutil
 # ==============================================================================
 
 ##
-# @brief Matches a full function prototype declaration terminated by `;`.
+# @brief Matches a full function prototype declaration terminated by @c ;.
 #
 # Captures the declaration prefix, function name, and raw argument list after
 # declarations have already been sanitized from comments and preprocessor lines.
@@ -71,7 +71,7 @@ FUNCTION_PROTOTYPE_PATTERN = re.compile(
 #
 # Captures the callback return type, pointer declarator prefix, argument name,
 # and callback parameter list for declarations such as
-# `void (* callback)(uint8_t status)`.
+# @c void (* callback)(uint8_t status).
 ##
 FUNCTION_POINTER_ARGUMENT_PATTERN = re.compile(
     r'^(?P<return_type>.+?)'

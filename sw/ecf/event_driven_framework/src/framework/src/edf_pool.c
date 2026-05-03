@@ -92,7 +92,7 @@ void EDF_pool_init(void* pool_storage,
   EAF_ASSERT_IN_CRITICAL_SECTION(pool_storage != NULL);
   EAF_ASSERT_IN_CRITICAL_SECTION(EDF_framework.pool_registry.max_pool <
                                  EDF_MAX_POOL);
-  // Minimum block_size. See note @ref free_list.
+  // Minimum block_size. See @ref free_list.
   EAF_ASSERT_IN_CRITICAL_SECTION(block_size >= sizeof(void*));
   EAF_ASSERT_IN_CRITICAL_SECTION(pool_size >= block_size);
 
@@ -238,7 +238,8 @@ void EDF_pool_release(EDF_pool_t* me, void* block)
 }
 
 /**
- * @note free_list
+ * @anchor free_list
+ * @par Free list
  *
  * This note explains how the free list is managed.
  * When a block is free, its first sizeof(void*) bytes are used to store

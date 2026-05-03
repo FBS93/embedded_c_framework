@@ -51,8 +51,8 @@
  *
  * @param state Pointer to the state handler function.
  * @param sig Reserved signal to dispatch. Must be one of the following:
- * EDF_HSM_EMPTY_SIGNAL, EDF_HSM_ENTRY_SIGNAL, EDF_HSM_EXIT_SIGNAL or
- * EDF_HSM_INIT_SIGNAL.
+ * @ref EDF_HSM_EMPTY_SIGNAL, @ref EDF_HSM_ENTRY_SIGNAL,
+ * @ref EDF_HSM_EXIT_SIGNAL or @ref EDF_HSM_INIT_SIGNAL.
  */
 #define DISPATCH_RESERVED_EVENT(state, sig) \
   ((*(state))(me, &reservedEvents[(sig)]))

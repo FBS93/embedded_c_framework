@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 set(CMAKE_C_STANDARD 11) 
-project(embedded_c_framework C ASM)
+project(embedded_workbench C ASM)
 
 # ******************************************************************************
 # Build options and configuration.
