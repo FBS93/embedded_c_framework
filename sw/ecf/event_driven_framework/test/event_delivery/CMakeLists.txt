@@ -7,7 +7,7 @@ target_link_libraries(active_object
   PRIVATE eaf
   PRIVATE emf)
 
-create_edf_test(
+ecf_create_edf_test(
   test_event_delivery
   src/test_event_delivery.c
   LINKS

@@ -7,7 +7,7 @@ target_link_libraries(time_mgr
   PRIVATE eaf
   PRIVATE emf)
 
-create_edf_test(
+ecf_create_edf_test(
   test_time_event
   src/test_time_event.c
   LINKS

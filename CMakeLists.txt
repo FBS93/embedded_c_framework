@@ -26,7 +26,7 @@ add_link_options(
 )
 
 # Add custom cmake function to add executable.
-include(tools/cmake/functions/ect_add_executable.cmake)
+include(tools/cmake/functions/ew_add_executable.cmake)
 
 # Set ECF_TEST to OFF if not defined.
 option(ECF_TEST "Build Embedded C Framework tests" OFF)

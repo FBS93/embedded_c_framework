@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-# Function: create_mock_from_file
+# Function: ecf_create_mock_from_file
 #
 # Description:
 #   Generates a mock library from a module’s header file using the Embedded Fake
@@ -27,7 +27,7 @@
 #   target_link_libraries for the generated mock target.
 #
 # Example:
-#   create_mock_from_file(inc/foo.h test lib_a lib_b)
+#   ecf_create_mock_from_file(inc/foo.h test lib_a lib_b)
 #
 #   This will:
 #     - Generate:
@@ -42,7 +42,7 @@
 #         - lib_a
 #         - lib_b
 #------------------------------------------------------------------------------
-function(create_mock_from_file header_path mock_directory_path)
+function(ecf_create_mock_from_file header_path mock_directory_path)
   set(eff_gen_tool ${PROJECT_SOURCE_DIR}/sw/ecf/tools/eff_gen/eff_gen.py)
 
   # Locate the Python executable required for the mock generator if not already defined
@@ -91,7 +91,7 @@ function(create_mock_from_file header_path mock_directory_path)
 endfunction()
 
 #------------------------------------------------------------------------------
-# Function: create_mock_from_dir
+# Function: ecf_create_mock_from_dir
 #
 # Description:
 #   Generates a mock library from all header files contained in a directory,
@@ -122,7 +122,7 @@ endfunction()
 #   target_link_libraries for the generated mock library.
 #
 # Example:
-#   create_mock_from_dir(generated_mocks modules/inc tests lib_a lib_b)
+#   ecf_create_mock_from_dir(generated_mocks modules/inc tests lib_a lib_b)
 #
 #   This will:
 #     - For every *.h file in modules/inc/, generate a mock pair:
@@ -137,7 +137,7 @@ endfunction()
 #         - lib_a
 #         - lib_b
 #------------------------------------------------------------------------------
-function(create_mock_from_dir mock_lib_name headers_dir mock_directory_path)
+function(ecf_create_mock_from_dir mock_lib_name headers_dir mock_directory_path)
   set(eff_gen_tool ${PROJECT_SOURCE_DIR}/sw/ecf/tools/eff_gen/eff_gen.py)
 
   # Locate the Python executable required for the mock generator if not already defined

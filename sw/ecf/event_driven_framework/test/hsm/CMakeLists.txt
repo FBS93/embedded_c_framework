@@ -7,7 +7,7 @@ target_link_libraries(hsm
   PRIVATE eaf
   PRIVATE emf)
 
-create_edf_test(
+ecf_create_edf_test(
   test_hsm
   src/test_hsm.c
   LINKS

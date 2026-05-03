@@ -11,7 +11,7 @@
 # Usage example
 
 ```cmake
-create_mock_from_file(
+ecf_create_mock_from_file(
   inc/eff_dummy.h
   ${CMAKE_CURRENT_BINARY_DIR})
 ```
