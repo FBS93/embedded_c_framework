@@ -509,6 +509,8 @@ All C files shall be statically analyzed using `clang-tidy` with the [.clang-tid
 
 All C files shall be formatted using `clang-format` with the [.clang-format](../../../../.clang-format) configuration file.
 
+`// clang-format off` and `// clang-format on` shall only be used when strictly necessary to preserve readability in cases such as table initializations or similar structured layouts. Their use shall be minimized.
+
 ---
 ### CMake-format
 ---
