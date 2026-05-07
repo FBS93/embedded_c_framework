@@ -187,6 +187,45 @@ Struct members shall use snake_case format.
 Example: `struct_member_name`
 
 ---
+### Implementation patterns
+---
+
+The following implementation pattern shall be applied whenever possible.
+
+#### Function structure
+---
+
+The following function structure shall be followed whenever possible:
+
+1. Declare the local variables.
+2. Place the assertions and input validations that can be checked at that point.
+3. Initialize the working variables.
+4. Implement the main function logic.
+5. Return from a single final `return` statement.
+
+Example:
+
+```c
+uint16_t module_compute(const uint8_t * data_in, uint16_t length)
+{
+  uint16_t result;
+  uint16_t index;
+
+  EAF_ASSERT(data_in != NULL);
+  EAF_ASSERT(length > 0U);
+
+  result = 0U;
+
+  for (index = 0U; index < length; ++index)
+  {
+    result = (uint16_t)(result + data_in[index]);
+  }
+
+  return result;
+}
+```
+
+---
 ### File templates
 ---
 
