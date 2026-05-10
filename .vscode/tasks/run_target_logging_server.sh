@@ -1,14 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-# -----------------------------------------------------------------------------
-# This script automatically selects the FIRST device found in:
-#   /dev/serial/by-id/
-#
-# If multiple USB/serial adapters are connected to the Raspberry Pi, this may
-# select the wrong one. In that case, manual filtering must be added.
-# -----------------------------------------------------------------------------
-
 echo "📃 Enable target logging"
 
 # Validate required environment variables.
@@ -16,6 +8,7 @@ echo "📃 Enable target logging"
 : "${RPI_HOST:?Missing RPI_HOST}"
 : "${LOG_PORT:?Missing LOG_PORT}"
 : "${LOG_BAUD_RATE:?Missing LOG_BAUD_RATE}"
+: "${LOG_SERIAL_DEVICE:?Missing LOG_SERIAL_DEVICE}"
 : "${NETWORK_LATENCY_TIMEOUT_S:?Missing NETWORK_LATENCY_TIMEOUT_S}"
 : "${WORKSPACE_FOLDER:?Missing WORKSPACE_FOLDER}"
 
@@ -46,19 +39,17 @@ scp -o StrictHostKeyChecking=accept-new "${LOCAL_SCRIPT}" "${RPI_USER}@${RPI_HOS
 ssh -o StrictHostKeyChecking=accept-new "${RPI_USER}@${RPI_HOST}" bash << EOF
 set -e
 
-# Find the serial device.
-SERIAL_NAME=\$(ls -1 /dev/serial/by-id/ 2>/dev/null | head -n1)
-if [ -z "\$SERIAL_NAME" ]; then
-    echo "❌ No USB serial device found."
+# Use the configured serial device.
+if [ ! -e "${LOG_SERIAL_DEVICE}" ]; then
+    echo "❌ Configured logging serial device not found: ${LOG_SERIAL_DEVICE}"
     exit 1
 fi
 
-SERIAL_DEV="/dev/serial/by-id/\$SERIAL_NAME"
-echo "USB serial device found: \$SERIAL_DEV."
+echo "USB serial device configured: ${LOG_SERIAL_DEVICE}."
 
 # Reuse the existing logging server when healthy and matching the device and port.
 if /usr/bin/ss -ltn | /usr/bin/grep -q ":$LOG_PORT" && \
-   /usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} \${SERIAL_DEV} ${LOG_PORT} ${LOG_BAUD_RATE}" >/dev/null; then
+   /usr/bin/pgrep -f "python3 ${REMOTE_SCRIPT} ${LOG_SERIAL_DEVICE} ${LOG_PORT} ${LOG_BAUD_RATE}" >/dev/null; then
     if bash -c "exec 9<>/dev/tcp/127.0.0.1/$LOG_PORT" 2>/dev/null; then
         exec 9>&-
         exec 9<&-
@@ -74,7 +65,7 @@ fi
 /usr/bin/pkill -f "python3 ${REMOTE_SCRIPT}" 2>/dev/null || true
 
 # Start the logging server.
-nohup python3 "${REMOTE_SCRIPT}" "\${SERIAL_DEV}" "${LOG_PORT}" "${LOG_BAUD_RATE}" \
+nohup python3 "${REMOTE_SCRIPT}" "${LOG_SERIAL_DEVICE}" "${LOG_PORT}" "${LOG_BAUD_RATE}" \
     > "${REMOTE_LOG}" 2>&1 &
 
 # Wait for the TCP port.

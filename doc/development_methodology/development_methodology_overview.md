@@ -85,3 +85,4 @@ Additional folders may exist anywhere in the workspace that are not part of the 
 - Architecture definition. See [resources/architecture_definition.md](resources/architecture_definition.md).
 - Cross-domain interface definition. See [resources/cross_domain_interface_definition.md](resources/cross_domain_interface_definition.md).
 - Python coding guidelines. See [resources/python_coding_guidelines.md](resources/python_coding_guidelines.md).
+- Embedded target remote logic analyzer. See [resources/embedded_target_remote_logic_analyzer.md](resources/embedded_target_remote_logic_analyzer.md).

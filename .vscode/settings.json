@@ -88,16 +88,24 @@
             "label": "🧰 WB toolbox",
             "tasks": [
                 {
+                    "label": "🔗 Connect Raspberry Pi (SSH)",
+                    "task": "connect_rpi_ssh"
+                },
+                {
                     "label": "🌐 OpenCode web GUI",
                     "task": "run_opencode_web_gui"
                 },
                 {
-                    "label": "🔄 Sync third-party repositories",
-                    "task": "run_third_party_sync"
+                    "label": "📈 Run PulseView web",
+                    "task": "run_pulseview_web"
                 },
                 {
-                    "label": "🔗 Connect Raspberry Pi (SSH)",
-                    "task": "connect_rpi_ssh"
+                    "label": "📥 Sync logic analyzer captures",
+                    "task": "sync_logic_analyzer_captures"
+                },
+                {
+                    "label": "🔄 Sync third-party repositories",
+                    "task": "run_third_party_sync"
                 }
             ],
             "tooltip": "Workbench toolbox"

@@ -8,6 +8,8 @@ The script orchestrates the full remote test workflow through a Raspberry Pi con
 
 ## Dependencies
 
+### Devcontainer
+
 Make sure that the environment variables in [devcontainer.json](../../../../.devcontainer/devcontainer.json) are configured for the HiL setup and target environment:
 
 - `TARGET_RX_TIMEOUT_S` indicates the maximum allowed inactivity time (in seconds) during which no logging data is received from the target. If this timeout expires, the HiL test is considered failed.

@@ -32,6 +32,19 @@
       "command": "${TASKS_PATH}/connect_rpi_ssh.sh"
     },
     {
+      "label": "sync_logic_analyzer_captures",
+      "type": "shell",
+      "command": "${TASKS_PATH}/sync_logic_analyzer_captures.sh",
+      "args": [
+        "${workspaceFolder}"
+      ]
+    },
+    {
+      "label": "run_pulseview_web",
+      "type": "shell",
+      "command": "${TASKS_PATH}/run_pulseview_web.sh"
+    },
+    {
       "label": "run_target_gdb_server",
       "type": "shell",
       "command": "${TASKS_PATH}/run_target_gdb_server.sh"
