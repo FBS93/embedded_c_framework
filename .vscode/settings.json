@@ -96,7 +96,7 @@
                     "task": "run_opencode_web_gui"
                 },
                 {
-                    "label": "📈 Run PulseView web",
+                    "label": "📈 PulseView web GUI",
                     "task": "run_pulseview_web"
                 },
                 {

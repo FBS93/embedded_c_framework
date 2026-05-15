@@ -129,10 +129,4 @@ When the target provides an FPU, this core enables lazy stacking during initiali
 
 # Usage example
 
-```c
-void SysTick_Handler(void)
-{
-  EDF_timeEvent_tick(0U);
-  EDF_ISRExit();
-}
-```
+For a complete on-target visual demonstration of nested preemption, see [`examples/arm_cortex_m_preemption_example`](../../../../../examples/arm_cortex_m_preemption_example/doc/arm_cortex_m_preemption_example.md).

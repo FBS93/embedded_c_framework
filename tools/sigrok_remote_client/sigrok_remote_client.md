@@ -37,3 +37,32 @@ local_capture = client.fetch_artifact(
 
 print(local_capture)
 ```
+
+Start one remote capture asynchronously and wait for it to finish later:
+
+```python
+from tools.sigrok_remote_client import SigrokRemoteClient
+
+client = SigrokRemoteClient()
+
+capture_proc = client.run_async(
+  "--config", "<config>",
+  "--output-file", "<remote_capture>",
+)
+
+capture_proc.wait(timeout=<timeout_seconds>)
+```
+
+Run one offline Sigrok conversion on the Raspberry Pi without injecting the configured device selector. Note that the client still requires the standard remote Sigrok environment configuration at construction time, including `LOGIC_ANALYZER_DEVICE`, even though `run_offline()` itself does not forward that selector to `sigrok-cli`:
+
+```python
+from tools.sigrok_remote_client import SigrokRemoteClient
+
+client = SigrokRemoteClient()
+
+client.run_offline(
+  "-i", "<remote_input_capture>",
+  "-O", "<output_format>",
+  "-o", "<remote_output_artifact>",
+)
+```

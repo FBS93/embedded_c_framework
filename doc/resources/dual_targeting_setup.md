@@ -24,13 +24,16 @@ flowchart LR
   rpi["Raspberry Pi"]
   debug_probe["Debug probe"]
   serial["USB–Serial adapter"]
+  logic_analyzer["Logic analyzer"]
   target["Embedded target"]
 
   host <--> rpi
   rpi <--> debug_probe
   rpi <--> serial
+  rpi <--> logic_analyzer
   debug_probe <--> target
   serial <--> target
+  logic_analyzer <--> target
 ```
 
 ## Glossary

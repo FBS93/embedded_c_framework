@@ -115,6 +115,27 @@ class SigrokRemoteClient:
     return self._run_remote_command(*self._sigrok_command(*sigrok_args))
 
   ##
+  # @brief Run `sigrok-cli` asynchronously on the Raspberry Pi.
+  #
+  # @param[in] sigrok_args Positional arguments forwarded to `sigrok-cli`.
+  # @return Running subprocess handle.
+  ##
+  def run_async(self, *sigrok_args):
+    return self._run_remote_command_async(*self._sigrok_command(*sigrok_args))
+
+  ##
+  # @brief Run `sigrok-cli` remotely without forcing the configured device.
+  #
+  # Intended for offline processing of previously captured artifacts such as
+  # format conversion from `.sr` into other export formats.
+  #
+  # @param[in] sigrok_args Positional arguments forwarded to `sigrok-cli`.
+  # @return Completed subprocess result.
+  ##
+  def run_offline(self, *sigrok_args):
+    return self._run_remote_command("sigrok-cli", *sigrok_args)
+
+  ##
   # @brief Fetch one remote capture artifact into the configured local
   # artifacts root.
   #
@@ -189,6 +210,21 @@ class SigrokRemoteClient:
     return subprocess.run(
       self._ssh_command("sh", "-lc", shlex.quote(remote_command)),
       check=True,
+    )
+
+  ##
+  # @brief Start one remote command through SSH and return immediately.
+  #
+  # @param[in] command_args Remote command and arguments.
+  # @return Running subprocess handle.
+  ##
+  def _run_remote_command_async(self, *command_args):
+    remote_command = shlex.join(
+      [str(command_arg) for command_arg in command_args]
+    )
+
+    return subprocess.Popen(
+      self._ssh_command("sh", "-lc", shlex.quote(remote_command))
     )
 
   ##
