@@ -149,25 +149,8 @@ RUN python -m pip install --break-system-packages \
     cq-editor
 
 ################################################################################
-# AI support with OpenCode and AI Gentle Stack
+# AI support with OpenCode
 ################################################################################
-
-# Install extra dependencies required by AI Gentle Stack
-RUN apt-get update && apt-get install -y \
-    nodejs \
-    npm \
-    golang \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Download and install AI Gentle Stack from the GitHub release tarball
-ARG GENTLE_AI_VERSION=1.18.2
-RUN set -eux; \
-    cd /tmp; \
-    curl -fsSLO "https://github.com/Gentleman-Programming/gentle-ai/releases/download/v${GENTLE_AI_VERSION}/gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz"; \
-    tar -xzf "gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz"; \
-    install -m 0755 gentle-ai /usr/local/bin/gentle-ai; \
-    rm -f "gentle-ai_${GENTLE_AI_VERSION}_linux_amd64.tar.gz" gentle-ai
 
 # Switch to container user so AI tooling installs in the correct user paths
 USER vscode
@@ -176,11 +159,5 @@ ENV HOME=/home/vscode
 # Install OpenCode 
 RUN curl -fsSL https://opencode.ai/install | bash
 
-# Execute AI Gentle Stack install command
-RUN gentle-ai install \
-  --preset full-gentleman \
-  --agents opencode \
-  --persona neutral
-
-# Ensure Go-installed binaries are in PATH so OpenCode can launch the engram MCP server
-ENV PATH="/home/vscode/.local/bin:/home/vscode/go/bin:${PATH}"
+# Create ~/.local/state as vscode so OpenCode has write permissions
+RUN mkdir -p /home/vscode/.local/state

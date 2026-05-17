@@ -21,8 +21,7 @@
     "FUZZ_TIMEOUT_MS": "1000", // Shared timeout budget (milliseconds) used by fuzzing and fuzz-coverage replay.
     "KICAD_CONFIG_HOME": "/kicad-runtime/config", // Persistent KiCad config root stored in the devcontainer volume.
     "KICAD_DOCUMENTS_HOME": "/kicad-runtime/documents", // Persistent KiCad documents root stored in the devcontainer volume.
-    "KICAD10_3RD_PARTY": "${containerWorkspaceFolder}/tools/kicad_state/3rdparty", // Project-local KiCad third party content tracked in the workspace.
-    "ENGRAM_DATA_DIR": "${containerWorkspaceFolder}/.engram" // Path where the Engram database is stored. Should be located inside the workspace folder so data persists across container rebuilds.
+    "KICAD10_3RD_PARTY": "${containerWorkspaceFolder}/tools/kicad_state/3rdparty" // Project-local KiCad third party content tracked in the workspace.
   },
   "mounts": [
     // Mount persistent KiCad runtime as a devcontainer volume named after the workspace folder.

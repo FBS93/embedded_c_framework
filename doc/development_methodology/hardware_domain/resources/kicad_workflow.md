@@ -6,7 +6,7 @@ This document describes the KiCad state persistence strategy used by the hardwar
 
 ## State persistence strategy
 
-KiCad uses environment variables to configure the paths where it reads and writes user state. These paths are configured in [.devcontainer/devcontainer.json](../../../../../.devcontainer/devcontainer.json):
+KiCad uses environment variables to configure the paths where it reads and writes user state. These paths are configured in [.devcontainer/devcontainer.json](../../../../.devcontainer/devcontainer.json):
 
 `KICAD_CONFIG_HOME` and `KICAD_DOCUMENTS_HOME` store KiCad configuration and user documents respectively. These paths point to a Docker volume that is not versioned with the workspace. To preserve the KiCad environment across fresh clones of the repository and devcontainer rebuilds, the project stores a base state containing the initial KiCad configuration, installed plugins and required libraries. This base state is restored only when the runtime volume is empty. Once restored, the user continues working against the persistent runtime volume. This avoids versioning volatile metadata and other files that change frequently during normal KiCad usage and would otherwise add noise to the repository. When the base state needs to be updated, the scripts documented in [tools/kicad_state/kicad_state.md](../../../../tools/kicad_state/kicad_state.md) can capture the current runtime state or restore the stored base state.
 

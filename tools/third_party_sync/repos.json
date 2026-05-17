@@ -8,41 +8,6 @@
       "ref": ""
     },
     {
-      "id": "gentle-ai",
-      "url": "https://github.com/Gentleman-Programming/gentle-ai",
-      "path": "third_party/Gentleman-Programming/gentle-ai",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "agent-teams-lite",
-      "url": "https://github.com/Gentleman-Programming/agent-teams-lite",
-      "path": "third_party/Gentleman-Programming/agent-teams-lite",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "engram",
-      "url": "https://github.com/Gentleman-Programming/engram",
-      "path": "third_party/Gentleman-Programming/engram",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "gentleman-guardian-angel",
-      "url": "https://github.com/Gentleman-Programming/gentleman-guardian-angel",
-      "path": "third_party/Gentleman-Programming/gentleman-guardian-angel",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
-      "id": "gentleman-dots",
-      "url": "https://github.com/Gentleman-Programming/Gentleman.Dots",
-      "path": "third_party/Gentleman-Programming/Gentleman.Dots",
-      "ref_type": "auto",
-      "ref": ""
-    },
-    {
       "id": "pyspice",
       "url": "https://github.com/PySpice-org/PySpice",
       "path": "third_party/PySpice-org/PySpice",
